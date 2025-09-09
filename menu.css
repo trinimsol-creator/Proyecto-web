@@ -1,0 +1,83 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor del panel */
+aside {
+  width: 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+/* Título */
+header h1 {
+  margin: 0 0 15px;
+  font-size: 20px;
+}
+
+/* Buscador */
+input[type="search"] {
+  width: 70%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eee;
+}
+
+/* Menú */
+ul {
+  list-style: none;   /* sin puntitos */
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+}
+
+a:hover {
+  color: darkred;
+}
+
+/* Submenú */
+ul ul {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+ul ul a {
+  font-weight: normal;
+  color: #555;
+}
+
+/* Parte inferior (crear cuenta / login) */
+footer {
+  margin-top: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+}
