@@ -1,13 +1,15 @@
-.Titulo {
+/* Título principal */
+h1 {
     text-align: center;
-    margin: 2%;
+    margin: 20px 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* Configuración general */
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;  
@@ -15,7 +17,8 @@ body {
     align-items: center;
 }
 
-.login-container {
+/* Contenedor del formulario */
+.product-form {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -24,19 +27,45 @@ body {
     text-align: center;
 }
 
-.login-container h2 {
+/* Título dentro del form */
+.product-form h2 {
     margin-bottom: 20px;
 }
 
-.login-container input {
+/* Inputs de texto, número, select y file */
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form input[type="file"],
+.product-form select {
     width: 90%;
     padding: 10px;
     margin: 8px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.login-container button {
+/* Fieldset (colores) */
+.product-form fieldset {
+    border: none;
+    margin: 10px 0;
+    padding: 0;
+    text-align: left; /* mejor alineación para radios */
+}
+
+.product-form legend {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.product-form label {
+    margin-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Botón */
+.product-form button {
     width: 100%;
     padding: 10px;
     background-color: #bb6e6e;
@@ -46,8 +75,9 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
-.login-container button:hover {
+.product-form button:hover {
     background-color: #9c5454;
 }
