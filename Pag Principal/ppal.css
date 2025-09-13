@@ -10,8 +10,7 @@ body {
     padding: 5px;
     padding-top: 30px;
     padding-bottom: 5px;
-    padding-left: 60px;
-    text-align: left;
+    text-align: center;
     background: white;
     position: fixed;
     width: 100%;
@@ -37,7 +36,8 @@ body {
     color: #000000;
     text-align: center;
     padding: 5px 0px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     padding-bottom: 10px;
     text-decoration: none;
 }
@@ -47,69 +47,8 @@ body {
     color: rgb(0, 0, 0);
 }
 
-.catalogo-container {
-    padding: 20px;
-    padding-top: 120px;
-    max-width: 1200px;
-    margin: auto;
-}
 
-.catalogo-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.product-card {
-    background-color: #fff;
-    overflow: hidden;
-    text-decoration: none;
-    color: #333;
-    width: 280px;
-    transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.product-info {
-    padding: 15px;
-    text-align: center;
-}
-
-.product-info h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-}
-
-.product-info .price {
-    font-size: 1.1em;
-    color: #555;
-    font-weight: bold;
-}
-
-footer {
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
-    padding: 1em 0;
-    margin-top: 20px;
-}
-
-/* Footer */
 .footer {
     padding: 20px;
     text-align: center;
@@ -117,7 +56,7 @@ footer {
     margin-top: 20px;
 }
   
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
       width: 100%;
@@ -125,7 +64,6 @@ footer {
     }
 }
   
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
 @media screen and (max-width: 400px) {
     .topnav a {
       float: none;
