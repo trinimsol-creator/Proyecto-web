@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
     <title>Login</title>
 </head>
 <body>
     <h1>COAST</h1>
+
     <div class="login-container">
         <h2>Inicio de sesión</h2>
-        <form>
-            <input type="email" name="login" id="login" placeholder="Email">
-            <input type="password" name="password" id="password" placeholder="Contraseña">
-            <button type="submit" class="ingresar">Log in</button>
-        </form>
+        <div class="formulario">
+            <form>
+                <input type="email" name="login" id="login" placeholder="Email">
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+                <button type="submit" class="ingresar">Log in</button>
+            </form>
+        </div>
+        <p>¿No tienes una cuenta? <a href="../login - sign in/Signin.html">Regístrate</a></p>
+        
     </div>
 </body>
 </html>

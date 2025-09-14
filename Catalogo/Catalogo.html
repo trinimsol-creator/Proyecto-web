@@ -3,28 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="catalogo.css">
-    <title>catalogo</title>
+    <link rel="stylesheet" href="Catalogo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <title>Catalogo</title>
 </head>
 <body>
-  <div class="header">
-    <h1>COAST</h1>
+    <div class="header">
+        <h1>COAST</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+    <input type="checkbox" id="carrito-toggle" hidden>
 
     <div class="topnav">
-      <a href="#">Carrito</a>
-      <a href="#">Cuenta</a>
-      <a href="#" style="float:left">Menu</a>
+
+    <div class="topnav-left">
+        <label for="menu-toggle" class="menu-btn">
+            <span class="material-symbols-outlined">menu</span>
+        </label>
+
+
+        <div class="searchbar">
+            <input type="search" placeholder="Buscar">
+            <button>
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </div>
+        
     </div>
-  </div>
+
+    <div class="topnav-right">
+        <a href="#"><span class="material-symbols-outlined">account_circle</span></a>
+        <label for="carrito-toggle" class="carrito-btn">
+            <span class="material-symbols-outlined">shopping_cart</span>
+        </label>
+    </div>
+</div>
+
     
-    <main class="catalogo-container">
+    <aside class="sidebar">
+        <div class="sidebar-links">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">New In</a></li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Notificaciones</a></li>
+
+                <h4>
+                    <span>Account</span>
+                    <div class="menu-separator"></div>
+                </h4>
+
+                <li><a href="#"><span class="material-symbols-outlined">account_circle</span>Perfil</a></li>
+                <li><a href="#"><span class="material-symbols-outlined">logout</span>Logout</a></li>
+            </ul>
+        </div>
+    </aside>
+
+
+    
+<aside class="sidebar-carrito">
+    <div class="carrito-productos">
+        <h3>Mi Carrito</h3>
+        
+        <div class="producto-info">
+            <img src="imagenes/top.webp" alt="producto1">
+            <ul>
+                <li><h4>Top Ariel</h4></li>
+                <li>$25.000</li>
+            </ul>
+            <button class="eliminar-btn"><span class="material-symbols-outlined">delete</span></button>
+        </div>
+         <div class="producto-info">
+            <img src="imagenes/product4.webp" alt="producto1">
+            <ul>
+                <li><h4>Top Summer</h4></li>
+                <li>$25.000</li>
+            </ul>
+            <button class="eliminar-btn"><span class="material-symbols-outlined">delete</span></button>
+        </div>
+         
+    </div>
+
+    <div class="carrito-footer">
+        <div class="total">
+            <span>Total:</span>
+            <span>$25.000</span>
+        </div>
+        <button>Finalizar Compra</button>
+    </div>
+</aside>
+
+ <div class="catalogo-container">
 
         <div class="product-grid">
 
             <a href="#" class="product-card">
                 <img src="imagenes/top1.jpeg" alt="Camiseta blanca unisex">
                 <div class="product-info">
-                    <h3>Camiseta Básica Blanca</h3>
+                    <h3>Top Shore</h3>
                     <p class="price">$25.000</p>
                 </div>
             </a>
@@ -32,40 +113,62 @@
             <a href="#" class="product-card">
                 <img src="imagenes/top2.jpeg" alt="Jeans Slim Fit">
                 <div class="product-info">
-                    <h3>Jeans Slim Fit</h3>
-                    <p class="price">$80.000</p>
+                    <h3>Body Bay</h3>
+                    <p class="price">$30.000</p>
                 </div>
             </a>
             
             <a href="#" class="product-card">
                 <img src="imagenes/top3.webp" alt="Sudadera con capucha">
                 <div class="product-info">
-                    <h3>Sudadera con Capucha</h3>
-                    <p class="price">$55.000</p>
+                    <h3>Top Pearl</h3>
+                    <p class="price">$24.000</p>
                 </div>
             </a>
 
             <a href="#" class="product-card">
                 <img src="imagenes/top4.webp">
                 <div class="product-info">
-                    <h3>Sudadera con Capucha</h3>
-                    <p class="price">$55.000</p>
+                    <h3>Top Shelly</h3>
+                    <p class="price">$32.000</p>
                 </div>
             </a>
 
             <a href="#" class="product-card">
-                <img src="Imagenes/top5.webp">
+                <img src="imagenes/top1.jpeg" alt="Camiseta blanca unisex">
                 <div class="product-info">
-                    <h3>Sudadera con Capucha</h3>
-                    <p class="price">$55.000</p>
+                    <h3>Top Shore</h3>
+                    <p class="price">$25.000</p>
                 </div>
             </a>
 
+            <a href="#" class="product-card">
+                <img src="imagenes/top2.jpeg" alt="Jeans Slim Fit">
+                <div class="product-info">
+                    <h3>Body Bay</h3>
+                    <p class="price">$30.000</p>
+                </div>
+            </a>
+            
+            <a href="#" class="product-card">
+                <img src="imagenes/top3.webp" alt="Sudadera con capucha">
+                <div class="product-info">
+                    <h3>Top Pearl</h3>
+                    <p class="price">$24.000</p>
+                </div>
+            </a>
+
+            <a href="#" class="product-card">
+                <img src="imagenes/top4.webp">
+                <div class="product-info">
+                    <h3>Top Shelly</h3>
+                    <p class="price">$32.000</p>
+                </div>
+            </a>
             </div>
-    </main>
-    
-    <div class="footer">
-      <p>&copy; 2025 Tienda COAST. Todos los derechos reservados.</p>
-    </div>  
+
+            
+    </div>
+
 </body>
 </html>
