@@ -147,6 +147,36 @@ body {
     background: #f0f0f0;
 }
 
+.collection-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+}
+
+.sublist {
+    list-style: none;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sublist li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #464646;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#collection-toggle:checked ~ .sidebar .sublist {
+    max-height: 200px;
+}
+
 .menu-btn:hover {
     color: rgb(145, 111, 67);
 }
@@ -335,6 +365,15 @@ body {
 .product-info .price {
     font-size: 15px;
     color: #1b1b1b;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
 }
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
