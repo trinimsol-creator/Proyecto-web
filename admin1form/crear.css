@@ -12,9 +12,12 @@ p, a, li, span {
   font-weight: 400;
 }
 
-h1 {
+.header {
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     text-align: center;
-    margin: 20px 0;
+    background: #f2f2f2;
 }
 
 body {

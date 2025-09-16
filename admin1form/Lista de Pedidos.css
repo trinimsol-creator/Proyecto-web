@@ -12,7 +12,6 @@ p, a, li, span {
   font-weight: 400;
 }
 
-
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -30,6 +29,11 @@ h1 {
   padding: 15px;            
   margin-bottom: 15px;      
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1); 
+}
+
+.pedido h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 a {
