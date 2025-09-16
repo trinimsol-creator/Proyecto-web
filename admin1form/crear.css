@@ -15,7 +15,6 @@ p, a, li, span {
 h1 {
     text-align: center;
     margin: 20px 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 body {
@@ -75,7 +74,7 @@ body {
 .product-form button {
     width: 100%;
     padding: 10px;
-    background-color: #bb6e6e;
+    background-color: #000000;
     border: none;
     border-radius: 5px;
     color: white;
@@ -86,5 +85,5 @@ body {
 }
 
 .product-form button:hover {
-    background-color: #9c5454;
+    background-color: rgb(145, 111, 67);
 }

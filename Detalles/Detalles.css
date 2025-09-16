@@ -104,3 +104,12 @@ p, a, li, span {
     .btn:hover {
       background: #6a3c22;
     }
+
+    .footer {
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
