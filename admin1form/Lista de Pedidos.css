@@ -1,0 +1,24 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f0f0f0;  /* gris clarito de fondo */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.pedido {
+  background: white;        /* fondo blanco */
+  border: 1px solid #ccc;   /* borde gris */
+  border-radius: 5px;       /* esquinas redondeadas */
+  padding: 15px;            /* espacio adentro */
+  margin-bottom: 15px;      /* espacio entre pedidos */
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* sombrita leve */
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
