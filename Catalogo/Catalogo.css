@@ -47,6 +47,7 @@ body {
     top: 100px;
     left: -10px;
     z-index: 3;
+
 }
 .topnav-left, .topnav-right {
     display: flex;
@@ -105,6 +106,44 @@ body {
 }
 
 .topnav a:hover {
+    color: rgb(145, 111, 67);
+}
+
+.info {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    position: relative; 
+    padding-top: 140px; 
+    margin-bottom: 20px; 
+}
+
+.info h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0; 
+    text-align: center;
+    margin-left: 12px;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #000000;
+    position: absolute;
+    right: 0;
+    margin-right: 80px;
+    margin-top: 25px;
+}
+.filtro p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.filtro:hover {
     color: rgb(145, 111, 67);
 }
 
@@ -209,11 +248,19 @@ body {
     justify-content: space-between;
 }
 
+.carrito-btn{
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
 #carrito-toggle:checked ~ .sidebar-carrito {
     right: 0;
 }
 
-.carrito-byn:hover {
+.carrito-btn:hover {
     color: rgb(145, 111, 67);
 }
 
@@ -316,7 +363,7 @@ body {
 
 .catalogo-container {
     padding: 20px;
-    padding-top: 120px;
+    padding-top: 50px;
     max-width: 1200px;
     margin: auto;
 }

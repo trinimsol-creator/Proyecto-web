@@ -207,11 +207,19 @@ body {
     justify-content: space-between;
 }
 
+.carrito-btn{
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
 #carrito-toggle:checked ~ .sidebar-carrito {
     right: 0;
 }
 
-.carrito-byn:hover {
+.carrito-btn:hover {
     color: rgb(145, 111, 67);
 }
 

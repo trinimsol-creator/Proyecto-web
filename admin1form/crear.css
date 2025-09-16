@@ -1,11 +1,23 @@
-/* Título principal */
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+p, a, li, span {
+  font-weight: 400;
+}
+
 h1 {
     text-align: center;
     margin: 20px 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* Configuración general */
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -17,7 +29,6 @@ body {
     align-items: center;
 }
 
-/* Contenedor del formulario */
 .product-form {
     background-color: white;
     padding: 30px;
@@ -27,12 +38,10 @@ body {
     text-align: center;
 }
 
-/* Título dentro del form */
 .product-form h2 {
     margin-bottom: 20px;
 }
 
-/* Inputs de texto, número, select y file */
 .product-form input[type="text"],
 .product-form input[type="number"],
 .product-form input[type="file"],
@@ -45,12 +54,11 @@ body {
     box-sizing: border-box;
 }
 
-/* Fieldset (colores) */
 .product-form fieldset {
     border: none;
     margin: 10px 0;
     padding: 0;
-    text-align: left; /* mejor alineación para radios */
+    text-align: left; 
 }
 
 .product-form legend {
@@ -64,7 +72,6 @@ body {
     cursor: pointer;
 }
 
-/* Botón */
 .product-form button {
     width: 100%;
     padding: 10px;
