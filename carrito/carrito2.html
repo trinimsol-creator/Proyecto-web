@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mi Carrito • COAST</title>
     <link rel="stylesheet" href="carrito2.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Carrito • COAST</title>
-  <link rel="stylesheet" href="carrito.css">
 </head>
 <body>
 
@@ -60,6 +51,11 @@
               <li class="precio">$20.000</li>
             </ul>
 
+            
+            <div id="contador">1</div>
+            <button onclick="incrementar()">+</button>
+            <button onclick="decrementar()">−</button>
+
             <div class="cantidad" title="Cantidad">
               <button aria-label="Quitar">−</button>
               <input type="text" value="1" aria-label="Cantidad"/>
@@ -84,7 +80,7 @@
 
     </section>
   </main>
-
+  <script src="carrito2.js"></script>
 </body>
 </html>
 
