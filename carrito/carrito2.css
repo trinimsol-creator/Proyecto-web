@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 20px;
   overflow: hidden;
 }
-.cantidad button, .cantidad input {
+.cantidad button, .cantidad input, .cantidad div {
   background: #fff; border: none; outline: none;
   width: 36px; height: 32px; text-align: center; cursor: pointer;
   font-size: 16px;
@@ -70,6 +70,41 @@ a { text-decoration: none; color: inherit; }
   width: 48px;
   border-left: 1px solid #eee; border-right: 1px solid #eee;
 }
+/* BOTON CON CONTADOR DE ABAJO */
+
+.cantt{
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cantt button, .cantt div {
+  background: #fff; border: none; outline: none;
+  width: 36px; height: 32px; text-align: center; cursor: pointer;
+  font-size: 16px;
+}
+
+
+.cantt input {
+  width: 48px;
+  border-left: 1px solid #eee; border-right: 1px solid #eee;
+}
+
+.cantt #contador{
+  width: 48px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  font-size: 16px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-radius: 0;
+  text-align: center;
+}
+/* HASTA ACA */
 
 .eliminar-btn {
   background: none; border: none; cursor: pointer;
