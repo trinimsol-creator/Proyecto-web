@@ -51,15 +51,11 @@
               <li class="precio">$20.000</li>
             </ul>
 
-            
-            <div id="contador">1</div>
-            <button onclick="incrementar()">+</button>
-            <button onclick="decrementar()">−</button>
 
             <div class="cantidad" title="Cantidad">
-              <button aria-label="Quitar">−</button>
-              <input type="text" value="1" aria-label="Cantidad"/>
-              <button aria-label="Agregar">+</button>
+              <button type="button" onclick="decrementar()">−</button>
+              <input id="contador" type="text" value="1" readonly>
+              <button type="button" onclick="incrementar()">+</button>
             </div>
 
             <button class="eliminar-btn" title="Eliminar">🗑️</button>
