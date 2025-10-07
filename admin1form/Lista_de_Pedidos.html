@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 👈 Hace que sea responsive -->
+  <title>Lista de Pedidos</title>
+
+  <!-- Fuente y CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Lista_de_Pedidos.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Lista de Pedidos</h1>
+  </div>
+
+  <!-- Campo de búsqueda -->
+  <input type="search" id="buscar" placeholder="🔍 Buscar pedido o cliente...">
+
+  <!-- Contenedor principal de pedidos -->
+  <div class="contenedor">
+    <!-- Pedido 1 -->
+    <div class="pedido">
+      <h3>Pedido número: 1027</h3>
+      <p><b>Cliente:</b> Persona1</p>
+      <p><b>Fecha:</b> 09/09/2025</p>
+      <p><b>Total:</b> $25.000</p>
+      <p><b>Estado:</b> En preparación</p>
+      <a href="Detalle_del_Pedido.html" class="btn">Ver detalle</a>
+    </div>
+
+    <!-- Pedido 2 -->
+    <div class="pedido">
+      <h3>Pedido número: 1026</h3>
+      <p><b>Cliente:</b> Persona2</p>
+      <p><b>Fecha:</b> 09/09/2025</p>
+      <p><b>Total:</b> $50.000</p>
+      <p><b>Estado:</b> Listo para entregar</p>
+      <a href="Detalle_del_Pedido.html" class="btn">Ver detalle</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 COAST - Todos los derechos reservados</p>
+  </div>
+
+  <!-- Script -->
+  <script src="Lista_de_Pedidos.js"></script>
+</body>
+</html>
