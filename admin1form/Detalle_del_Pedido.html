@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Detalle del Pedido</title>
+
+  <!-- Fuente Google y CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Detalle_del_Pedido.css">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Detalle del Pedido</h1>
+  </div>
+
+  <div class="cuadro">
+    <h2>Pedido #1027</h2>
+    <p><b>Cliente:</b> Persona1 </p>
+    <p><b>Fecha:</b> 09/09/2025</p>
+    <p><b>Total:</b> $25.000</p>
+
+    <h3>Estado del pedido</h3>
+    <form>
+      <label for="estado1">Cambiar estado:</label>
+      <select id="estado1" name="estado1">
+        <option>Pendiente</option>
+        <option selected>En preparación</option>
+        <option>Listo para entregar</option>
+        <option>Entregado</option>
+      </select>
+      <button type="button" id="btn-guardar">Guardar</button>
+    </form>
+
+    <h3>Productos</h3>
+    <div class="producto">
+      <p><b>Producto:</b> Top Ariel </p>
+      <p><b>Cantidad:</b> 1</p>
+      <p><b>Precio:</b> $25.000</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 COAST - Todos los derechos reservados</p>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="Detalle_del_Pedido.js"></script>
+</body>
+</html>
