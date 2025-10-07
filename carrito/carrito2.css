@@ -1,9 +1,8 @@
-/* Reset mínimo */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-family: "Segoe UI", Arial, sans-serif; color: #111; }
 a { text-decoration: none; color: inherit; }
 
-/* Página y encabezado */
+
 .carrito-page {
   max-width: 1100px;
   margin: 24px auto;
