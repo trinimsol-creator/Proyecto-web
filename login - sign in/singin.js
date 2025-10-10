@@ -38,8 +38,6 @@ form.addEventListener('submit', function(event) {
     }
 
     // Si todas las validaciones pasan, se puede proceder a enviar el formulario
-    //alert('Formulario validado con éxito. ¡Listo para registrarse!');
-    // Si todas las validaciones pasan, se puede proceder a enviar el formulario
     //alert('Formulario validado con éxito. ¡Listo para iniciar sesión!');
     window.location.href = '../Pag Principal/PPrincipal.html';
 });
