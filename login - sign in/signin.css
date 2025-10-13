@@ -14,7 +14,8 @@ p, a, li, span {
 }
 
 body {
-  background: #f9f9f9;
+  
+  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,3 +79,7 @@ h1 {
   font-size: 14px;
   color: #666;
 }
+
+
+
+color: rgb(145, 111, 67);
