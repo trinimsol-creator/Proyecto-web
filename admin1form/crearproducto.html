@@ -48,4 +48,48 @@
     </div>
 
 </body>
+
+<script>
+     function validarFormulario(event) {
+            event.preventDefault(); // Evita el envío hasta validar
+
+            // Capturamos los valores de los campos
+            const nombre = document.getElementById("nombre").value.trim();
+            const precio = document.getElementById("precio").value.trim();
+            const detalles = document.getElementById("detalles").value.trim();
+            const color = document.querySelector('input[name="color"]:checked');
+            const archivo = document.getElementById("arch01").value.trim();
+
+            // Expresión regular: solo letras, números y espacios
+            const regexTexto = /^[A-Za-zÁÉÍÓÚáéíóúñÑ0-9 ]+$/;
+
+            // Validaciones
+            if (nombre === "" || precio === "" || detalles === "" || !color || archivo === "") {
+                alert("⚠️ Todos los campos son obligatorios.");
+                return false;
+            }
+
+            if (!regexTexto.test(nombre)) {
+                alert("❌ El nombre contiene caracteres no válidos.");
+                return false;
+            }
+
+            if (isNaN(precio) || precio <= 0) {
+                alert("❌ El precio debe ser un número mayor que 0.");
+                return false;
+            }
+
+            if (!regexTexto.test(detalles)) {
+                alert("❌ Los detalles contienen caracteres no válidos.");
+                return false;
+            }
+
+            // Si todo está correcto
+            alert("✅ Producto creado correctamente.");
+            // Aquí podrías enviar el formulario realmente, por ejemplo:
+            // document.querySelector("form").submit();
+            return true;
+        }
+</script>
+
 </html>

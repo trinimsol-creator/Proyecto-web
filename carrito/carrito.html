@@ -1,41 +1,76 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <link rel="stylesheet" href="carrito.css">
+  <title>Mi-Carrito</title>
 </head>
 <body>
-
   <div class="header">
     <h1>COAST</h1>
   </div>
 
-  <div class="carrito">
-    <h2>Carrito de Compras</h2>
-
-    <div class="producto">
-      <div class="imagen">Imagen del producto seleccionado</div>
-      <div class="info">
-        <h3>Nombre del producto seleccionado</h3>
-        <p>$ Precio del producto seleccionado</p>
-        <div class="cantidad">
-          <button>-</button>
-          <span>0</span>
-          <button>+</button>
-        </div>
+  <div class="topnav">
+    <div class="topnav-right">
+      <h1>Mi Carrito</h1>
+    </div>
+    <div class="topnav-left">
+      <div class="back-btn">
+        <button><a href="../Pag Principal/PPrincipal.html"><span class="material-symbols-outlined">arrow_back</span></a>Volver al Inicio</button>
       </div>
+      
+      
+    </div>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="#" alt="Product1" style="width: auto;">
+      <h2>Top Shore</h2>
+      <p class="price">$25.000</p>
+      <p class="discount">$22.500 con Transferencia bancaria</p>
+      <div class="quantity">
+        <label for="cantidad1">Cantidad:</label>
+        <input type="number" id="cantidad1" name="cantidad1" value="1" min="1">
+      </div>
+      <button class="remove-btn"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+
+    <div class="product-card">
+      <img src="Imagenes/pollera beige.webp" alt="Product2">
+      <h2>Pollera Shore</h2>
+      <p class="price">$30.000</p>
+      <p class="discount">$27.000 con Transferencia bancaria</p>
+      <div class="quantity">
+        <label for="cantidad2">Cantidad:</label>
+        <input type="number" id="cantidad2" name="cantidad2" value="1" min="1">
+      </div>
+      <button class="remove-btn"><span class="material-symbols-outlined">delete</span></button>
+    </div>
+
+    <div class="product-card">
+      <img src="Imagenes/shorts beige.webp" alt="Product3">
+      <h2>Shorts Shore</h2>
+      <p class="price">$28.000</p>
+      <p class="discount">$25.200 con Transferencia bancaria</p>
+      <div class="quantity">
+        <label for="cantidad3">Cantidad:</label>
+        <input type="number" id="cantidad3" name="cantidad3" value="1" min="1">
+      </div>
+      <button class="remove-btn"><span class="material-symbols-outlined">delete</span></button>
     </div>
 
     <div class="total">
-      <p>Total: $0,00</p>
-    </div>
-
-    <button class="comprar">Iniciar compra</button>
+      <div class="total-card">
+        <h2>Total: $75.000</h2>
+        <p class="discount-total">Total con Transferencia bancaria: $67.500</p>
+        <button class="checkout-btn">Finalizar Compra</button>
+      </div>
   </div>
 </body>
 </html>
