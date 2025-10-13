@@ -1,0 +1,130 @@
+/* ====== DETALLE DEL PEDIDO COLORIDO ====== */
+
+* {
+  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo degradado pastel */
+body {
+  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
+  padding: 40px 20px;
+}
+
+/* Encabezado */
+.header {
+  text-align: center;
+  background: #ffffffaa;
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+/* Cuadro principal */
+.cuadro {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  animation: aparecer 0.8s ease;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+h2 {
+  color: #2b2b2b;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 25px;
+  color: #444;
+}
+
+p {
+  margin: 6px 0;
+}
+
+/* Select estilizado */
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #222;
+  border-radius: 25px;
+  margin-top: 8px;
+  font-size: 15px;
+  background: #f8f8f8;
+  transition: 0.3s;
+}
+
+select:hover {
+  background: #e6e6e6;
+}
+
+/* Botón animado */
+button {
+  margin-top: 15px;
+  background: #222;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: #ff6b6b;
+  box-shadow: 0 5px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* Producto */
+.producto {
+  background: #fff8e1;
+  border-left: 5px solid #ffb300;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px;
+  color: #444;
+}
+
+/* Toast visual */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #222;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}

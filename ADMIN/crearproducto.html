@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="crear.css">
+    <title>Crear Producto</title>
+
+</head>
+<body>
+    
+    <div class="product-form"> 
+        <h2>Crear Producto</h2>
+        <form>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+            <input type="number" name="precio" id="precio" placeholder="Precio">
+            <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto">
+            <select id="selLoc" name="categoria">
+                <option value="Top">Tops y Bodys</option>
+                <option value="Polleras">Polleras y Shorts</option>
+                <option value="Vestidos">Vestidos</option>
+                <option value="Accesorios">Accesorios</option>
+            </select>
+            <fieldset>
+                <legend>Color</legend>
+                <input type="radio" id="rad01" name="color" value="n"/>
+                <label for="rad01">Negro</label>
+                <input type="radio" id="rad02" name="color" value="b"/>
+                <label for="rad02">Blanco</label>
+                <input type="radio" id="rad03" name="color" value="r"/>
+                <label for="rad03">Rojo</label>
+                <input type="radio" id="rad04" name="color" value="a"/>
+                <label for="rad04">Azul</label>
+                
+                
+        </fieldset>
+        <label for="arch01">Foto del producto:</label><br>
+        <input type="file" name="archivo" id="arch01"/>
+        <button type="submit" class="enviar">Crear Producto</button>
+
+        
+        </form>
+    </div>
+
+</body>
+</html>
