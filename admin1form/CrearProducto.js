@@ -32,6 +32,4 @@ function form(event) {
     }
 
 
-
-window.location.href = "../pagAdmin/pagAdmin.html";
 };
