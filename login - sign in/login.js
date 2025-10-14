@@ -21,5 +21,4 @@ function Login(event) {
         valido = false;
     }
 
- window.location.href = "../Pag Principal/PPrincipal.html";
 }
