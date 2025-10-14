@@ -1,6 +1,5 @@
 /*FORMULARIO DE PAGO - TIENDA COAST*/
 
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // Guardamos en variables todos los elementos importantes del formulario
