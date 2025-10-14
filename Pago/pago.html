@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar compra | Tienda Coast</title>
+  <link rel="stylesheet" href="pago.css">
+</head>
+<body>
+
+  <header>
+    <h1>TIENDA COAST</h1>
+    <h2>Formulario de Pago</h2>
+  </header>
+
+  <main>
+    <form id="formularioPago">
+
+      <h3>Datos personales</h3>
+      <label>Nombre:</label>
+      <input type="text" id="nombreUsuario" required>
+
+      <label>Apellido:</label>
+      <input type="text" id="apellidoUsuario" required>
+
+      <label>DNI:</label>
+      <input type="number" id="dniUsuario" required>
+
+      <label>Dirección:</label>
+      <input type="text" id="direccionUsuario" required>
+
+      <h3>Datos de la tarjeta</h3>
+      <label>Número de tarjeta:</label>
+      <input type="text" id="numeroTarjeta" maxlength="16" required>
+
+      <label>Nombre en la tarjeta:</label>
+      <input type="text" id="nombreTarjeta" required>
+
+      <label>Vencimiento (MM/AA):</label>
+      <input type="text" id="vencimientoTarjeta" maxlength="5" placeholder="MM/AA" required>
+
+      <label>CVV:</label>
+      <input type="number" id="cvvTarjeta" maxlength="3" required>
+
+      <button type="submit" id="botonPagar">Finalizar Pago</button>
+    </form>
+
+    <div id="mensajeExito" class="oculto">
+      <h3>✅ ¡Pago realizado con éxito!</h3>
+      <p>Gracias por tu compra. En breve recibirás un correo con los detalles.</p>
+    </div>
+  </main>
+
+  <script src="pago.js"></script>
+</body>
+</html>
