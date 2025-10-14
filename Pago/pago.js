@@ -1,52 +1,32 @@
+document.getElementById("formularioPago").addEventListener("submit", pago);
 
+function pago(event) {
+    event.preventDefault();
 
-document.addEventListener("DOMContentLoaded", function() {
+    const nombreUsuario = document.getElementById("nombreUsuario").value.trim();
+    const apellidoUsuario = document.getElementById("apellidoUsuario").value.trim();
+    const dniUsuario = document.getElementById("dniUsuario").value.trim();
+    const direccionUsuario = document.getElementById("direccionUsuario").value.trim();
+    const cvuTarjeta = document.getElementById("cvuTarjeta").value.trim();
 
-    // Guardamos en variables todos los elementos del formulario
-    var formularioPago = document.getElementById("formularioPago");
-    var mensajeExito = document.getElementById("mensajeExito");
+    mensaje.style.color = "red";
+    
 
-    var campoNombre = document.getElementById("nombreUsuario");
-    var campoApellido = document.getElementById("apellidoUsuario");
-    var campoDni = document.getElementById("dniUsuario");
-    var campoDireccion = document.getElementById("direccionUsuario");
-    var campoNumeroTarjeta = document.getElementById("numeroTarjeta");
-    var campoNombreTarjeta = document.getElementById("nombreTarjeta");
-    var campoVencimiento = document.getElementById("vencimientoTarjeta");
-    var campoCvv = document.getElementById("cvvTarjeta");
+    if (nombreUsuario === "" || apellidoUsuario === "" || dniUsuario === "" || direccionUsuario === "" || cvuTarjeta === "") {
+        mensaje.textContent = "Por favor, complete todos los campos.";
+        return;
+    }
 
-    // Cuando el usuario presiona el botón "Finalizar Pago"
-    formularioPago.addEventListener("submit", function(evento) {
-        evento.preventDefault(); // Evita que la página se recargue
+    if (dniUsuario.length !== 8) {
+        mensaje1.textContent = "El DNI debe tener 8 dígitos.";
+        return;
+    }
 
-        // Verificamos que todos los campos estén completos
-        if (campoNombre.value === "" || campoApellido.value === "" || campoDni.value === "" ||
-            campoDireccion.value === "" || campoNumeroTarjeta.value === "" || 
-            campoNombreTarjeta.value === "" || campoVencimiento.value === "" || 
-            campoCvv.value === "") {
+    if (cvuTarjeta.length !== 22) {
+        mensaje2.textContent = "El CVU debe tener 22 dígitos.";
+        return;
+    }
 
-            
-            return; // detenemos el proceso si falta algo
-        }
-
-        // Validación del número de tarjeta
-        if (campoNumeroTarjeta.value.length < 16) {
-            
-            return;
-        }
-
-        // Si está todo bien, mostramos mensaje de éxito
-        formularioPago.style.display = "none";
-        mensajeExito.classList.remove("oculto");
-
-        // Guardamos los datos básicos del usuario 
-        var datosUsuario = {
-            nombre: campoNombre.value,
-            apellido: campoApellido.value,
-            dni: campoDni.value,
-            direccion: campoDireccion.value
-        };
-
-    });
-
-});
+    mensajeGeneral.style.color = "green";
+    mensajeGeneral.textContent = "Formulario válido. Procesando pago...";
+}

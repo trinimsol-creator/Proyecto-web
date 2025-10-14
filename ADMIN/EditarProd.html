@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="EditarProd.css">
+    <title>Crear Producto</title>
+</head>
+<body>
+        <div class="header">
+        <h1>COAST</h1>
+    </div>
+
+    <input type="checkbox" id="menu-toggle" hidden>
+    <input type="checkbox" id="collection-toggle" hidden>
+
+    <div class="topnav">
+        <div class="topnav-left">
+            <label for="menu-toggle" class="menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            
+            <div class="searchbar">
+
+                <input type="search" placeholder="Buscar">
+                <button><span class="material-symbols-outlined">search</span></button>
+
+            </div>
+        </div>
+        
+        <div class="topnav-right">
+            
+            <a href="../login - sign in/Login.html"><span class="material-symbols-outlined">logout</span></a>
+
+        </div>
+    </div>
+    
+    
+    <aside class="sidebar">
+        <div class="sidebar-links">
+            <ul>
+                <li><a href="../admin1form/crearproducto.html">Crear Producto</a></li>
+                <li><a href="../admin1form/Lista_de_Pedidos.html">Lista de pedidos</a></li>
+
+                <div class="menu-separator">
+                    <h4>Display</h4>
+                </div>
+                <li><a href="../Pag Principal/PPrincipal.html">inicio</a></li>
+                <li>
+                    <label for="collection-toggle" class="collection-btn">
+                        Collection <span class="material-symbols-outlined">expand_more</span>
+                    </label>
+                    <ul class="sublist">
+                        <li><a href="#">Bodies y Tops</a></li>
+                        <li><a href="#">Polleras y Shorts</a></li>
+                        <li><a href="#">Vestidos</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Merch</a></li>
+                    </ul>
+                    <div class="menu-separator">
+                        <h4>Account</h4>
+                    </div>
+                    <li><a href="../login - sign in/Login.html"><span class="material-symbols-outlined">logout</span>Logout</a></li>
+                </li>
+                
+            </ul>
+        </div>
+    </aside>
+    
+    <div class="product-form"> 
+            <h2>EDITAR PRODUCTO</h2>
+        <form id="Myform">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+            <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
+
+            <input type="number" name="precio" id="precio" placeholder="Precio">
+            <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+
+            <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto">
+            <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+
+            <select id="selLoc" name="categoria">
+                <option value="Stock">Stock</option>
+                <option value="NoStock">Sin Stock</option>
+            </select>
+
+
+            <select id="selLoc" name="categoria">
+                <option value="Top">Tops y Bodys</option>
+                <option value="Polleras">Polleras y Shorts</option>
+                <option value="Vestidos">Vestidos</option>
+                <option value="Accesorios">Accesorios</option>
+            </select>
+
+            <fieldset id="color">
+                <legend>Color</legend>
+                <input type="radio" id="rad01" name="color" value="n"/>
+                <label for="rad01">Negro</label>
+                <input type="radio" id="rad02" name="color" value="b"/>
+                <label for="rad02">Blanco</label>
+                <input type="radio" id="rad03" name="color" value="r"/>
+                <label for="rad03">Rojo</label>
+                <input type="radio" id="rad04" name="color" value="a"/>
+                <label for="rad04">Azul</label>
+            </fieldset>
+
+        <label for="arch01">Foto del producto:</label><br>
+        <input type="file" name="archivo" id="arch01"/>
+        <button type="submit" class="enviar"><a href="../admin1form/pagAdmin.html">Crear Producto</a></button>
+        <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
+        
+        </form>
+    </div>
+
+</body>
+
+<script src="EditarProd.js"></script>
+
+</html>

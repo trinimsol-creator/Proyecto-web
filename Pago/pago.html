@@ -19,23 +19,29 @@
 
       <h3>Datos personales</h3>
       <label>Nombre:</label>
-      <input type="text" id="nombreUsuario" required>
+      <input type="text" id="nombreUsuario">
 
       <label>Apellido:</label>
-      <input type="text" id="apellidoUsuario" required>
+      <input type="text" id="apellidoUsuario">
 
       <label>DNI:</label>
-      <input type="number" id="dniUsuario" required>
+      <input type="number" id="dniUsuario">
+      <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
 
       <label>Dirección:</label>
-      <input type="text" id="direccionUsuario" required>
+      <input type="text" id="direccionUsuario">
 
       <label>CVU:</label>
-      <input type="number" id="cvvTarjeta" maxlength="3" required>
+      <input type="number" id="cvuTarjeta" maxlength="3">
+      <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+
       <label for="Comprobante">Comprobante</label>
-      <input type="file" id="Comprobante" name="Comprobante" accept="image/*,application/pdf" required>
+      <input type="file" id="Comprobante" name="Comprobante" accept="image/*,application/pdf">
+      <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+
 
       <button type="submit" id="botonPagar">Finalizar Pago</button>
+      <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
     </form>
 
     <div id="mensajeExito" class="oculto">
