@@ -30,18 +30,10 @@
       <label>Dirección:</label>
       <input type="text" id="direccionUsuario" required>
 
-      <h3>Datos de la tarjeta</h3>
-      <label>Número de tarjeta:</label>
-      <input type="text" id="numeroTarjeta" maxlength="16" required>
-
-      <label>Nombre en la tarjeta:</label>
-      <input type="text" id="nombreTarjeta" required>
-
-      <label>Vencimiento (MM/AA):</label>
-      <input type="text" id="vencimientoTarjeta" maxlength="5" placeholder="MM/AA" required>
-
-      <label>CVV:</label>
+      <label>CVU:</label>
       <input type="number" id="cvvTarjeta" maxlength="3" required>
+      <label for="Comprobante">Comprobante</label>
+      <input type="file" id="Comprobante" name="Comprobante" accept="image/*,application/pdf" required>
 
       <button type="submit" id="botonPagar">Finalizar Pago</button>
     </form>
@@ -52,6 +44,6 @@
     </div>
   </main>
 
-  <script src="pago.js"></script>
 </body>
+<script src="pago.js"></script>
 </html>

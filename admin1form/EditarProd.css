@@ -242,3 +242,8 @@ body {
 .product-form button:hover {
     background-color: rgb(145, 111, 67);
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
