@@ -22,7 +22,13 @@ body {
   justify-content: center;
   height: 100vh;
   color: #000000;
+  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
+  padding: 30px 15px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 
 h1 {
   font-size: 48px;
