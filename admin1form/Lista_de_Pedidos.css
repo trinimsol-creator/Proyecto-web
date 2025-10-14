@@ -17,7 +17,7 @@ body {
     padding: 0;
     margin: 0;
     background: #ffffff;
-    padding-top: 140px; /* Ajustado para dejar espacio al header + topnav */
+    padding-top: 140px; 
 }
 
 .header {
@@ -46,8 +46,8 @@ body {
     padding: 10px 20px;
     position: fixed;
     width: 100%;
-    top: 90px; /* Justo debajo del header */
-    left: 0;   /* Eliminado -10px */
+    top: 90px; 
+    left: 0;   
     z-index: 6;
     border-bottom: 1px solid #eee;
 }
@@ -111,7 +111,7 @@ body {
 
 .sidebar {
     position: fixed;
-    top: 140px; /* Alineado con la parte inferior de topnav */
+    top: 140px; 
     left: -300px;
     width: 220px;
     height: calc(100% - 140px);
