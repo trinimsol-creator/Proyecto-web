@@ -5,7 +5,7 @@ body {
   color: black;
 }
 
-/* ======= LOGIN ======= */
+
 .screen {
   display: none;
 }
@@ -79,7 +79,7 @@ body {
   background-color: #333;
 }
 
-/* ======= PANEL ======= */
+
 #admin-panel {
   display: flex;
   flex-direction: column;
@@ -114,7 +114,7 @@ body {
   flex: 1;
 }
 
-/* Menú lateral */
+
 .sidebar {
   width: 220px;
   background-color: white;
@@ -142,7 +142,7 @@ body {
   color: white;
 }
 
-/* Contenido */
+
 .content {
   flex: 1;
   padding: 0;
