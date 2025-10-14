@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // 1️⃣ Guardamos todos los pedidos y el campo de búsqueda en variables
+   
     var listaDePedidos = document.querySelectorAll(".pedido");
     var campoBusqueda = document.getElementById("buscar");
 
-    // 2️⃣ Recorremos todos los pedidos con un for tradicional (no forEach)
+    
     for (var i = 0; i < listaDePedidos.length; i++) {
         var pedidoActual = listaDePedidos[i];
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // 3️⃣ Efecto visual al pasar el mouse sobre un pedido
+        
         pedidoActual.addEventListener("mouseenter", function() {
             this.style.transform = "scale(1.03)";
         });
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4️⃣ Evento de búsqueda en tiempo real
+    
     campoBusqueda.addEventListener("input", function() {
         var textoBuscado = campoBusqueda.value.toLowerCase();
 

@@ -41,7 +41,7 @@ var marcosContenido = document.querySelectorAll(".content-frame");
 
 
 function cambiarPestaniaActiva(botonSeleccionado) {
-    var i; // índice para recorrer los botones
+    var i; 
     for (i = 0; i < botonesMenu.length; i++) {
         botonesMenu[i].classList.remove("active");
     }

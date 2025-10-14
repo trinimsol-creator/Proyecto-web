@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", function() {
         nuevoToast.textContent = texto;
         document.body.appendChild(nuevoToast);
 
-        // Efecto de aparición (fade in)
+        
         setTimeout(function() {
             nuevoToast.style.opacity = "1";
         }, 100);
 
-        // Efecto de desaparición (fade out)
+        
         setTimeout(function() {
             nuevoToast.style.opacity = "0";
             setTimeout(function() {
