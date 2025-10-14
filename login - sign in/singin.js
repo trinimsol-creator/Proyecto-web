@@ -10,7 +10,7 @@ function Signin(event) {
     const confirmPassword = document.getElementById('confirm-password').value;
 
     if (name === '' || email === '' || password === '' || confirmPassword === '') {
-            alert('Por favor, complete todos los campos.');
+        alert('Por favor, complete todos los campos.');
             return;
     }
     
