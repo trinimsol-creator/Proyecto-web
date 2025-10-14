@@ -1,27 +1,25 @@
-const form = document.querySelector('form');
-form.addEventListener('submit', function(event) {
-    // Evita que el formulario se envíe por defecto
+document.getElementById("Login").addEventListener("submit", Login);
+
+function Login(event) {
     event.preventDefault(); 
 
-    // Obtener los valores de los campos
     const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
+    const password = document.getElementById('password').value.trim();
 
-    // 1. Validar el formato del correo electrónico
-    // Esta expresión regular es una forma simple de verificar si el email tiene un formato básico correcto
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Por favor, ingresa un correo electrónico válido.');
-        return;
+    if (email === "" || !emailRegex.test(email)) {
+        mensaje1.textContent = "Por favor, ingresa un correo electrónico válido.";
+        valido = false;
     }
 
-    // 2. Validar la longitud de la contraseña
-    if (password.length < 6) {
-        alert('La contraseña debe tener al menos 6 caracteres.');
-        return;
+    if (password === "") {
+        mensaje2.textContent = "La contraseña no puede estar vacía.";
+        valido = false;
+    } else if (password.length < 6) {
+        mensaje2.textContent = "La contraseña debe tener al menos 6 caracteres.";
+        valido = false;
     }
-    // Si todas las validaciones pasan, se puede proceder a enviar el formulario
-    //alert('Formulario validado con éxito. ¡Listo para iniciar sesión!');
-    window.location.href = '../Pag Principal/PPrincipal.html';
 
-});
+ window.location.href = "../Pag Principal/PPrincipal.html";
+}

@@ -1,50 +1,196 @@
-/* ====== DETALLE DEL PEDIDO COLORIDO ====== */
 
 * {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
-/* Fondo degradado pastel */
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+p, a, li, span {
+  font-weight: 400;
+}
+
 body {
-  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
-  padding: 40px 20px;
+    padding: 10px;
+    background: #ffffff;
+    padding-top: 40px; 
 }
 
-/* Encabezado */
 .header {
-  text-align: center;
-  background: #ffffffaa;
-  backdrop-filter: blur(6px);
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 .header h1 {
-  font-size: 32px;
-  color: #222;
-  letter-spacing: 1px;
+    font-size: 46px;
 }
 
-/* Cuadro principal */
+.topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px 10px;
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: -10px;
+    z-index: 1;
+}
+.topnav-left, .topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    padding: 1px 15px;
+    transition: all 0.3s ease;
+}
+
+.searchbar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 10px;
+    width: 150px;
+    font-size: 14px;
+    transition: width 0.3s ease;
+}
+
+.searchbar button {
+    background: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar button:hover {
+    background: #e0e0e0;
+}
+
+.searchbar .material-symbols-outlined {
+    font-size: 20px;
+    color: #555;
+}
+
+
+.topnav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    color: #6a3c22;
+}
+
+.sidebar {
+    position: fixed;
+    top: 150px;
+    left: -300px;
+    width: 220px;
+    height: 100%;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    padding: 15px;
+}
+.sidebar-links a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links a:hover {
+    background: #f0f0f0;
+}
+
+.collection-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+}
+
+.sublist {
+    list-style: none;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sublist li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #464646;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#collection-toggle:checked ~ .sidebar .sublist {
+    max-height: 200px;
+}
+
+.menu-btn:hover {
+    color: #6a3c22;
+}
+
+#menu-toggle:checked ~ .sidebar {
+    left: 0;
+}
+
+.menu-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+}
+
 .cuadro {
   background: #fff;
   border-radius: 16px;
   padding: 25px;
   max-width: 600px;
-  margin: auto;
+  margin: 150px auto 40px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   animation: aparecer 0.8s ease;
-}
-
-/* Animación de entrada */
-@keyframes aparecer {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
 }
 
 h2 {
@@ -61,7 +207,6 @@ p {
   margin: 6px 0;
 }
 
-/* Select estilizado */
 select {
   width: 100%;
   padding: 10px 14px;
@@ -77,7 +222,6 @@ select:hover {
   background: #e6e6e6;
 }
 
-/* Botón animado */
 button {
   margin-top: 15px;
   background: #222;
@@ -93,28 +237,29 @@ button {
 }
 
 button:hover {
-  background: #ff6b6b;
+  background: #6a3c22;
   box-shadow: 0 5px 12px rgba(255, 107, 107, 0.4);
 }
 
-/* Producto */
+
 .producto {
   background: #fff8e1;
-  border-left: 5px solid #ffb300;
+  border-left: 5px solid #6a3c22;
   border-radius: 10px;
   padding: 10px 15px;
   margin-top: 10px;
 }
 
-/* Footer */
+
 .footer {
-  text-align: center;
-  margin-top: 40px;
-  padding: 10px;
-  color: #444;
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
 }
 
-/* Toast visual */
 .toast {
   position: fixed;
   bottom: 25px;

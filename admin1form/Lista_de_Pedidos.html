@@ -2,27 +2,75 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 👈 Hace que sea responsive -->
-  <title>Lista de Pedidos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-  <!-- Fuente y CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="Lista_de_Pedidos.css">
 </head>
 
 <body>
-  <div class="header">
-    <h1>Lista de Pedidos</h1>
-  </div>
+      <div class="header">
+        <h1>COAST</h1>
+        <h3>lista de pedidos</h3>
+    </div>
 
-  <!-- Campo de búsqueda -->
-  <input type="search" id="buscar" placeholder="🔍 Buscar pedido o cliente...">
+    <input type="checkbox" id="menu-toggle" hidden>
+    <input type="checkbox" id="collection-toggle" hidden>
 
-  <!-- Contenedor principal de pedidos -->
+    <div class="topnav">
+        <div class="topnav-left">
+            <label for="menu-toggle" class="menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </label>
+            
+            <div class="searchbar">
+
+                <input type="search" placeholder="Buscar">
+                <button><span class="material-symbols-outlined">search</span></button>
+
+            </div>
+        </div>
+        
+        <div class="topnav-right">
+            
+            <a href="../login - sign in/Login.html"><span class="material-symbols-outlined">logout</span></a>
+
+        </div>
+    </div>
+    
+    
+    <aside class="sidebar">
+        <div class="sidebar-links">
+            <ul>
+                <li><a href="../admin1form/crearproducto.html">Crear Producto</a></li>
+                <li><a href="../admin1form/Lista_de_Pedidos.html">Lista de pedidos</a></li>
+
+                <div class="menu-separator">
+                    <h4>Visualizacion</h4>
+                </div>
+                <li><a href="../Pag Principal/PPrincipal.html">inicio</a></li>
+                <li>
+                    <label for="collection-toggle" class="collection-btn">
+                        Collection <span class="material-symbols-outlined">expand_more</span>
+                    </label>
+                    <ul class="sublist">
+                        <li><a href="#">Bodies y Tops</a></li>
+                        <li><a href="#">Polleras y Shorts</a></li>
+                        <li><a href="#">Vestidos</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Merch</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </div>
+    </aside>
+
+
   <div class="contenedor">
-    <!-- Pedido 1 -->
     <div class="pedido">
       <h3>Pedido número: 1027</h3>
       <p><b>Cliente:</b> Persona1</p>
@@ -32,7 +80,6 @@
       <a href="Detalle_del_Pedido.html" class="btn">Ver detalle</a>
     </div>
 
-    <!-- Pedido 2 -->
     <div class="pedido">
       <h3>Pedido número: 1026</h3>
       <p><b>Cliente:</b> Persona2</p>
@@ -46,8 +93,6 @@
   <div class="footer">
     <p>© 2025 COAST - Todos los derechos reservados</p>
   </div>
-
-  <!-- Script -->
-  <script src="Lista_de_Pedidos.js"></script>
 </body>
+<script src="Lista_de_Pedidos.js"></script>
 </html>

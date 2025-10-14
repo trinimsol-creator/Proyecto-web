@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="crear.css">
+    <link rel="stylesheet" href="EditarProd.css">
     <title>Crear Producto</title>
 </head>
 <body>
@@ -72,7 +72,7 @@
     </aside>
     
     <div class="product-form"> 
-            <h2>CREAR PRODUCTO</h2>
+            <h2>EDITAR PRODUCTO</h2>
         <form id="Myform">
             <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
             <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
@@ -82,6 +82,12 @@
 
             <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto">
             <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+
+            <select id="selLoc" name="categoria">
+                <option value="Stock">Stock</option>
+                <option value="NoStock">Sin Stock</option>
+            </select>
+
 
             <select id="selLoc" name="categoria">
                 <option value="Top">Tops y Bodys</option>
@@ -112,6 +118,6 @@
 
 </body>
 
-<script src="CrearProducto.js"></script>
+<script src="EditarProd.js"></script>
 
 </html>

@@ -1,6 +1,3 @@
-// ====== DETALLE_DEL_PEDIDO.JS ======
-// Script simple y vistoso para guardar el estado del pedido
-// y mostrar una confirmación colorida sin usar JSON.
 
 document.addEventListener("DOMContentLoaded", function() {
   const selectEstado = document.getElementById("estado1");

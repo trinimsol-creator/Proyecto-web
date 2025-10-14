@@ -1,60 +1,191 @@
-/* ====== LISTA DE PEDIDOS COLORIDA + RESPONSIVE ======
-   Mismo estilo que Detalle_del_Pedido, con diseño adaptable
-*/
-
 * {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
-  padding: 0;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   box-sizing: border-box;
 }
 
-/* Fondo degradado pastel */
-body {
-  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
-  padding: 30px 15px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+p, a, li, span {
+  font-weight: 400;
 }
 
-/* Header */
+body {
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    padding-top: 140px; /* Ajustado para dejar espacio al header + topnav */
+}
+
 .header {
-  text-align: center;
-  background: #ffffffaa;
-  backdrop-filter: blur(6px);
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  margin-bottom: 25px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
 }
 
 .header h1 {
-  font-size: clamp(24px, 4vw, 32px);
-  color: #222;
+    font-size: 46px;
+    margin: 0;
 }
 
-/* Campo de búsqueda */
-#buscar {
-  display: block;
-  margin: 0 auto 25px;
-  padding: 10px 15px;
-  width: 80%;
-  max-width: 500px;
-  border-radius: 25px;
-  border: 2px solid #222;
-  font-size: 15px;
-  background: #fff;
-  transition: 0.3s;
+.topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 90px; /* Justo debajo del header */
+    left: 0;   /* Eliminado -10px */
+    z-index: 6;
+    border-bottom: 1px solid #eee;
 }
 
-#buscar:focus {
-  border-color: #ff6b6b;
-  outline: none;
+.topnav-left, .topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-/* Contenedor general */
+.searchbar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    padding: 1px 15px;
+    transition: all 0.3s ease;
+}
+
+.searchbar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 10px;
+    width: 150px;
+    font-size: 14px;
+    transition: width 0.3s ease;
+}
+
+.searchbar button {
+    background: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar button:hover {
+    background: #e0e0e0;
+}
+
+.searchbar .material-symbols-outlined {
+    font-size: 20px;
+    color: #555;
+}
+
+.topnav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    color: #6a3c22;
+}
+
+.sidebar {
+    position: fixed;
+    top: 140px; /* Alineado con la parte inferior de topnav */
+    left: -300px;
+    width: 220px;
+    height: calc(100% - 140px);
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    padding: 15px;
+    z-index: 3;
+    border-right: 1px solid #eee;
+}
+.sidebar-links a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links a:hover {
+    background: #f0f0f0;
+}
+
+.collection-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+}
+
+.sublist {
+    list-style: none;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sublist li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #464646;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#collection-toggle:checked ~ .sidebar .sublist {
+    max-height: 200px;
+}
+
+.menu-btn:hover {
+    color: #6a3c22;
+}
+
+#menu-toggle:checked ~ .sidebar {
+    left: 0;
+}
+
+.menu-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+}
+
 .contenedor {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -62,11 +193,11 @@ body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-/* Cada tarjeta de pedido */
 .pedido {
-  background: #fff;
+  background: #ffffff;
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
@@ -78,7 +209,6 @@ body {
   box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
 }
 
-/* Texto */
 h3 {
   font-size: 18px;
   color: #333;
@@ -90,7 +220,6 @@ p {
   margin: 5px 0;
 }
 
-/* Botón */
 .btn {
   display: inline-block;
   margin-top: 10px;
@@ -104,22 +233,22 @@ p {
 }
 
 .btn:hover {
-  background: #ff6b6b;
-  box-shadow: 0 5px 12px rgba(255, 107, 107, 0.4);
+  background: #6a3c22;
 }
 
-/* Footer */
 .footer {
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  color: #444;
-  font-size: clamp(12px, 2.5vw, 15px);
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+    margin-top: 170px;
+    font-size: 14px;
+    color: #555;
 }
+
 
 /* Responsive adicional */
 @media (max-width: 480px) {
-  #buscar {
+  .searchbar input {
     width: 90%;
     font-size: 14px;
   }

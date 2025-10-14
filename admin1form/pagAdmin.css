@@ -14,7 +14,7 @@ p, a, li, span {
 
 body {
     padding: 10px;
-    background: #f9f9f9;
+    background: #ffffff;
     padding-top: 40px; 
 }
 
@@ -182,63 +182,27 @@ body {
     font-size: 24px;
 }
 
-.product-form {
-    margin: 150px auto 40px; 
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
-    width: 300px;
+.footer {
     text-align: center;
-}
-
-.product-form h2 {
-    margin-bottom: 20px;
-}
-
-.product-form input[type="text"],
-.product-form input[type="number"],
-.product-form input[type="file"],
-.product-form select {
-    width: 90%;
     padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-.product-form fieldset {
-    border: none;
-    margin: 10px 0;
-    padding: 0;
-    text-align: left; 
-}
-
-.product-form legend {
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.product-form label {
-    margin-right: 10px;
+    background: #f1f1f1;
+    margin-top: 20px;
     font-size: 14px;
-    cursor: pointer;
+    color: #555;
 }
 
-.product-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #000000;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease;
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
 }
-
-.product-form button:hover {
-    background-color: rgb(145, 111, 67);
+  
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
 }
