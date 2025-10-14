@@ -14,8 +14,3 @@
     }
 
 
-    //para el boton del carrito "finalizar compra"
-document.getElementById("finalizar").addEventListener("click", function() {
-    window.location.href = "file:///C:/Users/lenovo/Documents/GitHub/Proyecto-web/carrito/carrito2.html"; // cambiá por la página a la que querés ir
-});
-
