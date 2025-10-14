@@ -1,8 +1,8 @@
-/*FORMULARIO DE PAGO - TIENDA COAST*/
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Guardamos en variables todos los elementos importantes del formulario
+    // Guardamos en variables todos los elementos del formulario
     var formularioPago = document.getElementById("formularioPago");
     var mensajeExito = document.getElementById("mensajeExito");
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return; // detenemos el proceso si falta algo
         }
 
-        // Validación simple del número de tarjeta
+        // Validación del número de tarjeta
         if (campoNumeroTarjeta.value.length < 16) {
             
             return;
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formularioPago.style.display = "none";
         mensajeExito.classList.remove("oculto");
 
-        // Guardamos los datos básicos del usuario (simulación)
+        // Guardamos los datos básicos del usuario 
         var datosUsuario = {
             nombre: campoNombre.value,
             apellido: campoApellido.value,
