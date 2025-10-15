@@ -3,9 +3,9 @@ document.getElementById("Myform").addEventListener("submit", form);
 function form(event) {
     event.preventDefault();
 
-    const nombre = document.getElementById("nombre").value;
-    const precio = document.getElementById("precio").value;
-    const detalles = document.getElementById("detalles").value;
+    const nombre = document.getElementById("nombre").value.trim();
+    const precio = document.getElementById("precio").value.trim();
+    const detalles = document.getElementById("detalles").value.trim();
     const selLoc = document.getElementById("selLoc").value;
     const colorSeleccionado = document.querySelector('input[name="color"]:checked');
 
@@ -30,4 +30,5 @@ function form(event) {
         mensaje3.textContent = "Los detalles no pueden estar vacíos.";
         return;
     }
+    window.location.href = "pagAdmin.html";
 };
