@@ -57,5 +57,8 @@ function form(event) {
     if (!valido) return;
     mensaje.style.color = "green";
     mensaje.textContent = "Producto creado con éxito.";
-    window.location.href = "pagAdmin.html";
+    
+    setTimeout(() => {
+        window.location.href = "pagAdmin.html";
+    }, 3000);
 };
