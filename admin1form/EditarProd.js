@@ -1,66 +1,81 @@
-document.getElementById("Myform").addEventListener("submit", onSubmit);
+document.getElementById("Myform").addEventListener("submit", form);
 
-const M1 = id => document.getElementById(id);
-function limpiar() {
-  ["mensaje1","mensaje2","mensaje3","mensaje4","mensaje5","mensaje6","mensaje7","mensajeGlobal"]
-    .forEach(id => M1(id).textContent = "");
-}
+function form(event) {
+    event.preventDefault();
 
-function onSubmit(e){
-  e.preventDefault();
-  limpiar();
 
-  const nombre = M1("nombre").value.trim();
-  const precio = parseFloat(M1("precio").value);
-  const detalles = M1("detalles").value.trim();
-  const stock = M1("selStock").value;
-  const categoria = M1("selCategoria").value;
-  const color = document.querySelector('input[name="color"]:checked');
-  const archivo = M1("arch01").files[0];
+    mensaje1.textContent = "";
+    mensaje2.textContent = "";
+    mensaje3.textContent = "";
+    mensaje4.textContent = "";
+    mensaje5.textContent = "";
+    mensaje6.textContent = "";
+    mensaje7.textContent = "";
+    mensajeGlobal.textContent = "";
 
-  let ok = true;
 
-  if (!nombre || !detalles || isNaN(precio) || !stock || !categoria || !color) {
-    M1("mensajeGlobal").textContent = "Por favor, completá todos los campos.";
-    ok = false;
-  }
+    const nombre = document.getElementById("nombre").value.trim();
+    const precio = document.getElementById("precio").value.trim();
+    const detalles = document.getElementById("detalles").value.trim();
+    const stock = document.getElementById("selStock").value;
+    const categoria = document.getElementById("selCategoria").value;
+    const colorSeleccionado = document.querySelector('input[name="color"]:checked');
+    const archivo = document.getElementById("arch01").files[0];
 
-  if (!nombre) {
-    M1("mensaje1").textContent = "Ingresá el nombre del producto.";
-    ok = false;
-  }
+    mensajeGlobal.style.color = "red";
 
-  if (isNaN(precio) || precio <= 0) {
-    M1("mensaje2").textContent = "El precio debe ser un número positivo.";
-    ok = false;
-  }
+    let valido = true;
 
-  const regex = /^[a-zA-Z0-9\s.,-]+$/;
-  if (!detalles || !regex.test(detalles) || !regex.test(nombre)) {
-    M1("mensaje3").textContent = "Sólo letras, números, espacios y . , -";
-    ok = false;
-  }
 
-  if (!stock) {
-    M1("mensaje4").textContent = "Seleccioná el estado de stock.";
-    ok = false;
-  }
+    if (nombre === "" || precio === "" || detalles === "" || stock === "" || categoria === "" || !colorSeleccionado) {
+        mensajeGlobal.textContent = "Por favor, completá todos los campos.";
+        valido = false;
+    }
 
-  if (!categoria) {
-    M1("mensaje5").textContent = "Seleccioná una categoría.";
-    ok = false;
-  }
+    const regex = /^[a-zA-Z0-9\s.,-]+$/;
+    if (nombre === "") {
+        mensaje1.textContent = "El nombre no puede estar vacío.";
+        valido = false;
+    } else if (!regex.test(nombre) || !regex.test(detalles)) {
+        mensaje1.textContent = "El nombre y los detalles solo pueden contener letras, números, espacios y algunos caracteres especiales (.,-).";
+        valido = false;
+    }
 
-  if (!color) {
-    M1("mensaje6").textContent = "Elegí un color.";
-    ok = false;
-  }
 
-  // opcional: validar archivo
-  // if (!archivo) { M1("mensaje7").textContent = "Subí una foto."; ok = false; }
+    if (precio === "") {
+        mensaje2.textContent = "El precio no puede estar vacío.";
+        valido = false;
+    } else if (isNaN(precio) || precio <= 0) {
+        mensaje2.textContent = "El precio debe ser un número positivo.";
+        valido = false;
+    }
 
-  if (!ok) return;
+    if (detalles === "") {
+        mensaje3.textContent = "Los detalles no pueden estar vacíos.";
+        valido = false;
+    }
 
-  // éxito
-  window.location.href = "../admin1form/pagAdmin.html";
+
+    if (stock === "") {
+        mensaje4.textContent = "Seleccioná el estado de stock.";
+        valido = false;
+    }
+
+
+    if (categoria === "") {
+        mensaje5.textContent = "Seleccioná una categoría.";
+        valido = false;
+    }
+
+
+    if (!colorSeleccionado) {
+        mensaje6.textContent = "Elegí un color.";
+        valido = false;
+    }
+
+
+    if (!valido) return;
+    mensaje.style.color = "green";
+    mensaje.textContent = "Producto creado con éxito.";
+    window.location.href = "file:///C:/Users/lenovo/Documents/GitHub/Proyecto-web/ADMIN/admin.html";
 }
