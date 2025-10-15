@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finalizar compra | Tienda Coast</title>
   <link rel="stylesheet" href="pago.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,34 +20,32 @@
       <h3>Datos personales</h3>
       <label>Nombre:</label>
       <input type="text" id="nombreUsuario">
+      <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
 
       <label>Apellido:</label>
       <input type="text" id="apellidoUsuario">
+      <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
 
       <label>DNI:</label>
       <input type="number" id="dniUsuario">
-      <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
+      <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
 
       <label>Dirección:</label>
       <input type="text" id="direccionUsuario">
+      <br><span id="mensaje6" style="color:red; font-weight:bold;"></span></br>
 
       <label>CVU:</label>
       <input type="number" id="cvuTarjeta" maxlength="3">
-      <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+      <br><span id="mensaje4" style="color:red; font-weight:bold;"></span></br>
 
       <label for="Comprobante">Comprobante</label>
       <input type="file" id="Comprobante" name="Comprobante" accept="image/*,application/pdf">
-      <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+      <br><span id="mensaje5" style="color:red; font-weight:bold;"></span></br>
 
 
       <button type="submit" id="botonPagar">Finalizar Pago</button>
       <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
     </form>
-
-    <div id="mensajeExito" class="oculto">
-      <h3>✅ ¡Pago realizado con éxito!</h3>
-      <p>Gracias por tu compra. En breve recibirás un correo con los detalles.</p>
-    </div>
   </main>
 
 </body>
