@@ -30,7 +30,4 @@ function form(event) {
         mensaje3.textContent = "Los detalles no pueden estar vacíos.";
         return;
     }
-
-
-
 };
