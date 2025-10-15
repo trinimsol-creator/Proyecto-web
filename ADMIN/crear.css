@@ -12,25 +12,15 @@ p, a, li, span {
   font-weight: 400;
 }
 
-.header {
-    padding: 5px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    text-align: center;
-    background: #f2f2f2;
+body {
+    padding: 10px;
+    background: #f9f9f9;
+    padding-top: 40px; 
 }
 
-body {
-    background-color: #f2f2f2;
-    min-height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;  
-    justify-content: center;
-    align-items: center;
-}
 
 .product-form {
+    margin: 150px auto 40px; 
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -88,4 +78,9 @@ body {
 
 .product-form button:hover {
     background-color: rgb(145, 111, 67);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

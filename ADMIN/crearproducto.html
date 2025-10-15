@@ -5,26 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="crear.css">
     <title>Crear Producto</title>
-
 </head>
 <body>
     
     <div class="product-form"> 
-        <h2>Crear Producto</h2>
-        <form>
+            <h2>CREAR PRODUCTO</h2>
+        <form id="Myform">
             <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+            <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
+
             <input type="number" name="precio" id="precio" placeholder="Precio">
+            <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+
             <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto">
+            <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+
             <select id="selLoc" name="categoria">
                 <option value="Top">Tops y Bodys</option>
                 <option value="Polleras">Polleras y Shorts</option>
                 <option value="Vestidos">Vestidos</option>
                 <option value="Accesorios">Accesorios</option>
             </select>
-            <fieldset>
+
+            <fieldset id="color">
                 <legend>Color</legend>
                 <input type="radio" id="rad01" name="color" value="n"/>
                 <label for="rad01">Negro</label>
@@ -34,16 +41,19 @@
                 <label for="rad03">Rojo</label>
                 <input type="radio" id="rad04" name="color" value="a"/>
                 <label for="rad04">Azul</label>
-                
-                
-        </fieldset>
+            </fieldset>
+
         <label for="arch01">Foto del producto:</label><br>
         <input type="file" name="archivo" id="arch01"/>
-        <button type="submit" class="enviar">Crear Producto</button>
-
+        
+        <button type="submit" class="enviar"> <a href="../admin1form/pagAdmin.html">Crear Producto</a></button>
+        <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
         
         </form>
     </div>
 
 </body>
+
+<script src="CrearProducto.js"></script>
+
 </html>
