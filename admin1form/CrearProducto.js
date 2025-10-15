@@ -3,32 +3,59 @@ document.getElementById("Myform").addEventListener("submit", form);
 function form(event) {
     event.preventDefault();
 
-    const nombre = document.getElementById("nombre").value.trim();
-    const precio = document.getElementById("precio").value.trim();
-    const detalles = document.getElementById("detalles").value.trim();
-    const selLoc = document.getElementById("selLoc").value;
+    mensaje.textContent = "";
+    mensaje1.textContent = "";
+    mensaje2.textContent = "";
+    mensaje3.textContent = "";
+    mensaje4.textContent = "";
+
+    const nombre = document.getElementById("nombre").value;
+    const precio = document.getElementById("precio").value;
+    const detalles = document.getElementById("detalles").value;
     const colorSeleccionado = document.querySelector('input[name="color"]:checked');
 
     mensaje.style.color = "red";
 
+    let valido = true;
+
     if (nombre === "" || precio === "" || detalles === "" || !colorSeleccionado) {
         mensaje.textContent = "Por favor, complete todos los campos.";
-        return;
+        valido = false;
     }
 
-    if (precio <= 0) {
-        mensaje2.textContent = "El precio debe ser un número positivo.";
-        return;
-    }
-        const regex = /^[a-zA-Z0-9\s.,-]+$/;
-    if (!regex.test(nombre) || !regex.test(detalles)) {
+  
+    const regex = /^[a-zA-Z0-9\s.,-]+$/;
+    if (nombre === "") {
+        mensaje1.textContent = "El nombre no puede estar vacío.";
+        valido = false;
+    } else if (!regex.test(nombre) || !regex.test(detalles)) {
         mensaje1.textContent = "El nombre y los detalles solo pueden contener letras, números, espacios y algunos caracteres especiales (.,-).";
-        return;
+        valido = false;
     }
+
+
+    if (precio === "") {
+        mensaje2.textContent = "El precio no puede estar vacío.";
+        valido = false;
+    } else if (precio <= 0) {
+        mensaje2.textContent = "El precio debe ser un número positivo.";
+        valido = false;
+    }
+
+
 
     if (detalles === "") {
         mensaje3.textContent = "Los detalles no pueden estar vacíos.";
-        return;
+        valido = false;
     }
+
+    if (!colorSeleccionado) {
+        mensaje4.textContent = "Por favor, seleccione un color.";
+        valido = false;
+    }
+
+    if (!valido) return;
+    mensaje.style.color = "green";
+    mensaje.textContent = "Producto creado con éxito.";
     window.location.href = "pagAdmin.html";
 };
