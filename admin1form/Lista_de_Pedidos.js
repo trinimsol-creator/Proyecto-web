@@ -1,45 +1,52 @@
-
-
 document.addEventListener("DOMContentLoaded", function() {
 
-  const pedidos = document.querySelectorAll(".pedido");
-  const buscar = document.getElementById("buscar");
-
-  
-  pedidos.forEach(function(pedido) {
-  
-    const texto = pedido.querySelector("h3").textContent;
-    const numero = texto.match(/\d+/)[0];
-    const clave = "estado_" + numero;
+   
+    var listaDePedidos = document.querySelectorAll(".pedido");
+    var campoBusqueda = document.getElementById("buscar");
 
     
-    const guardado = localStorage.getItem(clave);
-    if (guardado) {
-      const pEstado = Array.from(pedido.querySelectorAll("p")).find(p => p.textContent.includes("Estado:"));
-      if (pEstado) pEstado.innerHTML = "<b>Estado:</b> " + guardado;
+    for (var i = 0; i < listaDePedidos.length; i++) {
+        var pedidoActual = listaDePedidos[i];
+
+        // Extraemos el número del pedido
+        var textoPedido = pedidoActual.querySelector("h3").textContent;
+        var numeroPedido = textoPedido.match(/\d+/)[0];
+        var claveLocalStorage = "estado_" + numeroPedido;
+
+        // Buscamos si hay un estado guardado y lo mostramos
+        var estadoGuardado = localStorage.getItem(claveLocalStorage);
+        if (estadoGuardado) {
+            var parrafos = pedidoActual.querySelectorAll("p");
+            for (var j = 0; j < parrafos.length; j++) {
+                if (parrafos[j].textContent.indexOf("Estado:") !== -1) {
+                    parrafos[j].innerHTML = "<b>Estado:</b> " + estadoGuardado;
+                }
+            }
+        }
+
+        
+        pedidoActual.addEventListener("mouseenter", function() {
+            this.style.transform = "scale(1.03)";
+        });
+
+        pedidoActual.addEventListener("mouseleave", function() {
+            this.style.transform = "scale(1)";
+        });
     }
 
     
-    pedido.addEventListener("mouseenter", function() {
-      pedido.style.transform = "scale(1.03)";
-    });
-    pedido.addEventListener("mouseleave", function() {
-      pedido.style.transform = "scale(1)";
-    });
-  });
+    campoBusqueda.addEventListener("input", function() {
+        var textoBuscado = campoBusqueda.value.toLowerCase();
 
-  
-  buscar.addEventListener("input", function() {
-    const query = buscar.value.toLowerCase();
+        for (var k = 0; k < listaDePedidos.length; k++) {
+            var pedidoARevisar = listaDePedidos[k];
+            var textoCompleto = pedidoARevisar.textContent.toLowerCase();
 
-    pedidos.forEach(function(pedido) {
-      const textoPedido = pedido.textContent.toLowerCase();
-      
-      if (textoPedido.includes(query)) {
-        pedido.style.display = "block";
-      } else {
-        pedido.style.display = "none";
-      }
+            if (textoCompleto.indexOf(textoBuscado) !== -1) {
+                pedidoARevisar.style.display = "block";
+            } else {
+                pedidoARevisar.style.display = "none";
+            }
+        }
     });
-  });
 });
