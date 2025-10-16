@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const botonGuardar = document.getElementById("btn-guardar");
   const tituloPedido = document.querySelector("h2");
 
-  
+
   const numero = tituloPedido.textContent.match(/\d+/)[0];
   const clave = "estado_" + numero;
 

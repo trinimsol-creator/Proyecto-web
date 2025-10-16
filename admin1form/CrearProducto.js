@@ -8,11 +8,13 @@ function form(event) {
     mensaje2.textContent = "";
     mensaje3.textContent = "";
     mensaje4.textContent = "";
+    mensaje5.textContent = "";
 
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
     const detalles = document.getElementById("detalles").value;
     const colorSeleccionado = document.querySelector('input[name="color"]:checked');
+    const selLoc = document.getElementById("selLoc").value;
 
     mensaje.style.color = "red";
 
@@ -43,11 +45,19 @@ function form(event) {
     }
 
 
-
     if (detalles === "") {
         mensaje3.textContent = "Los detalles no pueden estar vacíos.";
         valido = false;
     }
+
+
+
+    if (selLoc === "") {
+        mensaje5.textContent = "Por favor, seleccione una categoría.";
+        valido = false;
+    }
+
+
 
     if (!colorSeleccionado) {
         mensaje4.textContent = "Por favor, seleccione un color.";

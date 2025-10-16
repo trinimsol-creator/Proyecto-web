@@ -52,7 +52,7 @@ function onSignin(event) {
 
 
   if (!valido) return;
-
-  
-  window.location.href = "../Pag Principal/PPrincipal.html";
+  setTimeout(() => {
+    window.location.href = "../Pag Principal/PPrincipal.html";
+  }, 300);
 }

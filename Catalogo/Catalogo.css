@@ -106,7 +106,7 @@ body {
 }
 
 .topnav a:hover {
-    color: rgb(145, 111, 67);
+    color: #6a3c22;
 }
 
 .info {
@@ -144,15 +144,7 @@ body {
 }
 
 .filtro:hover {
-    color: rgb(145, 111, 67);
-}
-
-.image-gallery {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
-    margin-top: 100px;
+    color: #6a3c22;
 }
 
 .sidebar {
@@ -217,7 +209,7 @@ body {
 }
 
 .menu-btn:hover {
-    color: rgb(145, 111, 67);
+    color: #6a3c22;
 }
 
 #menu-toggle:checked ~ .sidebar {
@@ -261,7 +253,7 @@ body {
 }
 
 .carrito-btn:hover {
-    color: rgb(145, 111, 67);
+    color: #6a3c22;
 }
 
 .sidebar-carrito h3 {
