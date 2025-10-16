@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
   var botonesEliminar = document.getElementsByClassName("remove-btn");
   var cantidades = document.querySelectorAll(".quantity input");
   var totalElement = document.querySelector(".total-card h2");
