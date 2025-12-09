@@ -31,7 +31,7 @@ function form(event) {
 if (nombreUsuario === "") {
     mensaje1.textContent = "Por favor, ingrese su nombre.";
     valido = false;
-  } else if (!nombreRegex.test(nombreUsuario)) {
+  } else if (!nombreRegex.test(nombreUsuario) ) {
     mensaje1.textContent = "El nombre solo puede contener letras y espacios.";
     valido = false;
   }
