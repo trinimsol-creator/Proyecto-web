@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="PPrincipal.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/PPrincipal.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@
             <h3>Mi Carrito</h3>
             
             <div class="producto-info">
-                <img src="imagenes/top.webp" alt="producto1">
+                <img src="{{ url_for('static', filename='img/top.webp') }}" alt="producto1">
                 <ul>
                     <li><h4>Top Ariel</h4></li>
                     <li>$25.000</li>
@@ -92,7 +92,7 @@
                 <button class="eliminar-btn"><span class="material-symbols-outlined">delete</span></button>
             </div>
             <div class="producto-info">
-                <img src="imagenes/top4.webp" alt="producto1">
+                <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="producto1">
                 <ul>
                     <li><h4>Top Summer</h4></li>
                     <li>$20.000</li>
@@ -115,9 +115,10 @@
     </aside>
     
     <div class="Image-gallery">
-        <img src="imagenes/product 1.webp" alt="imagen1" style="width: 33%;">
-        <img src="imagenes/product2.webp" alt="imagen2" style="width: 33%;">
-        <img src="imagenes/product3.webp" alt="imagen3" style="width: 33%;">
+        <img src="{{ url_for('static', filename='img/product 1.webp') }}" alt="imagen1" style="width: 33%;">
+        <img src="{{ url_for('static', filename='img/product2.webp') }}" alt="imagen2" style="width: 33%;">
+        <img src="{{ url_for('static', filename='img/product3.webp') }}" alt="imagen3" style="width: 33%;">
+
     </div>
     
     <div class="info">
@@ -129,15 +130,15 @@
     <div class="extra-info">
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <img src="imagenes/camion.png" style="width:100%">
+                <img src="{{ url_for('static', filename='img/camion.png') }}" style="width:100%">
             </div>
             
             <div class="mySlides fade">
-                <img src="imagenes/extra.png" style="width:100%">
+                <img src="{{ url_for('static', filename='img/extra.png') }}" style="width:100%">
             </div>
             
             <div class="mySlides fade">
-                <img src="imagenes/Tarjeta.png" style="width:100%">
+                <img src="{{ url_for('static', filename='img/Tarjeta.png') }}" style="width:100%">
             </div>
         </div>
     </div>
@@ -147,5 +148,5 @@
     </div>
 
 </body>
-<script src="PPrincipal.js"></script>
+<script src="{{ url_for('static', filename='js/PPrincipal.js') }}" defer></script>
 </html>
