@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <link rel="stylesheet" href="Detalles.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Detalles.css') }}">
   <title>Detalle del Producto</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
   <div class="container">
    
     <div class="product-image">
-      <img src="Imagenes/top dove.webp" alt="Top Dove">
+      <img src="{{ url_for('static', filename='img/top dove.webp') }}" alt="Top Dove">
     </div>
 
     
@@ -45,7 +45,7 @@
       </div>
 
      
-      <a href="../carrito/carrito.html" class="btn">AGREGAR AL CARRITO</a>
+      <a href="/carrito" class="btn">AGREGAR AL CARRITO</a>
     </div>
   </div>
 

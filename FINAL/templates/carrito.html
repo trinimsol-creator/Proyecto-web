@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <link rel="stylesheet" href="carrito.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
   <title>Mi-Carrito</title>
 </head>
 <body>
@@ -80,7 +80,7 @@
 
   <div class="product-grid">
     <div class="product-card">
-      <img src="Imagenes/top.webp" alt="Product2">
+      <img src="{{ url_for('static', filename='img/top.webp') }}" alt="Product2">
       <h2>Top Ariel</h2>
       <p class="price">$25.000</p>
       <p class="discount">Con transferencia bancaria: $23.500</p>
@@ -92,7 +92,7 @@
     </div>
 
     <div class="product-card">
-      <img src="Imagenes/top4.webp" alt="Product1">
+      <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Product1">
       <h2>Top Summer</h2>
       <p class="price">$20.000</p>
       <p class="discount">$18.500 con Transferencia bancaria</p>
@@ -116,5 +116,5 @@
       </div>
   </div>
 </body>
-<script src="carrito.js"></script>
+<script src="{{ url_for('static', filename='js/carrito.js') }}" defer></script>
 </html>

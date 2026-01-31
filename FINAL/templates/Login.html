@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login.css') }}">
     <title>Login</title>
 </head>
 <body>
@@ -37,5 +37,5 @@
         <p>&copy; 2024 COAST. Todos los derechos reservados.</p>
     </div>
 </body>
-<script src="log2.js"></script>
+<script src="{{ url_for('static', filename='js/log2.js') }}" defer></script>
 </html>
