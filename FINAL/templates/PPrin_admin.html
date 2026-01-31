@@ -1,0 +1,58 @@
+{% extends "_layout_flex.html" %}
+
+{% block title %}Catálogo{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pagAdmin.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="info">
+        <h1>Productos</h1>
+        <div class="filtro">
+            <span class="material-symbols-outlined">filter_list</span>
+            <p>Filtros</p>
+        </div>
+    </div>
+
+    <div class="catalogo-container">
+        <div class="product-grid">
+
+            <a href="{{ url_for('editar_producto', id=1) }}" class="product-card">
+            
+                <img src="{{ url_for('static', filename='img/top1.jpeg') }}">
+                <div class="product-info">
+                    <h3>Top Shore</h3>
+                    <button class="detalle-btn">Editar</button>
+                </div>
+            </a>
+
+
+            <a href="{{ url_for('editar_producto', id=2) }}" class="product-card">
+
+                <img src="{{ url_for('static', filename='img/top2.jpeg') }}">
+                <div class="product-info">
+                    <h3>Body Bay</h3>
+                    <button class="detalle-btn">Editar</button>
+                </div>
+            </a>
+
+            <a href="{{ url_for('editar_producto', id=3) }}" class="product-card">
+                <img src="{{ url_for('static', filename='img/top3.webp') }}">
+                <div class="product-info">
+                    <h3>Top Pearl</h3>
+                    <button class="detalle-btn">Editar</button>
+                </div>
+            </a>
+
+            <a href="{{ url_for('editar_producto', id=4) }}" class="product-card">
+                <img src="{{ url_for('static', filename='img/top4.webp') }}">
+                <div class="product-info">
+                    <h3>Top Shelly</h3>
+                    <button class="detalle-btn">Editar</button>
+                </div>
+            </a>
+
+        </div>
+    </div>
+{% endblock %}

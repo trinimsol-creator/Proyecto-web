@@ -1,0 +1,47 @@
+{% extends "_layout_flex.html" %}
+
+{% block title %}Detalle del Pedido{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Detalle_del_Pedido.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="cuadro">
+  <h2>Pedido #{{ pedido.id }}</h2>
+
+  <p><b>Cliente:</b> {{ pedido.cliente }}</p>
+  <p><b>Fecha:</b> {{ pedido.fecha }}</p>
+  <p><b>Total:</b> ${{ pedido.total }}</p>
+
+  <h3>Estado del pedido</h3>
+
+  <form method="post">
+    <label for="estado">Cambiar estado:</label>
+    <select id="estado" name="estado">
+      <option value="Pendiente" {% if pedido.estado == "Pendiente" %}selected{% endif %}>Pendiente</option>
+      <option value="En preparación" {% if pedido.estado == "En preparación" %}selected{% endif %}>En preparación</option>
+      <option value="Listo para entregar" {% if pedido.estado == "Listo para entregar" %}selected{% endif %}>Listo para entregar</option>
+      <option value="Entregado" {% if pedido.estado == "Entregado" %}selected{% endif %}>Entregado</option>
+    </select>
+
+    <button type="submit">Guardar</button>
+  </form>
+
+  <h3>Productos</h3>
+
+  {% for producto in pedido.productos %}
+    <div class="producto">
+      <p><b>Producto:</b> {{ producto.nombre }}</p>
+      <p><b>Cantidad:</b> {{ producto.cantidad }}</p>
+      <p><b>Precio:</b> ${{ producto.precio }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/Detalle_del_Pedido.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,258 @@
+* {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+}
+p, a, li, span {
+  font-weight: 400;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    padding-top: 140px; 
+}
+
+.header {
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.header h1 {
+    font-size: 46px;
+    margin: 0;
+}
+
+.topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 90px; 
+    left: 0;   
+    z-index: 6;
+    border-bottom: 1px solid #eee;
+}
+
+.topnav-left, .topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    padding: 1px 15px;
+    transition: all 0.3s ease;
+}
+
+.searchbar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 8px 10px;
+    width: 150px;
+    font-size: 14px;
+    transition: width 0.3s ease;
+}
+
+.searchbar button {
+    background: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar button:hover {
+    background: #e0e0e0;
+}
+
+.searchbar .material-symbols-outlined {
+    font-size: 20px;
+    color: #555;
+}
+
+.topnav a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    color: #6a3c22;
+}
+
+.sidebar {
+    position: fixed;
+    top: 140px; 
+    left: -300px;
+    width: 220px;
+    height: calc(100% - 140px);
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+    padding: 15px;
+    z-index: 3;
+    border-right: 1px solid #eee;
+}
+.sidebar-links a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-links a:hover {
+    background: #f0f0f0;
+}
+
+.collection-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: 500;
+}
+
+.sublist {
+    list-style: none;
+    padding-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sublist li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #464646;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#collection-toggle:checked ~ .sidebar .sublist {
+    max-height: 200px;
+}
+
+.menu-btn:hover {
+    color: #6a3c22;
+}
+
+#menu-toggle:checked ~ .sidebar {
+    left: 0;
+}
+
+.menu-btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.contenedor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pedido {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.pedido:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  background: #222;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #6a3c22;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background: #f1f1f1;
+    margin-top: 170px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* Responsive adicional */
+@media (max-width: 480px) {
+  .searchbar input {
+    width: 90%;
+    font-size: 14px;
+  }
+  .pedido {
+    padding: 16px;
+  }
+}

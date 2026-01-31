@@ -1,0 +1,67 @@
+{% extends "_layout_flex.html" %}
+
+{% block title %}
+Lista de pedidos
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Lista_de_Pedidos.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contenedor">
+
+  <div class="pedido">
+    <h3>Pedido número: 1026</h3>
+    <p><b>Cliente:</b> Persona1</p>
+    <p><b>Fecha:</b> 09/09/2025</p>
+    <p><b>Total:</b> $25.000</p>
+    <p><b>Estado:</b> En preparación</p>
+      
+     <a href="{{ url_for('detalle_pedido', id=1026) }}" class="btn"> Ver detalle</a> 
+  </div>
+
+  <div class="pedido">
+    <h3>Pedido número: 1027</h3>
+    <p><b>Cliente:</b> Persona2</p>
+    <p><b>Fecha:</b> 09/09/2025</p>
+    <p><b>Total:</b> $50.000</p>
+    <p><b>Estado:</b> Listo para entregar</p>
+    
+     <a href="{{ url_for('detalle_pedido', id=1027) }}" class="btn"> Ver detalle</a> 
+  </div>
+
+</div>
+
+<div class="contenedor">
+
+  <div class="pedido">
+    <h3>Pedido número: 1028</h3>
+    <p><b>Cliente:</b> Persona1</p>
+    <p><b>Fecha:</b> 09/09/2025</p>
+    <p><b>Total:</b> $25.000</p>
+    <p><b>Estado:</b> En preparación</p>
+    
+     <a href="{{ url_for('detalle_pedido', id=1028) }}" class="btn"> Ver detalle</a> 
+  </div>
+
+  <div class="pedido">
+    <h3>Pedido número: 1029</h3>
+    <p><b>Cliente:</b> Persona2</p>
+    <p><b>Fecha:</b> 09/09/2025</p>
+    <p><b>Total:</b> $50.000</p>
+    <p><b>Estado:</b> Listo para entregar</p>
+   
+    <a href="{{ url_for('detalle_pedido', id=1029) }}" class="btn"> Ver detalle</a> 
+   
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/Lista_de_Pedidos.js') }}"></script>
+{% endblock %}

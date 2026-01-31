@@ -1,0 +1,56 @@
+{% extends "_layout_flex.html" %}
+
+{% block title %}Crear Producto - COAST{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/crear.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="product-form"> 
+    <h1>Crear Producto</h1>
+    <form id="Myform" method="POST" enctype="multipart/form-data">
+        
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
+        <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
+
+        <input type="number" name="precio" id="precio" placeholder="Precio">
+        <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+
+        <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto">
+        <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+
+        <select id="selLoc" name="categoria">
+            <option value="" disabled selected>Categoria</option>
+            <option value="Top">Tops y Bodys</option>
+            <option value="Polleras">Polleras y Shorts</option>
+            <option value="Vestidos">Vestidos</option>
+            <option value="Accesorios">Accesorios</option>
+        </select>
+        <br><span id="mensaje5" style="color:red; font-weight:bold;"></span></br>
+
+        <fieldset id="color">
+            <legend>Color</legend>
+            <input type="radio" id="rad01" name="color" value="n"/>
+            <label for="rad01">Negro</label>
+            <input type="radio" id="rad02" name="color" value="b"/>
+            <label for="rad02">Blanco</label>
+            <input type="radio" id="rad03" name="color" value="r"/>
+            <label for="rad03">Rojo</label>
+            <input type="radio" id="rad04" name="color" value="a"/>
+            <label for="rad04">Azul</label>
+        </fieldset>
+        <br><span id="mensaje4" style="color:red; font-weight:bold;"></span></br>
+
+        <label for="arch01">Foto del producto:</label><br>
+        <input type="file" name="archivo" id="arch01"/>
+        
+        <button type="submit" class="enviar">Crear Producto</button>
+        <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/CrearProducto.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}COAST{% endblock %}</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+  <!-- CSS propio -->
+  {% block css %}{% endblock %}
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>COAST</h1>
+    {% block header_extra %}{% endblock %}
+  </div>
+
+  <!-- TOGGLES -->
+  <input type="checkbox" id="menu-toggle" hidden>
+  <input type="checkbox" id="collection-toggle" hidden>
+
+  <!-- TOP NAV -->
+  <div class="topnav">
+    <div class="topnav-left">
+      <label for="menu-toggle" class="menu-btn">
+        <span class="material-symbols-outlined">menu</span>
+      </label>
+
+      <div class="searchbar">
+        <input type="search" placeholder="Buscar">
+        <button>
+          <span class="material-symbols-outlined">search</span>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="topnav-right">
+      <a href="{{ url_for('login_admin') }}"><span class="material-symbols-outlined">logout</span></a>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-links">
+      <ul>
+        <li>
+          <label for="collection-toggle" class="collection-btn">
+            Productos <span class="material-symbols-outlined">expand_more</span>
+          </label>
+          <ul class="sublist">
+            <li><a href="{{ url_for('admin') }}">All</a></li>
+            <li><a href="#">Bodies y Tops</a></li>
+            <li><a href="#">Polleras y Shorts</a></li>
+            <li><a href="#">Vestidos</a></li>
+            <li><a href="#">Accesorios</a></li>
+          </ul>
+        </li>
+
+        <li><a href="{{ url_for('crear_producto') }}">Crear Producto</a></li>
+        <li><a href="{{ url_for('lista_pedidos') }}">Lista de pedidos</a></li>
+
+
+        <div class="menu-separator">
+          <h4>Account</h4>
+        </div>
+
+        <li>
+          <a href="#"><span class="material-symbols-outlined">logout</span> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2025 COAST - Todos los derechos reservados</p>
+  </div>
+
+  <!-- JS -->
+  {% block js %}{% endblock %}
+
+</body>
+</html>
