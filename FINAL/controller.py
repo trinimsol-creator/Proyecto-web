@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, url_for
 def home_pagina():
     return render_template("PPrincipal.html")
 
-#funciones admin
+#funciones para admin
 
 def admin_pagina():
     param = {}

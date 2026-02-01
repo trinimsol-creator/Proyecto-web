@@ -71,7 +71,7 @@ def route(app):
             param={}
             return render_template("pago.html", param=param)
         
-        #parte admin:
+        #parte admin, solo rutas:
 
         @app.route("/admin")
         def admin():
