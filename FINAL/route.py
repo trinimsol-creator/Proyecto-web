@@ -6,7 +6,7 @@ def route(app):
         @app.route("/")
         def home():
             return home_pagina()
-            
+        
         @app.route("/carrito")
         def carrito():
             return carrito_pagina()
@@ -66,4 +66,6 @@ def route(app):
         @app.route('/<name>')
         def noEncontrada(name):        
             return paginaNoEncontrada(name)
+  
+  
   
