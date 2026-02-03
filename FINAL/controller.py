@@ -1,7 +1,8 @@
 from flask import render_template, request, redirect, url_for
 
 def home_pagina():
-    return render_template("PPrincipal.html")
+    param = {}
+    return render_template("PPrincipal.html", param=param)
 
 #funciones para admin
 
@@ -133,3 +134,12 @@ def miscompras_pagina():
 def pago_pagina():
     param = {}
     return render_template("pago.html", param=param)
+
+
+#pagina no encontrada
+
+def paginaNoEncontrada(name):
+    res='Pagina "{}" no encontrada<br>'.format(name)
+    res+='<a href="{}">{}</a>'.format("/","Home")
+    
+    return res

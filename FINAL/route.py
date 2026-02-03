@@ -5,71 +5,35 @@ def route(app):
 
         @app.route("/")
         def home():
-            return render_template("PPrincipal.html")
+            return home_pagina()
             
         @app.route("/carrito")
         def carrito():
-            '''
-            Info:
-            Carga la página del carrito.
-            Por ahora solo renderiza la vista.
-            Luego se conectará con controller y model.
-            '''
-            param = {}
-            return render_template("carrito.html", param=param)
-        
+            return carrito_pagina()
         
         @app.route("/catalogo")
         def catalogo():
-            '''
-            Info:
-            Carga la página del catalogo.
-            Por ahora solo renderiza la vista.
-            Luego se conectará con controller y model.
-            '''
-            param = {}
-            return render_template("Catalogo.html", param=param)
+            return catalogo_pagina()
         
         @app.route("/detalles")
         def detalles():
-
-            param = {}
-            return render_template("detalles.html", param=param)
+            return detalles_pagina()
         
         @app.route("/login")
         def login():
-            ''' Info:
-            Carga la pagina del login  
-            ''' 
-            param={}
-            return render_template("Login.html", param=param)
+            return login_pagina()
         
         @app.route('/signin', methods =["GET", "POST"])
         def signin(): 
-            ''' Info: 
-            Recepciona la solicitud request que es enviada
-            desde el formulario de login 
-            retorna la pagina home en caso de exito 
-                    o la pagina login en caso de fracaso
-            '''
-            param={}
-            return render_template("Signin.html", param=param)
+            return signin_pagina(request)
 
         @app.route("/miscompras")
         def miscompras():
-            ''' Info:
-            Carga la pagina de mis comrpas  
-            ''' 
-            param={}
-            return render_template("miscompras.html", param=param)
+            return miscompras_pagina()
         
         @app.route("/pago")
         def pago():
-            ''' Info:
-            Carga la pagina de mis comrpas  
-            ''' 
-            param={}
-            return render_template("pago.html", param=param)
+            return pago_pagina()
         
         #parte admin, solo rutas:
 
@@ -97,4 +61,9 @@ def route(app):
         def login_admin():
             return login_admin_pagina(request)
 
+#paginas no encontradas
+
+        @app.route('/<name>')
+        def noEncontrada(name):        
+            return paginaNoEncontrada(name)
   

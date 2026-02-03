@@ -236,6 +236,8 @@ body {
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     font-size: 1em;
     font-weight: 500;
+    text-decoration: none;
+    border-radius: 999px;
 }
 
 .checkout-btn:hover {

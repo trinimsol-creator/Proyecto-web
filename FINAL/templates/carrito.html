@@ -49,8 +49,8 @@
     <aside class="sidebar">
         <div class="sidebar-links">
             <ul>
-                <li><a href="../Pag Principal/PPrincipal.html">Inicio</a></li>
-                <li><a href="../Catalogo/Catalogo.html">New In</a></li>
+                <li><a href="{{ url_for('home') }}">Inicio</a></li> <!--LINKEAR CON LA PPRINCIPAL NO CON EL CATALOGO -->
+                <li><a href="{{ url_for('catalogo') }}">New In</a></li>
                 
                 <li>
                     <label for="collection-toggle" class="collection-btn">
@@ -71,8 +71,8 @@
                 <div class="menu-separator">
                     <h4>Account</h4>
                 </div>
-                <li><a href="../miscompras/miscompras.html">Mis Compras</a></li>
-                <li><a href="../login - sign in/Login.html"><span class="material-symbols-outlined">account_circle</span>Perfil</a></li>
+                <li><a href="{{ url_for('miscompras') }}">Mis Compras</a></li>
+                <li><a href="{{ url_for('login') }}"><span class="material-symbols-outlined">account_circle</span>Perfil</a></li>
                 <li><a href="#"><span class="material-symbols-outlined">logout</span>Logout</a></li>
             </ul>
         </div>
@@ -109,9 +109,9 @@
         <h2>Total: $45.000</h2>
         <p class="discount-total">Total con descuento por transferencia bancaria: $42.000</p>
       </div>
-        <button class="checkout-btn" onclick="window.location.href='../Pago/pago.html'">
+        <a href="{{ url_for('pago') }}" class="checkout-btn">
           Finalizar compra
-        </button>
+        </a>
 
       </div>
   </div>
