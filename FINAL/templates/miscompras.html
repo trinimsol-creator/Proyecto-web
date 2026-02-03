@@ -1,73 +1,80 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <title>Mis Compras</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/miscompras.css') }}">
-</head>
-<body>
-    
-  <header>Mis compras</header>
+{% extends "_layout_clean.html" %}
 
-  <div class="filtros">
-    <button class="activo" onclick="filtrar('todos')">Todos</button>
-    <button onclick="filtrar('entregado')">Entregados</button>
-    <button onclick="filtrar('en-camino')">En camino</button>
-    <button onclick="filtrar('cancelado')">Cancelados</button>
+{% block title %}Mis Compras - COAST{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/miscompras.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<header class="titulo-pagina">Mis compras</header>
+
+<div class="filtros">
+  <button class="activo" onclick="filtrar('todos')">Todos</button>
+  <button onclick="filtrar('entregado')">Entregados</button>
+  <button onclick="filtrar('en-camino')">En camino</button>
+  <button onclick="filtrar('cancelado')">Cancelados</button>
+</div>
+
+<div id="lista-pedidos">
+
+  <div class="pedido" data-estado="en-camino">
+    <img src="{{ url_for('static', filename='img/top1.jpeg') }}" alt="Top Shore">
+    <div class="info">
+      <h3>
+        <a href="{{ url_for('detalles') }}">Top Shore</a>
+      </h3>
+      <p>Compra realizada el 05/10/2025</p>
+      <span class="estado en-camino">En camino</span>
+    </div>
+    <div class="total">$25000</div>
   </div>
 
-  <div id="lista-pedidos">
-    <div class="pedido" data-estado="en-camino">
-        <img src="{{ url_for('static', filename='img/top1.jpeg') }}" alt="Top Shore">
-        <div class="info">
-          <h3><a href="..\Detalles\detalles.html">Top Shore</a></h3>
-          <p>Compra realizada el 05/10/2025</p>
-          <span class="estado en-camino">En camino</span>
-        </div>
-        <div class="total">$25000</div>
+  <div class="pedido" data-estado="entregado">
+    <img src="{{ url_for('static', filename='img/top2.jpeg') }}" alt="Body Bay">
+    <div class="info">
+      <h3>
+        <a href="{{ url_for('detalles') }}">Body Bay</a>
+      </h3>
+      <p>Compra realizada el 01/10/2025</p>
+      <span class="estado entregado">Entregado</span>
     </div>
-
-    <div class="pedido" data-estado="entregado">
-        <img src="{{ url_for('static', filename='img/top2.jpeg') }}" alt="Body Bay">
-        <div class="info">
-          <h3><a href="..\Detalles\detalles.html">Body Bay</a></h3>
-          <p>Compra realizada el 01/10/2025</p>
-          <span class="estado entregado">Entregado</span>
-        </div>
-        <div class="total">$30000</div>
-    </div>
-
-    <div class="pedido" data-estado="cancelado">
-        <img src="{{ url_for('static', filename='img/top3.webp') }}" alt="Top Pearl">
-        <div class="info">
-          <h3><a href="..\Detalles\detalles.html">Top Pearl</a></h3>
-          <p>Compra realizada el 29/09/2025</p>
-          <span class="estado cancelado">Cancelado</span>
-        </div>
-        <div class="total">$24000</div>
-    </div>
-
-    <div class="pedido" data-estado="entregado">
-        <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Top Shelly">
-        <div class="info">
-          <h3><a href="..\Detalles\detalles.html">Top Shelly</a></h3>
-          <p>Compra realizada el 25/09/2025</p>
-          <span class="estado entregado">Entregado</span>
-        </div>
-        <div class="total">$32000</div>
-    </div>
+    <div class="total">$30000</div>
   </div>
 
-  <footer>
-    <div class="footer">
-      <p>© 2024 Coast. Todos los derechos reservados.</p>
+  <div class="pedido" data-estado="cancelado">
+    <img src="{{ url_for('static', filename='img/top3.webp') }}" alt="Top Pearl">
+    <div class="info">
+      <h3>
+        <a href="{{ url_for('detalles') }}">Top Pearl</a>
+      </h3>
+      <p>Compra realizada el 29/09/2025</p>
+      <span class="estado cancelado">Cancelado</span>
     </div>
-  </footer>
-</body>
+    <div class="total">$24000</div>
+  </div>
+
+  <div class="pedido" data-estado="entregado">
+    <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Top Shelly">
+    <div class="info">
+      <h3>
+        <a href="{{ url_for('detalles') }}">Top Shelly</a>
+      </h3>
+      <p>Compra realizada el 25/09/2025</p>
+      <span class="estado entregado">Entregado</span>
+    </div>
+    <div class="total">$32000</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>© 2024 Coast. Todos los derechos reservados.</p>
+</div>
+
+{% endblock %}
+
+{% block js %}
 <script src="{{ url_for('static', filename='js/miscompras.js') }}" defer></script>
-</html>
+{% endblock %}

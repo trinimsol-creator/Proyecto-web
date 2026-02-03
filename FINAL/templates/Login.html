@@ -1,41 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login.css') }}">
-    <title>Login</title>
-</head>
-<body>
-    <div class="header">
-        <h1>COAST</h1>
-    </div>
+{% extends "_layout_clean.html" %}
 
+{% block title %}Login - COAST{% endblock %}
 
-    <div class="login-container">
-        <h2>Inicio de sesión</h2>
-        <div class="formulario">
-            <form id ="Login" novalidate>
-                <input type="email" name="email" id="email" placeholder="Email">
-                <span id="mensaje1" style="color:red; font-weight:bold;"></span>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/Login.css') }}">
+{% endblock %}
 
-                <input type="password" name="password" id="password" placeholder="Contraseña">
-                <span id="mensaje2" style="color:red; font-weight:bold;"></span>
+{% block content %}
 
-                <button type="submit" class="ingresar">Log in</button>
-                <span id="mensaje3" style="color:red; font-weight:bold;"></span>
-            </form>
-        </div>
-        <p>¿No tienes una cuenta? <a href="../login - sign in/Signin.html">Regístrate</a></p>
-        
-    </div>
+<div class="header">
+  <h1>COAST</h1>
+</div>
 
-    <div class="footer">
-        <p>&copy; 2024 COAST. Todos los derechos reservados.</p>
-    </div>
-</body>
+<div class="login-container">
+  <h2>Inicio de sesión</h2>
+
+  <div class="formulario">
+    <form id="Login" novalidate>
+      <input type="email" name="email" id="email" placeholder="Email">
+      <span id="mensaje1" style="color:red; font-weight:bold;"></span>
+
+      <input type="password" name="password" id="password" placeholder="Contraseña">
+      <span id="mensaje2" style="color:red; font-weight:bold;"></span>
+
+      <button type="submit" class="ingresar">Log in</button>
+      <span id="mensaje3" style="color:red; font-weight:bold;"></span>
+    </form>
+  </div>
+
+  <p>¿No tienes una cuenta? <a href="{{ url_for('signin') }}">Regístrate</a></p>
+</div>
+
+<div class="footer">
+  <p>&copy; 2024 COAST. Todos los derechos reservados.</p>
+</div>
+
+{% endblock %}
+
+{% block js %}
 <script src="{{ url_for('static', filename='js/log2.js') }}" defer></script>
-</html>
+{% endblock %}

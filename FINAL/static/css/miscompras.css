@@ -149,7 +149,8 @@ footer {
   padding: 10px 0;
   border-top: 1px solid var(--borde);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 footer button {

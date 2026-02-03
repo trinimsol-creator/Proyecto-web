@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
-</head>
-<body>
-  <div class="header">
-    <h1>COAST</h1>
+{% extends "_layout_clean.html" %}
+
+{% block title %}Crear cuenta - COAST{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+  <h1>COAST</h1>
+</div>
+
+<div class="signin-container">
+  <h2>Crear una cuenta</h2>
+
+  <div class="formulario">
+    <form id="Signin" novalidate>
+      <input type="text" name="name" id="name" placeholder="Nombre de usuario">
+      <span id="mensaje1" style="color:red;font-weight:bold;"></span>
+
+      <input type="email" name="email" id="email" placeholder="Correo electrónico">
+      <span id="mensaje2" style="color:red;font-weight:bold;"></span>
+
+      <input type="password" name="password" id="password" placeholder="Contraseña">
+      <span id="mensaje3" style="color:red;font-weight:bold;"></span>
+
+      <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmar contraseña">
+      <span id="mensaje4" style="color:red;font-weight:bold;"></span>
+
+      <button type="submit" class="ingresar">Registrarse</button>
+      <span id="mensaje5" style="color:red;font-weight:bold;"></span>
+    </form>
   </div>
+</div>
 
-  <div class="signin-container">
-    <h2>Crear una cuenta</h2>
-    <div class="formulario">
-      <form id="Signin" novalidate>
-        <input type="text" name="name" id="name" placeholder="Nombre de usuario">
-        <span id="mensaje1" style="color:red;font-weight:bold;"></span>
+<div class="footer">
+  <p>&copy; 2024 COAST. Todos los derechos reservados.</p>
+</div>
 
-        <input type="email" name="email" id="email" placeholder="Correo electrónico">
-        <span id="mensaje2" style="color:red;font-weight:bold;"></span>
+{% endblock %}
 
-        <input type="password" name="password" id="password" placeholder="Contraseña">
-        <span id="mensaje3" style="color:red;font-weight:bold;"></span>
-
-        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirmar contraseña">
-        <span id="mensaje4" style="color:red;font-weight:bold;"></span>
-
-        <button type="submit" class="ingresar">Registrarse</button>
-        <span id="mensaje5" style="color:red;font-weight:bold;"></span>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>&copy; 2024 COAST. Todos los derechos reservados.</p>
-  </div>
-</body>
+{% block js %}
 <script src="{{ url_for('static', filename='js/sin2.js') }}" defer></script>
-</html>
+{% endblock %}

@@ -1,120 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
-  <title>Mi-Carrito</title>
-</head>
-<body>
+{% extends "_layout_flex.html" %}
 
-      <div class="header">
-        <h1>COAST</h1>
+{% block title %}Mi-Carrito - COAST{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/carrito.css') }}">
+{% endblock %}
+
+{% block header_extra %}{% endblock %}
+
+{% block content %}
+
+<div class="product-grid">
+
+  <div class="product-card">
+    <img src="{{ url_for('static', filename='img/top.webp') }}" alt="Product2">
+    <h2>Top Ariel</h2>
+    <p class="price">$25.000</p>
+    <p class="discount">Con transferencia bancaria: $23.500</p>
+
+    <div class="quantity">
+      <label for="cantidad1">Cantidad:</label>
+      <input type="number" id="cantidad1" name="cantidad1" value="1" min="1">
     </div>
 
-    <input type="checkbox" id="menu-toggle" hidden>
-    <input type="checkbox" id="collection-toggle" hidden>
-
-    <div class="topnav">
-        <div class="topnav-left">
-            <label for="menu-toggle" class="menu-btn">
-                <span class="material-symbols-outlined">menu</span>
-            </label>
-            
-            <div class="searchbar">
-
-                <input type="search" placeholder="Buscar">
-                <button><span class="material-symbols-outlined">search</span></button>
-
-            </div>
-        </div>
-        
-        <div class="topnav-right">
-            
-            <a href="../login - sign in/Login.html"><span class="material-symbols-outlined">account_circle</span></a>
-            
-            <button class="checkout-btn" onclick="window.location.href= '../Pag Principal/PPrincipal.html'">
-              <span class="material-symbols-outlined">arrow_back</span>
-              Volver al Inicio
-            </button>
-
-        </div>
-    </div>
-    
-    
-    <aside class="sidebar">
-        <div class="sidebar-links">
-            <ul>
-                <li><a href="{{ url_for('home') }}">Inicio</a></li> <!--LINKEAR CON LA PPRINCIPAL NO CON EL CATALOGO -->
-                <li><a href="{{ url_for('catalogo') }}">New In</a></li>
-                
-                <li>
-                    <label for="collection-toggle" class="collection-btn">
-                        Collection <span class="material-symbols-outlined">expand_more</span>
-                    </label>
-                    <ul class="sublist">
-                        <li><a href="#">Bodies y Tops</a></li>
-                        <li><a href="#">Polleras y Shorts</a></li>
-                        <li><a href="#">Vestidos</a></li>
-                        <li><a href="#">Accesorios</a></li>
-                        <li><a href="#">Merch</a></li>
-                    </ul>
-                </li>
-                
-                <li><a href="#">Sale</a></li>
-                <li><a href="#">Notificaciones</a></li>
-                
-                <div class="menu-separator">
-                    <h4>Account</h4>
-                </div>
-                <li><a href="{{ url_for('miscompras') }}">Mis Compras</a></li>
-                <li><a href="{{ url_for('login') }}"><span class="material-symbols-outlined">account_circle</span>Perfil</a></li>
-                <li><a href="#"><span class="material-symbols-outlined">logout</span>Logout</a></li>
-            </ul>
-        </div>
-    </aside>
-
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="{{ url_for('static', filename='img/top.webp') }}" alt="Product2">
-      <h2>Top Ariel</h2>
-      <p class="price">$25.000</p>
-      <p class="discount">Con transferencia bancaria: $23.500</p>
-      <div class="quantity">
-        <label for="cantidad2">Cantidad:</label>
-        <input type="number" id="cantidad2" name="cantidad2" value="1" min="1">
-      </div>
-      <button class="remove-btn"><span class="material-symbols-outlined">delete</span></button>
-    </div>
-
-    <div class="product-card">
-      <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Product1">
-      <h2>Top Summer</h2>
-      <p class="price">$20.000</p>
-      <p class="discount">$18.500 con Transferencia bancaria</p>
-      <div class="quantity">
-        <label for="cantidad2">Cantidad:</label>
-        <input type="number" id="cantidad2" name="cantidad2" value="1" min="1">
-      </div>
-      <button class="remove-btn"><span class="material-symbols-outlined">delete</span></button>
-    </div>
-
-
-    <div class="total">
-      <div class="total-card">
-        <h2>Total: $45.000</h2>
-        <p class="discount-total">Total con descuento por transferencia bancaria: $42.000</p>
-      </div>
-        <a href="{{ url_for('pago') }}" class="checkout-btn">
-          Finalizar compra
-        </a>
-
-      </div>
+    <button class="remove-btn">
+      <span class="material-symbols-outlined">delete</span>
+    </button>
   </div>
-</body>
+
+  <div class="product-card">
+    <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Product1">
+    <h2>Top Summer</h2>
+    <p class="price">$20.000</p>
+    <p class="discount">$18.500 con Transferencia bancaria</p>
+
+    <div class="quantity">
+      <label for="cantidad2">Cantidad:</label>
+      <input type="number" id="cantidad2" name="cantidad2" value="1" min="1">
+    </div>
+
+    <button class="remove-btn">
+      <span class="material-symbols-outlined">delete</span>
+    </button>
+  </div>
+
+  <div class="total">
+    <div class="total-card">
+      <h2>Total: $45.000</h2>
+      <p class="discount-total">Total con descuento por transferencia bancaria: $42.000</p>
+    </div>
+
+    <a href="{{ url_for('pago') }}" class="checkout-btn">
+      Finalizar compra
+    </a>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
 <script src="{{ url_for('static', filename='js/carrito.js') }}" defer></script>
-</html>
+{% endblock %}
