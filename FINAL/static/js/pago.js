@@ -75,6 +75,6 @@ if (nombreUsuario === "") {
   }
 
   if (valido) {
-    window.location.href = "../Pag Principal/PPrincipal.html";
+    window.location.href = "/";
   }
 }
