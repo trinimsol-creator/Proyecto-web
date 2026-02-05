@@ -9,54 +9,20 @@ Lista de pedidos
 {% endblock %}
 
 {% block content %}
-
 <div class="contenedor">
+  {% for p in pedidos %}
+    <div class="pedido">
+      <h3>Pedido número: {{ p.id }}</h3>
+      <p><b>Cliente:</b> {{ p.nombre }} {{ p.apellido }}</p>
+      <p><b>Fecha:</b> {{ p.fechahora.strftime('%d/%m/%Y') }}</p>
+      <p><b>Total:</b> ${{ p.total }}</p>
+      <p><b>Estado:</b> {{ p.estado }}</p>
 
-  <div class="pedido">
-    <h3>Pedido número: 1026</h3>
-    <p><b>Cliente:</b> Persona1</p>
-    <p><b>Fecha:</b> 09/09/2025</p>
-    <p><b>Total:</b> $25.000</p>
-    <p><b>Estado:</b> En preparación</p>
-      
-     <a href="{{ url_for('detalle_pedido', id=1026) }}" class="btn"> Ver detalle</a> 
-  </div>
-
-  <div class="pedido">
-    <h3>Pedido número: 1027</h3>
-    <p><b>Cliente:</b> Persona2</p>
-    <p><b>Fecha:</b> 09/09/2025</p>
-    <p><b>Total:</b> $50.000</p>
-    <p><b>Estado:</b> Listo para entregar</p>
-    
-     <a href="{{ url_for('detalle_pedido', id=1027) }}" class="btn"> Ver detalle</a> 
-  </div>
-
-</div>
-
-<div class="contenedor">
-
-  <div class="pedido">
-    <h3>Pedido número: 1028</h3>
-    <p><b>Cliente:</b> Persona1</p>
-    <p><b>Fecha:</b> 09/09/2025</p>
-    <p><b>Total:</b> $25.000</p>
-    <p><b>Estado:</b> En preparación</p>
-    
-     <a href="{{ url_for('detalle_pedido', id=1028) }}" class="btn"> Ver detalle</a> 
-  </div>
-
-  <div class="pedido">
-    <h3>Pedido número: 1029</h3>
-    <p><b>Cliente:</b> Persona2</p>
-    <p><b>Fecha:</b> 09/09/2025</p>
-    <p><b>Total:</b> $50.000</p>
-    <p><b>Estado:</b> Listo para entregar</p>
-   
-    <a href="{{ url_for('detalle_pedido', id=1029) }}" class="btn"> Ver detalle</a> 
-   
-  </div>
-
+      <a href="{{ url_for('detalle_pedido', id=p.id) }}" class="btn">
+        Ver detalle
+      </a>
+    </div>
+  {% endfor %}
 </div>
 
 {% endblock %}

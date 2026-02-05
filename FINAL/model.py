@@ -1,5 +1,24 @@
 from _mysql_db import *
 
+from appConfig import config
+
+BASE = config['db']
+
+def obtenerPedidos():
+    sql = """
+        SELECT 
+            compras.id,
+            compras.fechahora,
+            compras.total,
+            compras.estado,
+            usuario.nombre,
+            usuario.apellido
+        FROM compras
+        INNER JOIN usuario ON compras.id_usuario = usuario.id
+        ORDER BY compras.fechahora DESC
+    """
+    return selectDB(BASE, sql, dictionary=True)
+
 # ---------------- PRODUCTOS ----------------
 
 def obtenerProductoPorId(id_prod):

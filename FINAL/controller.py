@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for
+from model import *
 
 def home_pagina():
     param = {}
@@ -11,7 +12,9 @@ def admin_pagina():
     return render_template("PPrin_admin.html", param=param)
 
 def lista_pedidos_pagina():
-    return render_template("Lista_pedidos.html")
+    pedidos = obtenerPedidos()
+    return render_template("Lista_pedidos.html", pedidos=pedidos)
+
 
 
 def detalle_pedido_pagina(id, request):
