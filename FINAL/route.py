@@ -19,19 +19,19 @@ def route(app):
         def detalles():
             return detalles_pagina()
         
-        @app.route("/login")
+        @app.route("/login", methods =["GET", "POST"])
         def login():
             return login_pagina()
         
         @app.route('/signin', methods =["GET", "POST"])
         def signin(): 
-            return signin_pagina(request)
+            return signin_pagina() #saque el request del parentesis
 
         @app.route("/miscompras")
         def miscompras():
             return miscompras_pagina()
         
-        @app.route("/pago")
+        @app.route("/pago", methods =["GET", "POST"])
         def pago():
             return pago_pagina()
         
