@@ -43,6 +43,43 @@ def obtenerProductoPorId(id_prod):
         }
     return None
 
+#detalles del pedidp
+def obtenerPedidoPorId(id_pedido):
+    sql = """
+        SELECT 
+            compras.id,
+            compras.fechahora,
+            compras.total,
+            compras.estado,
+            usuario.nombre,
+            usuario.apellido
+        FROM compras
+        INNER JOIN usuario ON compras.id_usuario = usuario.id
+        WHERE compras.id = %s
+    """
+    filas = selectDB(BASE, sql, (id_pedido,), dictionary=True)
+    return filas[0] if filas else None
+
+def obtenerProductosPorPedido(id_pedido):
+    sql = """
+        SELECT 
+            producto.nombre,
+            detalles_compras.cantidad,
+            detalles_compras.precio_unidad
+        FROM detalles_compras
+        INNER JOIN producto ON detalles_compras.id_producto = producto.id
+        WHERE detalles_compras.id_compra = %s
+    """
+    return selectDB(BASE, sql, (id_pedido,), dictionary=True)
+
+def actualizarEstadoPedido(id_pedido, nuevo_estado):
+    sql = """
+        UPDATE compras
+        SET estado = %s
+        WHERE id = %s
+    """
+    return updateDB(BASE, sql, (nuevo_estado, id_pedido))
+
 
 def crearProducto(datos):
     sQuery = """

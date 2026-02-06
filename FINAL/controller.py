@@ -16,26 +16,28 @@ def lista_pedidos_pagina():
     return render_template("Lista_pedidos.html", pedidos=pedidos)
 
 
-
 def detalle_pedido_pagina(id, request):
-    pedido_ejemplo = {
-        "id": id,
-        "cliente": "Juan Pérez",
-        "fecha": "2023-10-27",
-        "total": 5500,
-        "estado": "Pendiente",
-        "productos": [
-            {"nombre": "Top Ariel", "cantidad": 1, "precio": 25000}
-        ]
-    }
 
     if request.method == "POST":
         nuevo_estado = request.form.get("estado")
-        print(f"Cambiando el pedido {id} al estado: {nuevo_estado}")
-        pedido_ejemplo["estado"] = nuevo_estado
+        actualizarEstadoPedido(id, nuevo_estado)
 
-    return render_template("Detalle_del_Pedido.html", pedido=pedido_ejemplo)
+    pedido_db = obtenerPedidoPorId(id)
+    productos = obtenerProductosPorPedido(id)
 
+    if not pedido_db:
+        return "Pedido no encontrado", 404
+
+    pedido = {
+        "id": pedido_db["id"],
+        "cliente": f'{pedido_db["nombre"]} {pedido_db["apellido"]}',
+        "fecha": pedido_db["fechahora"],
+        "total": pedido_db["total"],
+        "estado": pedido_db["estado"],
+        "productos": productos
+    }
+
+    return render_template("Detalle_del_Pedido.html", pedido=pedido)
 
 def editar_producto_pagina(id, request):
     producto_datos = {
