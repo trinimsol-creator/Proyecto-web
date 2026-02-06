@@ -96,7 +96,14 @@ def crearProducto(datos):
         datos['img']
     )
     return insertDB(BASE, sQuery, val)
-
+#catalogo
+def obtenerProductosCatalogo():
+    sql = """
+        SELECT id, nombre, precio, img
+        FROM producto
+        WHERE estado = 'visible'
+    """
+    return selectDB(BASE, sql, dictionary=True)
 
 # ---------------- USUARIOS ----------------
 

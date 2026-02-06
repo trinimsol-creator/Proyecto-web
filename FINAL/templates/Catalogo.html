@@ -57,70 +57,15 @@
 <div class="catalogo-container">
   <div class="product-grid">
 
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top1.jpeg') }}" alt="Top Shore">
-      <div class="product-info">
-        <h3>Top Shore</h3>
-        <p class="price">$25.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top2.jpeg') }}" alt="Body Bay">
-      <div class="product-info">
-        <h3>Body Bay</h3>
-        <p class="price">$30.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top3.webp') }}" alt="Top Pearl">
-      <div class="product-info">
-        <h3>Top Pearl</h3>
-        <p class="price">$24.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Top Shelly">
-      <div class="product-info">
-        <h3>Top Shelly</h3>
-        <p class="price">$32.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top1.jpeg') }}" alt="Top Shore">
-      <div class="product-info">
-        <h3>Top Shore</h3>
-        <p class="price">$25.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top2.jpeg') }}" alt="Body Bay">
-      <div class="product-info">
-        <h3>Body Bay</h3>
-        <p class="price">$30.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top3.webp') }}" alt="Top Pearl">
-      <div class="product-info">
-        <h3>Top Pearl</h3>
-        <p class="price">$24.000</p>
-      </div>
-    </a>
-
-    <a href="{{ url_for('detalles') }}" class="product-card">
-      <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="Top Shelly">
-      <div class="product-info">
-        <h3>Top Shelly</h3>
-        <p class="price">$32.000</p>
-      </div>
-    </a>
-
+  {% for p in productos %}
+  <a href="{{ url_for('detalles') }}?id={{ p.id }}" class="product-card">
+    <img src="{{ url_for('static', filename='img/' ~ p.img) }}" alt="{{ p.nombre }}">
+    <div class="product-info">
+      <h3>{{ p.nombre }}</h3>
+      <p class="price">${{ "{:,.0f}".format(p.precio) }}</p>
+    </div>
+  </a>
+  {% endfor %}
   </div>
 </div>
 

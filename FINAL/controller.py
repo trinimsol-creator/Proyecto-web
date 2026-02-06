@@ -142,8 +142,9 @@ def carrito_pagina():
     return render_template("carrito.html", param=param)
 
 def catalogo_pagina():
-    param = {}
-    return render_template("Catalogo.html", param=param)
+    productos = obtenerProductosCatalogo()
+    return render_template("Catalogo.html", productos=productos)
+
 
 def detalles_pagina():
     param = {}
