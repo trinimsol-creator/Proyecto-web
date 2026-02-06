@@ -61,9 +61,11 @@ def route(app):
         def detalle_pedido(id):
             return detalle_pedido_pagina(id, request)
 
-        @app.route("/editar-producto/<int:id>", methods=["GET", "POST"])
+        @app.route("/editar_producto/<int:id>", methods=["GET", "POST"])
         def editar_producto(id):
             return editar_producto_pagina(id, request)
+
+
 
         @app.route("/crear-producto", methods=["GET", "POST"])
         def crear_producto():

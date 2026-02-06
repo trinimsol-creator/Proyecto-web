@@ -20,6 +20,39 @@ def obtenerPedidos():
     return selectDB(BASE, sql, dictionary=True)
 
 # ---------------- PRODUCTOS ----------------
+#pprin admin
+def obtenerProductosAdmin():
+    sql = """
+        SELECT id, nombre, img
+        FROM producto
+        ORDER BY id DESC
+    """
+    return selectDB(BASE, sql, dictionary=True)
+def actualizarProducto(id, datos):
+    sql = """
+        UPDATE producto
+        SET nombre=%s,
+            precio=%s,
+            detalles=%s,
+            categoria=%s,
+            color=%s,
+            stock=%s,
+            estado=%s,
+            img=%s
+        WHERE id=%s
+    """
+    valores = (
+        datos["nombre"],
+        datos["precio"],
+        datos["detalles"],
+        datos["categoria"],
+        datos["color"],
+        datos["stock"],
+        datos["estado"],
+        datos["img"],
+        id
+    )
+    return updateDB(BASE, sql, valores)
 
 def obtenerProductoPorId(id_prod):
     sSql = """

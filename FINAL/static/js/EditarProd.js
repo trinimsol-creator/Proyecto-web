@@ -1,4 +1,12 @@
 document.getElementById("Myform").addEventListener("submit", form);
+const mensaje  = document.getElementById("mensaje");
+const mensaje1 = document.getElementById("mensaje1");
+const mensaje2 = document.getElementById("mensaje2");
+const mensaje3 = document.getElementById("mensaje3");
+const mensaje4 = document.getElementById("mensaje4");
+const mensaje5 = document.getElementById("mensaje5");
+const mensaje6 = document.getElementById("mensaje6");
+
 
 function form(event) {
     event.preventDefault();
@@ -9,74 +17,26 @@ function form(event) {
     mensaje3.textContent = "";
     mensaje4.textContent = "";
     mensaje5.textContent = "";
-    mensaje6.textContent = "";
 
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
     const detalles = document.getElementById("detalles").value;
     const colorSeleccionado = document.querySelector('input[name="color"]:checked');
     const selLoc = document.getElementById("selLoc").value;
-    const estado = document.getElementById("Estado").value;
-
-    mensaje.style.color = "red";
+    const estado = document.getElementById("estado").value;
 
     let valido = true;
 
-    if (nombre === "" || precio === "" || detalles === "" || !colorSeleccionado) {
+    if (!nombre || !precio || !detalles || !colorSeleccionado || !selLoc || !estado) {
         mensaje.textContent = "Por favor, complete todos los campos.";
         valido = false;
     }
 
-  
-    const regex = /^[a-zA-Z0-9\s.,-]+$/;
-    if (nombre === "") {
-        mensaje1.textContent = "El nombre no puede estar vacío.";
-        valido = false;
-    } else if (!regex.test(nombre) || !regex.test(detalles)) {
-        mensaje1.textContent = "El nombre y los detalles solo pueden contener letras, números, espacios y algunos caracteres especiales (.,-).";
-        valido = false;
-    }
-
-
-    if (precio === "") {
-        mensaje2.textContent = "El precio no puede estar vacío.";
-        valido = false;
-    } else if (precio <= 0) {
-        mensaje2.textContent = "El precio debe ser un número positivo.";
-        valido = false;
-    }
-
-
-
-    if (detalles === "") {
-        mensaje3.textContent = "Los detalles no pueden estar vacíos.";
-        valido = false;
-    }
-
-
-
-    if (selLoc === "") {
-        mensaje5.textContent = "Por favor, seleccione una categoría.";
-        valido = false;
-    }
-
-    if (estado === "") {
-        mensaje6.textContent = "Por favor, seleccione un estado.";
-        valido = false;
-    }
-
-
-
-    if (!colorSeleccionado) {
-        mensaje4.textContent = "Por favor, seleccione un color.";
-        valido = false;
-    }
-
     if (!valido) return;
+
     mensaje.style.color = "green";
     mensaje.textContent = "Producto fue editado con éxito.";
-    
-    setTimeout(() => {
-        window.location.href = "/admin";
-    }, 3000);
-};
+
+    event.target.removeEventListener("submit", form);
+    event.target.submit();
+}

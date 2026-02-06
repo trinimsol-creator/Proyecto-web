@@ -13,9 +13,11 @@ def home_pagina():
 
 #funciones para admin
 
+
 def admin_pagina():
-    param = {}
-    return render_template("PPrin_admin.html", param=param)
+    productos = obtenerProductosAdmin()
+    return render_template("PPrin_admin.html", productos=productos)
+
 
 def lista_pedidos_pagina():
     pedidos = obtenerPedidos()
@@ -46,33 +48,55 @@ def detalle_pedido_pagina(id, request):
     return render_template("Detalle_del_Pedido.html", pedido=pedido)
 
 def editar_producto_pagina(id, request):
-    producto_datos = {
-        "id": id,
-        "nombre": "Top Ariel",
-        "precio": 25000,
-        "detalles": "Top de color negro",
-        "categoria": "Top",
-        "estado": "Stock",
-        "color": "n",
-        "imagen": "top_ariel.jpg"
-    }
+    
+    print("REQUEST METHOD:", request.method)
+    print("FORM DATA:", request.form)
+    print("FILES:", request.files)
+
+    producto = obtenerProductoPorId(id)
+
+    if not producto:
+        return "Producto no encontrado", 404
 
     if request.method == "POST":
-        nombre = request.form.get("nombre")
-        precio = request.form.get("precio")
-        detalles = request.form.get("detalles")
+
+        nombre    = request.form.get("nombre")
+        precio    = request.form.get("precio")
+        detalles  = request.form.get("detalles")
         categoria = request.form.get("categoria")
-        estado = request.form.get("estado")
-        color = request.form.get("color")
+        estado    = request.form.get("estado")
+        color     = request.form.get("color")
+        stock     = request.form.get("stock")
 
+        img_actual = producto["img"]
         foto = request.files.get("archivo")
-        if foto and foto.filename != "":
-            print(f"Nueva foto recibida: {foto.filename}")
 
-        print(f"Producto {id} actualizado: {nombre}, ${precio}")
+        if foto and foto.filename != "":
+            filename = secure_filename(foto.filename)
+            ext = filename.rsplit(".", 1)[1]
+            nombre_img = f"{uuid4()}.{ext}"
+
+            ruta = os.path.join(config['upload_folder'], nombre_img)
+            foto.save(ruta)
+        else:
+            nombre_img = img_actual
+
+        datos = {
+            "nombre": nombre,
+            "precio": precio,
+            "detalles": detalles,
+            "categoria": categoria,
+            "estado": estado,
+            "color": color,
+            "stock": stock,
+            "img": nombre_img
+        }
+
+        actualizarProducto(id, datos)
+
         return redirect(url_for("admin"))
 
-    return render_template("Editar_Prod.html", producto=producto_datos)
+    return render_template("Editar_Prod.html", producto=producto)
 
 
 def crear_producto_pagina(request):
