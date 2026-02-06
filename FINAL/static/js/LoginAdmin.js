@@ -17,9 +17,7 @@ formularioInicioSesion.addEventListener("submit", function(evento) {
     
     if (correoIngresado === "admin@coast.com" && contrasenaIngresada === "1234") {
         
-        pantallaLogin.classList.remove("active");
-        pantallaLogin.classList.add("hidden");
-        panelAdministrador.classList.remove("hidden");
+        window.location.href = "/admin";
     } else {
         
         alert("Correo o contraseña incorrectos");
