@@ -76,7 +76,11 @@ def editar_producto_pagina(id, request):
 
 
 def crear_producto_pagina(request):
+    print("ENTRÓ A crear_producto_pagina")
+    print("METHOD:", request.method)
+
     if request.method == "POST":
+
         nombre = request.form.get("nombre")
         precio = request.form.get("precio")
         detalles = request.form.get("detalles")
@@ -85,18 +89,33 @@ def crear_producto_pagina(request):
 
         foto = request.files.get("archivo")
 
-        print("--- NUEVO PRODUCTO RECIBIDO ---")
-        print(f"Nombre: {nombre}")
-        print(f"Precio: {precio}")
-        print(f"Categoría: {categoria}")
-        print(f"Color: {color}")
+        nombre_img = None
 
         if foto and foto.filename != "":
-            print(f"Imagen: {foto.filename}")
+            filename = secure_filename(foto.filename)
+            ext = filename.rsplit(".",1)[1]
+            nombre_img = f"{uuid4()}.{ext}"
+
+            ruta = os.path.join(config['upload_folder'], nombre_img)
+            foto.save(ruta)
+
+        datos = {
+            "nombre": nombre,
+            "precio": precio,
+            "detalles": detalles,
+            "categoria": categoria,
+            "color": color,
+            "img": nombre_img
+        }
+
+        print("INSERTANDO PRODUCTO:", datos)
+
+        crearProducto(datos)
 
         return redirect(url_for("admin"))
 
     return render_template("Crear_Prod.html")
+
 
 
 def login_admin_pagina(request):

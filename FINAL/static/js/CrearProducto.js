@@ -1,74 +1,80 @@
-document.getElementById("Myform").addEventListener("submit", form);
+document.getElementById("Myform").addEventListener("submit", enviarFormulario);
 
-function form(event) {
-    event.preventDefault();
+function enviarFormulario(event) {
 
-    mensaje.textContent = "";
-    mensaje1.textContent = "";
-    mensaje2.textContent = "";
-    mensaje3.textContent = "";
-    mensaje4.textContent = "";
-    mensaje5.textContent = "";
+    const mensaje = document.getElementById("mensaje");
+    const mensaje1 = document.getElementById("mensaje1");
+    const mensaje2 = document.getElementById("mensaje2");
+    const mensaje3 = document.getElementById("mensaje3");
+    const mensaje4 = document.getElementById("mensaje4");
+    const mensaje5 = document.getElementById("mensaje5");
 
-    const nombre = document.getElementById("nombre").value;
-    const precio = document.getElementById("precio").value;
-    const detalles = document.getElementById("detalles").value;
+    [mensaje, mensaje1, mensaje2, mensaje3, mensaje4, mensaje5].forEach(m => {
+        if (m) m.textContent = "";
+    });
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const precio = document.getElementById("precio").value.trim();
+    const detalles = document.getElementById("detalles").value.trim();
     const colorSeleccionado = document.querySelector('input[name="color"]:checked');
     const selLoc = document.getElementById("selLoc").value;
 
-    mensaje.style.color = "red";
-
     let valido = true;
 
-    if (nombre === "" || precio === "" || detalles === "" || !colorSeleccionado) {
-        mensaje.textContent = "Por favor, complete todos los campos.";
+    if (!nombre || !precio || !detalles || !colorSeleccionado || !selLoc) {
+        if (mensaje) {
+            mensaje.style.color = "red";
+            mensaje.textContent = "Por favor, complete todos los campos.";
+        }
         valido = false;
     }
 
-  
     const regex = /^[a-zA-Z0-9\s.,-]+$/;
-    if (nombre === "") {
-        mensaje1.textContent = "El nombre no puede estar vacío.";
-        valido = false;
-    } else if (!regex.test(nombre) || !regex.test(detalles)) {
-        mensaje1.textContent = "El nombre y los detalles solo pueden contener letras, números, espacios y algunos caracteres especiales (.,-).";
-        valido = false;
-    }
 
-
-    if (precio === "") {
-        mensaje2.textContent = "El precio no puede estar vacío.";
+    if (!nombre) {
+        if (mensaje1) mensaje1.textContent = "El nombre no puede estar vacío.";
         valido = false;
-    } else if (precio <= 0) {
-        mensaje2.textContent = "El precio debe ser un número positivo.";
+    } else if (!regex.test(nombre)) {
+        if (mensaje1) mensaje1.textContent = "El nombre contiene caracteres no válidos.";
         valido = false;
     }
 
-
-    if (detalles === "") {
-        mensaje3.textContent = "Los detalles no pueden estar vacíos.";
+    const precioNum = parseFloat(precio);
+    if (isNaN(precioNum)) {
+        if (mensaje2) mensaje2.textContent = "El precio debe ser un número.";
+        valido = false;
+    } else if (precioNum <= 0) {
+        if (mensaje2) mensaje2.textContent = "El precio debe ser positivo.";
         valido = false;
     }
 
-
-
-    if (selLoc === "") {
-        mensaje5.textContent = "Por favor, seleccione una categoría.";
+    if (!detalles) {
+        if (mensaje3) mensaje3.textContent = "Los detalles no pueden estar vacíos.";
+        valido = false;
+    } else if (!regex.test(detalles)) {
+        if (mensaje3) mensaje3.textContent = "Los detalles contienen caracteres no válidos.";
         valido = false;
     }
-
-
 
     if (!colorSeleccionado) {
-        mensaje4.textContent = "Por favor, seleccione un color.";
+        if (mensaje4) mensaje4.textContent = "Seleccione un color.";
         valido = false;
     }
 
-    if (!valido) return;
-    mensaje.style.color = "green";
-    mensaje.textContent = "Producto creado con éxito.";
-    
-    setTimeout(() => {
-        window.location.href = "/admin";
-    }, 3000);
-};
+    if (!selLoc) {
+        if (mensaje5) mensaje5.textContent = "Seleccione una categoría.";
+        valido = false;
+    }
+
+    if (!valido) {
+        event.preventDefault();  // bloquea el envío si hay errores
+        return;
+    }
+
+    if (mensaje) {
+        mensaje.style.color = "green";
+        mensaje.textContent = "Producto validado, enviando...";
+    }
+
+    // 🔴 NO usamos preventDefault() → el form se envía normal a Flask
+}

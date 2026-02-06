@@ -9,7 +9,8 @@
 {% block content %}
 <div class="product-form"> 
     <h1>Crear Producto</h1>
-    <form id="Myform" method="POST" enctype="multipart/form-data">
+    <form id="Myform" method="POST" action="{{ url_for('crear_producto') }}" enctype="multipart/form-data">
+
         
         <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto">
         <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
@@ -22,8 +23,8 @@
 
         <select id="selLoc" name="categoria">
             <option value="" disabled selected>Categoria</option>
-            <option value="Top">Tops y Bodys</option>
-            <option value="Polleras">Polleras y Shorts</option>
+            <option value="Tops y Bodys">Tops y Bodys</option>
+            <option value="Polleras y Shorts">Polleras y Shorts</option>
             <option value="Vestidos">Vestidos</option>
             <option value="Accesorios">Accesorios</option>
         </select>
@@ -31,13 +32,13 @@
 
         <fieldset id="color">
             <legend>Color</legend>
-            <input type="radio" id="rad01" name="color" value="n"/>
+            <input type="radio" id="rad01" name="color" value="Negro"/>
             <label for="rad01">Negro</label>
-            <input type="radio" id="rad02" name="color" value="b"/>
+            <input type="radio" id="rad02" name="color" value="Blanco"/>
             <label for="rad02">Blanco</label>
-            <input type="radio" id="rad03" name="color" value="r"/>
+            <input type="radio" id="rad03" name="color" value="Rojo"/>
             <label for="rad03">Rojo</label>
-            <input type="radio" id="rad04" name="color" value="a"/>
+            <input type="radio" id="rad04" name="color" value="Azul"/>
             <label for="rad04">Azul</label>
         </fieldset>
         <br><span id="mensaje4" style="color:red; font-weight:bold;"></span></br>
