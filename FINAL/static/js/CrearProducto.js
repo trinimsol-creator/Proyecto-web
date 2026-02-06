@@ -69,6 +69,6 @@ function form(event) {
     mensaje.textContent = "Producto creado con éxito.";
     
     setTimeout(() => {
-        window.location.href = "pagAdmin.html";
+        window.location.href = "/admin";
     }, 3000);
 };
