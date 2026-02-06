@@ -53,6 +53,6 @@ function onSignin(event) {
 
   if (!valido) return;
   setTimeout(() => {
-    window.location.href = "../Pag Principal/PPrincipal.html";
+    window.location.href = "/";
   }, 300);
 }

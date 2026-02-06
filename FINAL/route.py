@@ -19,13 +19,25 @@ def route(app):
         def detalles():
             return detalles_pagina()
         
-        @app.route("/login", methods =["GET", "POST"])
+
+        
+        @app.route("/login", methods=["GET","POST"])
         def login():
-            return login_pagina()
+            param={}
+            if request.method == "POST":
+                print("POST /login")
+                print(request.form) 
+                return ingresoUsuarioValido(param, request)
+            return login_pagina(param)
         
         @app.route('/signin', methods =["GET", "POST"])
         def signin(): 
-            return signin_pagina() #saque el request del parentesis
+            param={}
+            if request.method == "POST":
+                print("POST /signin")
+                print(request.form)
+                return registrarUsuario(param, request)
+            return signin_pagina(param)
 
         @app.route("/miscompras")
         def miscompras():
