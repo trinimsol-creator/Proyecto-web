@@ -202,13 +202,12 @@ def cargarSesion(dicUsuario):
 def crearSesion(request):
 
     sesionValida=False
-    mirequest={}
     try: 
-        #Carga los datos recibidos del form cliente en el dict 'mirequest'.          
-        getRequet(mirequest)
-        # CONSULTA A LA BASE DE DATOS. Si usuario es valido => crea session
-        dicUsuario={}
-        if obtenerUsuarioXEmailPass(dicUsuario,mirequest.get("username"),mirequest.get("password")):
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        dicUsuario = {}
+        if obtenerUsuarioXEmailPass(dicUsuario,email,password):
             # Carga sesion (Usuario validado)
             cargarSesion(dicUsuario)
             sesionValida = True
@@ -236,6 +235,29 @@ def ingresoUsuarioValido(param,request):
         return login_pagina(param)        
 
 
+def ingresoUsuarioValido2(param,request):
+    #if crearSesion(request):
+     #   return redirect(url_for("home"))
+    #else:
+     #   param['error_msg_login']="Error: Usuario y/o password inválidos"
+      #  return signin_pagina(param)
+    nombre = request.form.get("name")
+    email = request.form.get("email")
+    password = request.form.get("password")
+    confirm = request.form.get("confirm_password") 
+
+    if password != confirm:
+        param["error_msg_login"] = "Error: Las contraseñas no coinciden"
+        return signin_pagina(param)
+
+    # acá deberías crear el usuario en la BD
+    # ej: crearUsuario(nombre, email, password)
+
+    return redirect(url_for("login"))
+    
+    
+    
+    
 def registro_pagina(param):   
     return render_template('register.html',param=param)
 
@@ -248,6 +270,7 @@ def ValidarFormularioRegistro(di):
     return res
 
 def registrarUsuario(param,request):
+
     mirequest={}
     getRequet(mirequest)
     

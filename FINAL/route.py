@@ -25,8 +25,6 @@ def route(app):
         def login():
             param={}
             if request.method == "POST":
-                print("POST /login")
-                print(request.form) 
                 return ingresoUsuarioValido(param, request)
             return login_pagina(param)
         
@@ -34,10 +32,9 @@ def route(app):
         def signin(): 
             param={}
             if request.method == "POST":
-                print("POST /signin")
-                print(request.form)
-                return registrarUsuario(param, request)
+                return ingresoUsuarioValido2(param, request)
             return signin_pagina(param)
+
 
         @app.route("/miscompras")
         def miscompras():

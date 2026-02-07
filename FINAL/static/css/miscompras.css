@@ -161,6 +161,11 @@ footer button {
   cursor: pointer;
 }
 
+footer * {
+  margin: 0;
+  text-align: center;
+}
+
 @media (min-width: 700px) {
   .pedido {
     max-width: 700px;

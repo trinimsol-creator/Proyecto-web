@@ -6,6 +6,10 @@
   font-style: normal;
 }
 
+html, body {
+  height: 100%;
+}
+
 h1, h2, h3, h4 {
   font-weight: 700;
 }
@@ -18,6 +22,10 @@ p, a, li, span {
       margin: 0;
       padding: 0;
       background: #f8f8f8;
+
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .container {
@@ -29,6 +37,8 @@ p, a, li, span {
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+      flex: 1;
     }
 
     .product-image img {
@@ -104,12 +114,20 @@ p, a, li, span {
     .btn:hover {
       background: #6a3c22;
     }
-
+    
     .footer {
-    text-align: center;
-    padding: 10px;
-    background: #f1f1f1;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 60px;
+      margin-top: auto;
+
+      text-align: center;
+      padding: 10px;
+      background: #f1f1f1;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #555;
 }
