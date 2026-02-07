@@ -240,3 +240,15 @@ def actualizarUsuario(di,email):
     
     resul_update=updateDB(BASE,sQuery,val=val)
     return resul_update==1
+
+#log in admin
+def obtenerAdminLogin(email, password):
+    sql = """
+        SELECT id, nombre, apellido, email
+        FROM usuario
+        WHERE email = %s 
+          AND pass = %s 
+          AND tipo_usario = 'admin'
+    """
+    filas = selectDB(BASE, sql, (email, password), dictionary=True)
+    return filas[0] if filas else None

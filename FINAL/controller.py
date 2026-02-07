@@ -141,15 +141,18 @@ def crear_producto_pagina(request):
     return render_template("Crear_Prod.html")
 
 
-
+#log in admin
 def login_admin_pagina(request):
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
 
-        if email == "admin@coast.com" and password == "1234":
-            print(f"Login exitoso: {email}")
-            return redirect(url_for("lista_pedidos"))
+        admin = obtenerAdminLogin(email, password)
+
+        if admin:
+            session["admin"] = True
+            session["admin_nombre"] = admin["nombre"]
+            return redirect(url_for("admin"))
         else:
             return render_template(
                 "Login_Admin.html",
@@ -157,6 +160,12 @@ def login_admin_pagina(request):
             )
 
     return render_template("Login_Admin.html")
+#log out admin
+def logout_admin():
+    session.pop("admin", None)
+    session.pop("admin_nombre", None)
+    return redirect(url_for("login_admin"))
+
 
 
 # ================= pantallas vicky=================
