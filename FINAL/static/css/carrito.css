@@ -12,13 +12,17 @@ p, a, li, span {
   font-weight: 400;
 }
 
+
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: Arial;
     padding: 10px;
     background: #ffffff;
-    padding-top: 40px; 
+    padding-top: 40px;
 }
-
 .header {
     padding: 5px;
     padding-top: 10px;
@@ -364,6 +368,15 @@ body {
 
 .total .checkout-btn:hover {
   background-color: #6a3c22;
+}
+
+.footer {
+    text-align: center;
+    padding: 14px;
+    background: #f1f1f1;
+    font-size: 14px;
+    color: #555;
+    margin-top: auto;
 }
 
 /* ====== RESPONSIVE ====== */

@@ -24,7 +24,7 @@ body {
   font-family: "DM Sans", sans-serif;
   background-color: var(--fondo);
   color: var(--primario);
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
 header {
@@ -141,25 +141,18 @@ header {
   text-align: right;
 }
 
-footer {
-  background: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 0;
-  border-top: 1px solid var(--borde);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #f1f1f1;
+    font-size: 14px;
+    color: #555;
 }
 
-footer button {
-  background: none;
-  border: none;
-  font-size: 14px;
-  color: var(--secundario);
-  cursor: pointer;
-}
 
 @media (min-width: 700px) {
   .pedido {
