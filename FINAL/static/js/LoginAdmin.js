@@ -1,6 +1,4 @@
-
-
-
+/* ...
 var formularioInicioSesion = document.getElementById("login-form");
 var pantallaLogin = document.getElementById("login-screen");
 var panelAdministrador = document.getElementById("admin-panel");
@@ -68,3 +66,4 @@ for (var i = 0; i < botonesMenu.length; i++) {
         mostrarContenidoAsociado(destino);
     });
 }
+     */

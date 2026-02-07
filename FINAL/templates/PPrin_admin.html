@@ -17,42 +17,16 @@
 
     <div class="catalogo-container">
         <div class="product-grid">
-
-            <a href="{{ url_for('editar_producto', id=1) }}" class="product-card">
-            
-                <img src="{{ url_for('static', filename='img/top1.jpeg') }}">
-                <div class="product-info">
-                    <h3>Top Shore</h3>
-                    <button class="detalle-btn">Editar</button>
-                </div>
-            </a>
-
-
-            <a href="{{ url_for('editar_producto', id=2) }}" class="product-card">
-
-                <img src="{{ url_for('static', filename='img/top2.jpeg') }}">
-                <div class="product-info">
-                    <h3>Body Bay</h3>
-                    <button class="detalle-btn">Editar</button>
-                </div>
-            </a>
-
-            <a href="{{ url_for('editar_producto', id=3) }}" class="product-card">
-                <img src="{{ url_for('static', filename='img/top3.webp') }}">
-                <div class="product-info">
-                    <h3>Top Pearl</h3>
-                    <button class="detalle-btn">Editar</button>
-                </div>
-            </a>
-
-            <a href="{{ url_for('editar_producto', id=4) }}" class="product-card">
-                <img src="{{ url_for('static', filename='img/top4.webp') }}">
-                <div class="product-info">
-                    <h3>Top Shelly</h3>
-                    <button class="detalle-btn">Editar</button>
-                </div>
-            </a>
-
+        {% for p in productos %}
+        <a href="{{ url_for('editar_producto', id=p.id) }}" class="product-card">
+            <img src="{{ url_for('static', filename='img/' ~ p.img) }}">
+            <div class="product-info">
+                <h3>{{ p.nombre }}</h3>
+                <button class="detalle-btn">Editar</button>
+            </div>
+        </a>
+        {% endfor %}
         </div>
+
     </div>
 {% endblock %}

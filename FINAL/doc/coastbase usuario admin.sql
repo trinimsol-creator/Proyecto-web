@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2026 at 09:03 PM
+-- Generation Time: Feb 07, 2026 at 02:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -134,7 +134,7 @@ CREATE TABLE `producto` (
 
 INSERT INTO `producto` (`id`, `nombre`, `precio`, `detalles`, `categoria`, `color`, `img`, `stock`, `estado`) VALUES
 (1, 'Top Shore', 25000, 'Top veraniego liviano, ideal para días cálidos', 'Tops y Bodys', 'Blanco', 'img_producto_1.jpg', 'Sin stock', 'visible'),
-(2, 'Body Bay', 30000, 'Body cómodo y elegante para uso diario', 'Tops y Bodys', 'Negro', 'img_producto_2.jpg', 'Sin stock', 'visible'),
+(2, 'Body Bay', 35000, 'Body cómodo y elegante para uso diario', '', '', 'afdd0d15-4880-4b58-966f-76c45f9bdd80.jpg', 'Stock', 'visible'),
 (3, 'Top Dove', 27503.3, 'Producto veraniego de categoría Tops y Bodys, ideal para los días cálidos.', 'Tops y Bodys', 'Blanco', 'img_producto_4.jpg', 'Stock', 'visible'),
 (4, 'Top Pearl', 24000, 'Top moderno con diseño delicado', 'Tops y Bodys', 'Blanco', 'img_producto_5.jpg', 'Stock', 'visible'),
 (6, 'Top Shelly', 32000, 'Top premium ideal para ocasiones especiales', 'Tops y Bodys', 'Blanco', '4cfc713e-4b85-4d9c-9668-e31f3d641ac6.webp', 'Stock', 'visible'),
@@ -176,7 +176,8 @@ INSERT INTO `usuario` (`id`, `nombre_usuario`, `email`, `pass`, `nombre`, `apell
 (11, 'vbenitez', 'vbenitez@gmail.com', '1234', 'Valeria', 'Benítez', 'cliente', 39214578, 'Lavalle 77'),
 (12, 'fsosa', 'fsosa@yahoo.com', '1234', 'Fernando', 'Sosa', 'cliente', 38521497, 'Bouchard 134'),
 (13, 'drodriguez', 'drodriguez@gmail.com', '1234', 'Diego', 'Rodríguez', 'cliente', 40124567, 'Alsina 985'),
-(14, 'cpaz', 'cpaz@gmail.com', '1234', 'Claudia', 'Paz', 'cliente', 37985642, 'Roca 1111');
+(14, 'cpaz', 'cpaz@gmail.com', '1234', 'Claudia', 'Paz', 'cliente', 37985642, 'Roca 1111'),
+(15, 'admin', 'admin@coast.com', '1234', 'Admin', 'Sistema', 'admin', 11111111, 'Sistema');
 
 --
 -- Indexes for dumped tables
@@ -253,7 +254,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

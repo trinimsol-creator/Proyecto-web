@@ -20,6 +20,39 @@ def obtenerPedidos():
     return selectDB(BASE, sql, dictionary=True)
 
 # ---------------- PRODUCTOS ----------------
+#pprin admin
+def obtenerProductosAdmin():
+    sql = """
+        SELECT id, nombre, img
+        FROM producto
+        ORDER BY id DESC
+    """
+    return selectDB(BASE, sql, dictionary=True)
+def actualizarProducto(id, datos):
+    sql = """
+        UPDATE producto
+        SET nombre=%s,
+            precio=%s,
+            detalles=%s,
+            categoria=%s,
+            color=%s,
+            stock=%s,
+            estado=%s,
+            img=%s
+        WHERE id=%s
+    """
+    valores = (
+        datos["nombre"],
+        datos["precio"],
+        datos["detalles"],
+        datos["categoria"],
+        datos["color"],
+        datos["stock"],
+        datos["estado"],
+        datos["img"],
+        id
+    )
+    return updateDB(BASE, sql, valores)
 
 def obtenerProductoPorId(id_prod):
     sSql = """
@@ -207,3 +240,15 @@ def actualizarUsuario(di,email):
     
     resul_update=updateDB(BASE,sQuery,val=val)
     return resul_update==1
+
+#log in admin
+def obtenerAdminLogin(email, password):
+    sql = """
+        SELECT id, nombre, apellido, email
+        FROM usuario
+        WHERE email = %s 
+          AND pass = %s 
+          AND tipo_usario = 'admin'
+    """
+    filas = selectDB(BASE, sql, (email, password), dictionary=True)
+    return filas[0] if filas else None

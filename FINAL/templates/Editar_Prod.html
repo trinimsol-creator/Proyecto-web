@@ -9,7 +9,9 @@
 {% block content %}
 <div class="product-form"> 
     <h1>Editar Producto</h1>
-    <form id="Myform" method="POST" enctype="multipart/form-data">
+    <form id="Myform" method="POST" action="{{ url_for('editar_producto', id=producto.id) }}" enctype="multipart/form-data">
+
+
         <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" value="{{ producto.nombre if producto else '' }}">
         <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
 
@@ -28,12 +30,18 @@
         </select>
         <br><span id="mensaje5" style="color:red; font-weight:bold;"></span></br>
 
-        <select id="Estado" name="estado">
-            <option value="" disabled {% if not producto %}selected{% endif %}>Estado</option>
-            <option value="Stock" {% if producto and producto.estado == 'Stock' %}selected{% endif %}>Stock</option>
-            <option value="Sin Stock" {% if producto and producto.estado == 'Sin Stock' %}selected{% endif %}>Sin Stock</option>
+        <select name="stock">
+            <option value="Stock" {% if producto.stock == 'Stock' %}selected{% endif %}>Stock</option>
+            <option value="Sin stock" {% if producto.stock == 'Sin stock' %}selected{% endif %}>Sin stock</option>
         </select>
-        <br><span id="mensaje6" style="color:red; font-weight:bold;"></span></br>
+        <select name="estado" id="estado">
+            <option value="visible" {% if producto.estado == 'visible' %}selected{% endif %}>Visible</option>
+            <option value="no visible" {% if producto.estado == 'no visible' %}selected{% endif %}>No visible</option>
+        </select>
+
+
+        
+
 
         <fieldset id="color">
             <legend>Color</legend>

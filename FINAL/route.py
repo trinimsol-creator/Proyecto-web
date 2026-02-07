@@ -58,9 +58,11 @@ def route(app):
         def detalle_pedido(id):
             return detalle_pedido_pagina(id, request)
 
-        @app.route("/editar-producto/<int:id>", methods=["GET", "POST"])
+        @app.route("/editar_producto/<int:id>", methods=["GET", "POST"])
         def editar_producto(id):
             return editar_producto_pagina(id, request)
+
+
 
         @app.route("/crear-producto", methods=["GET", "POST"])
         def crear_producto():
@@ -69,6 +71,11 @@ def route(app):
         @app.route("/login-admin", methods=["GET", "POST"])
         def login_admin():
             return login_admin_pagina(request)
+        
+        @app.route("/logout-admin")
+        def logout_admin_route():
+            return logout_admin()
+
 
 #paginas no encontradas
 
