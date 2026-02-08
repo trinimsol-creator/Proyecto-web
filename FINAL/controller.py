@@ -178,10 +178,23 @@ def catalogo_pagina():
     productos = obtenerProductosCatalogo()
     return render_template("Catalogo.html", productos=productos)
 
-
 def detalles_pagina():
-    param = {}
-    return render_template("detalles.html", param=param)
+    id_prod = request.args.get("id")
+
+    if not id_prod:
+        return "Producto no especificado", 400
+
+    producto = obtenerProductoPorId(id_prod)
+
+    if not producto:
+        return "Producto no encontrado", 404
+
+    # cálculo del descuento (10%)
+    precio = producto["precio"]
+    producto["precio_descuento"] = round(precio * 0.9, 2)
+
+    return render_template("detalles.html", producto=producto)
+
 
 def login_pagina(param):
     return render_template("Login.html", param=param)
