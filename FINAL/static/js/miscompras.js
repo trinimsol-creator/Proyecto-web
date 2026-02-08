@@ -19,9 +19,7 @@ function filtrar(tipo) {
 
       
       var link = pedidos[i].querySelector("h3 a");
-      if (link) {
-        link.style.color = "blue";       
-        link.style.textDecoration = "underline";
+      if (link) {    
         link.style.cursor = "pointer";  
       }
 
