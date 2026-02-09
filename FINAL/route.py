@@ -26,12 +26,23 @@ def route(app):
             return ingresoUsuarioValido(param, request)
         return login_pagina(param)
         
+
     @app.route('/signin', methods =["GET", "POST"])
     def signin(): 
         param={}
         if request.method == "POST":
             return ingresoUsuarioValido2(param, request)
         return signin_pagina(param)
+
+
+        
+               
+              
+        #@app.route("/logout")
+        #def logout():
+        #    cerrarSesion()
+        #    return redirect(url_for("home"))
+
 
 
     @app.route("/miscompras")

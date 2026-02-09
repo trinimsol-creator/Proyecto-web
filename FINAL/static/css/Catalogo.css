@@ -39,22 +39,28 @@ body {
 .topnav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background: #ffffff;
     padding: 10px 10px;
     position: fixed;
     width: 100%;
     top: 100px;
-    left: -10px;
-    z-index: 3;
-
+    left: 0;
+    z-index: 10;
 }
-.topnav-left, .topnav-right {
+
+
+.topnav-left {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-left: 15px;
-    margin-right: 30px;
+}
+
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    padding-right: 20px;
 }
 
 .searchbar {
@@ -414,6 +420,24 @@ body {
     font-size: 14px;
     color: #555;
 }
+
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    padding-right: 25px;
+}
+
+.user-greeting {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    white-space: nowrap;
+}
+
+
+
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {

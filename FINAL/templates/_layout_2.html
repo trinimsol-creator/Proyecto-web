@@ -44,8 +44,25 @@
     </div>
 
     <div class="topnav-right">
-      <a href="{{ url_for('login') }}"><span class="material-symbols-outlined">logout</span></a>
-    </div>
+      
+  {% if session.get('id_usuario') %}
+    
+    <span class="user-greeting">
+      Hola, {{ session.get('nombre') }}👋
+    </span>
+
+    <a href="{{ url_for('logout') }}" title="Cerrar sesión">
+      <span class="material-symbols-outlined">logout</span>
+    </a>
+
+  {% else %}
+
+    <a href="{{ url_for('login') }}" title="Iniciar sesión">
+      <span class="material-symbols-outlined">login</span>
+    </a>
+
+  {% endif %}
+</div>
   </div> 
 
   <!-- SIDEBAR -->

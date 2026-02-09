@@ -203,8 +203,16 @@ def signin_pagina(param):
     return render_template("Signin.html", param=param)
 
 def miscompras_pagina():
-    param = {}
-    return render_template("miscompras.html", param=param)
+
+    if not session.get("id_usuario"):
+        return redirect(url_for("login"))
+
+    id_usuario = session.get("id_usuario")
+
+    compras = obtenerComprasUsuario(id_usuario)
+
+    return render_template("miscompras.html", compras=compras)
+
 
 def pago_pagina():
     param = {}
@@ -281,25 +289,34 @@ def ingresoUsuarioValido(param,request):
         return login_pagina(param)        
 
 
-def ingresoUsuarioValido2(param,request):
-    #if crearSesion(request):
-     #   return redirect(url_for("home"))
-    #else:
-     #   param['error_msg_login']="Error: Usuario y/o password inválidos"
-      #  return signin_pagina(param)
-    nombre = request.form.get("name")
+def ingresoUsuarioValido2(param, request):
+
+    username = request.form.get("name")
+    apellido = request.form.get("apellido")
     email = request.form.get("email")
     password = request.form.get("password")
-    confirm = request.form.get("confirm_password") 
+    confirm = request.form.get("confirm_password")
 
     if password != confirm:
-        param["error_msg_login"] = "Error: Las contraseñas no coinciden"
+        param["error_msg_login"] = "Las contraseñas no coinciden"
         return signin_pagina(param)
 
-    # acá deberías crear el usuario en la BD
-    # ej: crearUsuario(nombre, email, password)
+    datos = {
+        "username": username,
+        "nombre": username,
+        "apellido": apellido,
+        "email": email,
+        "password": password,
+        "dni": 11111111,
+        "direccion": "Sin dirección"
+    }
 
-    return redirect(url_for("login"))
+    if crearUsuario(datos):
+        return redirect(url_for("login"))
+    else:
+        param["error_msg_login"] = "Error creando usuario"
+        return signin_pagina(param)
+
     
     
     

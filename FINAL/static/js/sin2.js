@@ -39,7 +39,7 @@ function onSignin(event) {
   }
 
 
-  if (password.length < 6) {
+  if (password.length < 4) {
     document.getElementById("mensaje3").textContent = "La contraseña debe tener al menos 6 caracteres.";
     valido = false;
   }
@@ -52,7 +52,6 @@ function onSignin(event) {
 
 
   if (!valido) return;
-  setTimeout(() => {
-    window.location.href = "/";
-  }, 300);
+  document.getElementById("Signin").submit();
+
 }
