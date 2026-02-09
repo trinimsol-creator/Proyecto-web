@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2026 at 02:02 PM
+-- Generation Time: Feb 08, 2026 at 09:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -163,21 +163,21 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre_usuario`, `email`, `pass`, `nombre`, `apellido`, `tipo_usario`, `dni`, `direccion`) VALUES
-(1, 'mlopez', 'mlopez@gmail.com', '1234', 'María', 'López', 'cliente', 40123654, 'Av. San Martín 123'),
-(2, 'jperez', 'jperez@hotmail.com', '1234', 'Juan', 'Pérez', 'cliente', 38256987, 'Calle Belgrano 456'),
-(3, 'arodriguez', 'arodriguez@yahoo.com', '1234', 'Ana', 'Rodríguez', 'cliente', 39547896, 'Mitre 789'),
-(4, 'lfernandez', 'lfernandez@gmail.com', '1234', 'Lucía', 'Fernández', 'cliente', 41758963, 'Sarmiento 987'),
-(5, 'cmartinez', 'cmartinez@gmail.com', '1234', 'Carlos', 'Martínez', 'cliente', 36254879, 'Italia 354'),
-(6, 'mgonzalez', 'mgonzalez@hotmail.com', '1234', 'Martín', 'González', 'cliente', 37125984, 'Rivadavia 812'),
-(7, 'nramirez', 'nramirez@gmail.com', '1234', 'Natalia', 'Ramírez', 'cliente', 40256321, 'Colón 1423'),
-(8, 'rgarcia', 'rgarcia@gmail.com', '1234', 'Roberto', 'García', 'cliente', 39485623, 'Saavedra 300'),
-(9, 'jmorales', 'jmorales@gmail.com', '1234', 'Julia', 'Morales', 'cliente', 38879654, '9 de Julio 250'),
-(10, 'eperez', 'eperez@gmail.com', '1234', 'Esteban', 'Pérez', 'cliente', 40587645, 'San Juan 1800'),
-(11, 'vbenitez', 'vbenitez@gmail.com', '1234', 'Valeria', 'Benítez', 'cliente', 39214578, 'Lavalle 77'),
-(12, 'fsosa', 'fsosa@yahoo.com', '1234', 'Fernando', 'Sosa', 'cliente', 38521497, 'Bouchard 134'),
-(13, 'drodriguez', 'drodriguez@gmail.com', '1234', 'Diego', 'Rodríguez', 'cliente', 40124567, 'Alsina 985'),
-(14, 'cpaz', 'cpaz@gmail.com', '1234', 'Claudia', 'Paz', 'cliente', 37985642, 'Roca 1111'),
-(15, 'admin', 'admin@coast.com', '1234', 'Admin', 'Sistema', 'admin', 11111111, 'Sistema');
+(1, 'mlopez', 'mlopez@gmail.com', '123456', 'María', 'López', 'cliente', 40123654, 'Av. San Martín 123'),
+(2, 'jperez', 'jperez@hotmail.com', '123456', 'Juan', 'Pérez', 'cliente', 38256987, 'Calle Belgrano 456'),
+(3, 'arodriguez', 'arodriguez@yahoo.com', '123456', 'Ana', 'Rodríguez', 'cliente', 39547896, 'Mitre 789'),
+(4, 'lfernandez', 'lfernandez@gmail.com', '123456', 'Lucía', 'Fernández', 'cliente', 41758963, 'Sarmiento 987'),
+(5, 'cmartinez', 'cmartinez@gmail.com', '123456', 'Carlos', 'Martínez', 'cliente', 36254879, 'Italia 354'),
+(6, 'mgonzalez', 'mgonzalez@hotmail.com', '123456', 'Martín', 'González', 'cliente', 37125984, 'Rivadavia 812'),
+(7, 'nramirez', 'nramirez@gmail.com', '123456', 'Natalia', 'Ramírez', 'cliente', 40256321, 'Colón 1423'),
+(8, 'rgarcia', 'rgarcia@gmail.com', '123456', 'Roberto', 'García', 'cliente', 39485623, 'Saavedra 300'),
+(9, 'jmorales', 'jmorales@gmail.com', '123456', 'Julia', 'Morales', 'cliente', 38879654, '9 de Julio 250'),
+(10, 'eperez', 'eperez@gmail.com', '123456', 'Esteban', 'Pérez', 'cliente', 40587645, 'San Juan 1800'),
+(11, 'vbenitez', 'vbenitez@gmail.com', '123456', 'Valeria', 'Benítez', 'cliente', 39214578, 'Lavalle 77'),
+(12, 'fsosa', 'fsosa@yahoo.com', '123456', 'Fernando', 'Sosa', 'cliente', 38521497, 'Bouchard 134'),
+(13, 'drodriguez', 'drodriguez@gmail.com', '123456', 'Diego', 'Rodríguez', 'cliente', 40124567, 'Alsina 985'),
+(14, 'cpaz', 'cpaz@gmail.com', '123456', 'Claudia', 'Paz', 'cliente', 37985642, 'Roca 1111'),
+(15, 'admin', 'admin@coast.com', '123456', 'Admin', 'Sistema', 'admin', 11111111, 'Sistema');
 
 --
 -- Indexes for dumped tables

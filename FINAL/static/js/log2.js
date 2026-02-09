@@ -35,7 +35,5 @@ function onLogin(event) {
   }
 
   if (!valido) return;
-  setTimeout(() => {
-    window.location.href = "/";
-  }, 300);
+  document.getElementById("Login").submit();
 }

@@ -162,20 +162,23 @@ def obtenerUsuarioLogin(email, password):
 
 
 def crearUsuario(di):
-    '''### Información:
-        Agrega un nuevo usuario (un registro) en la tabla usuario de la DB
-        Recibe 'di' un diccionario con los datos del usuario a agegar en la tabla.
-        Retorna True si realiza con existo el insert, False caso contrario.
-    '''
-    sQuery=""" 
+    sQuery = """
         INSERT INTO usuario
-        (id, nombre, apellido, email, pass)
-        VALUES
-        (%s,%s, %s, %s, %s);
+        (nombre_usuario, email, pass, nombre, apellido, tipo_usario, dni, direccion)
+        VALUES (%s,%s,%s,%s,%s,'cliente',%s,%s)
     """
-    val=(None,di.get('nombre'), di.get('apellido'), di.get('email'), di.get('password'))
-    resul_insert=insertDB(BASE,sQuery,val)
-    return resul_insert==1
+    val = (
+        di.get('username'),
+        di.get('email'),
+        di.get('password'),
+        di.get('nombre'),
+        di.get('apellido'),
+        di.get('dni'),
+        di.get('direccion')
+    )
+
+    return insertDB(BASE, sQuery, val) == 1
+
 
 
 def obtenerUsuarioXEmail(param,email,clave='usuario'):

@@ -44,7 +44,7 @@ body {
     position: fixed;
     width: 100%;
     top: 100px;
-    left: -10px;
+    left: 0px;
     z-index: 1;
 }
 .topnav-left, .topnav-right {
@@ -349,6 +349,22 @@ body {
     font-size: 14px;
     color: #555;
 }
+.topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    padding-right: 25px;
+}
+
+.user-greeting {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    white-space: nowrap;
+}
+
+
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
