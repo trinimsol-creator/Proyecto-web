@@ -13,56 +13,72 @@
 <div class="filtros">
   <button class="activo" onclick="filtrar('todos')">Todos</button>
   <button onclick="filtrar('entregado')">Entregados</button>
-  <button onclick="filtrar('en-camino')">En camino</button>
+  <button onclick="filtrar('camino')">En camino</button>
   <button onclick="filtrar('cancelado')">Cancelados</button>
+  <button onclick="filtrar('pendiente')">Pendientes</button>
+  <button onclick="filtrar('preparacion')">En preparación</button>
 </div>
 
 <div id="lista-pedidos">
 
-  <div class="pedido" data-estado="en-camino">
-    <img src="{{ url_for('static', filename='img/img_producto_1.jpg') }}" alt="Top Shore">
-    <div class="info">
-      <h3><a href="{{ url_for('detalles') }}">Top Shore</a></h3>
-      <p>Compra realizada el 05/10/2025</p>
-      <span class="estado en-camino">En camino</span>
-    </div>
-    <div class="total">$25000</div>
-  </div>
+  {% if compras %}
 
-  <div class="pedido" data-estado="entregado">
-    <img src="{{ url_for('static', filename='img/product2.webp') }}" alt="Body Bay">
-    <div class="info">
-      <h3><a href="{{ url_for('detalles') }}">Body Bay</a></h3>
-      <p>Compra realizada el 01/10/2025</p>
-      <span class="estado entregado">Entregado</span>
-    </div>
-    <div class="total">$30000</div>
-  </div>
+    {% for compra in compras %}
 
-  <div class="pedido" data-estado="cancelado">
-    <img src="{{ url_for('static', filename='img/product3.webp') }}" alt="Top Pearl">
-    <div class="info">
-      <h3><a href="{{ url_for('detalles') }}">Top Pearl</a></h3>
-      <p>Compra realizada el 29/09/2025</p>
-      <span class="estado cancelado">Cancelado</span>
-    </div>
-    <div class="total">$24000</div>
-  </div>
+      {% set estado_css = '' %}
+      {% if compra.estado == 'Pendiente' %}
+        {% set estado_css = 'pendiente' %}
+      {% elif compra.estado == 'En preparación' %}
+        {% set estado_css = 'preparacion' %}
+      {% elif compra.estado == 'Listo para entregar' %}
+        {% set estado_css = 'camino' %}
+      {% elif compra.estado == 'Entregado' %}
+        {% set estado_css = 'entregado' %}
+      {% elif compra.estado == 'Cancelado' %}
+        {% set estado_css = 'cancelado' %}
+      {% endif %}
 
-  <div class="pedido" data-estado="entregado">
-    <img src="{{ url_for('static', filename='img/product4.webp') }}" alt="Top Shelly">
-    <div class="info">
-      <h3><a href="{{ url_for('detalles') }}">Top Shelly</a></h3>
-      <p>Compra realizada el 25/09/2025</p>
-      <span class="estado entregado">Entregado</span>
-    </div>
-    <div class="total">$32000</div>
-  </div>
+      <a href="{{ url_for('detalles') }}?id={{ compra.id_producto }}" class="link-pedido">
 
-</div>
 
-<div class="footer">
-  <p>© 2024 Coast. Todos los derechos reservados.</p>
+        <div class="pedido" data-estado="{{ estado_css }}">
+
+          <img src="{{ url_for('static', filename='img/' ~ compra.img) }}" alt="{{ compra.nombre }}">
+
+          <div class="info">
+            <h3>{{ compra.nombre }}</h3>
+
+            <p class="categoria">{{ compra.categoria }}</p>
+
+            <p class="fecha">
+              Compra realizada el {{ compra.fechahora.strftime('%d/%m/%Y') }}
+            </p>
+
+            <span class="estado {{ estado_css }}">
+              {% if compra.estado == 'Listo para entregar' %}
+                En camino
+              {% else %}
+                {{ compra.estado }}
+              {% endif %}
+            </span>
+          </div>
+
+          <div class="total">
+            ${{ "%.2f"|format(compra.total) }}
+          </div>
+
+        </div>
+
+      </a>
+
+    {% endfor %}
+
+  {% else %}
+
+    <p class="info">Todavía no realizaste compras</p>
+
+  {% endif %}
+
 </div>
 
 {% endblock %}

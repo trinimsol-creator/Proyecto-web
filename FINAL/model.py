@@ -138,6 +138,28 @@ def obtenerProductosCatalogo():
     """
     return selectDB(BASE, sql, dictionary=True)
 
+
+#para miscompras
+def obtenerComprasUsuario(id_usuario):
+    sql = """
+        SELECT 
+            c.id,
+            c.fechahora,
+            c.total,
+            c.estado,
+            p.id AS id_producto,
+            p.nombre,
+            p.img
+        FROM compras c
+        INNER JOIN detalles_compras dc ON c.id = dc.id_compra
+        INNER JOIN producto p ON dc.id_producto = p.id
+        WHERE c.id_usuario = %s
+        ORDER BY c.fechahora DESC
+    """
+    return selectDB(BASE, sql, (id_usuario,), dictionary=True)
+
+
+
 # ---------------- USUARIOS ----------------
 
 def obtenerUsuarioLogin(email, password):

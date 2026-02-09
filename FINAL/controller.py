@@ -203,8 +203,16 @@ def signin_pagina(param):
     return render_template("Signin.html", param=param)
 
 def miscompras_pagina():
-    param = {}
-    return render_template("miscompras.html", param=param)
+
+    if not session.get("id_usuario"):
+        return redirect(url_for("login"))
+
+    id_usuario = session.get("id_usuario")
+
+    compras = obtenerComprasUsuario(id_usuario)
+
+    return render_template("miscompras.html", compras=compras)
+
 
 def pago_pagina():
     param = {}

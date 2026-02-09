@@ -6,6 +6,8 @@
   --entregado: rgb(145, 111, 67);
   --en-camino: rgb(193, 150, 143);
   --cancelado: rgb(150, 150, 150);
+  --pendiente: #f3dcbd;
+  --preparacion: #6c757d;
 }
 
 * {
@@ -13,9 +15,6 @@
   margin: 0;
   padding: 0;
   font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
 }
 
 body {
@@ -57,7 +56,6 @@ header {
   font-weight: 500;
   cursor: pointer;
   transition: background 0.2s;
-  flex-shrink: 0;
 }
 
 .filtros button.activo {
@@ -70,6 +68,12 @@ header {
   flex: 1;
 }
 
+/* LINK */
+.link-pedido {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* CARD */
 .pedido {
   background-color: white;
@@ -80,8 +84,15 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
+.pedido:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+/* IMAGEN */
 .pedido img {
   width: 60px;
   height: 60px;
@@ -89,6 +100,7 @@ header {
   object-fit: cover;
 }
 
+/* INFO */
 .info {
   flex: 1;
 }
@@ -98,49 +110,41 @@ header {
   font-weight: 600;
 }
 
-.info h3 a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.info h3 a:hover {
-  text-decoration: underline;
-}
-
-.info p {
+.categoria {
+  font-size: 13px;
+  font-weight: 500;
   color: var(--secundario);
-  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fecha {
+  font-size: 13px;
+  color: var(--secundario);
   margin-top: 2px;
 }
 
+/* ESTADOS */
 .estado {
+  margin-top: 6px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 6px;
   padding: 4px 8px;
-  text-align: center;
   display: inline-block;
 }
 
 .estado.entregado { background-color: var(--entregado); color: white; }
-.estado.en-camino { background-color: var(--en-camino); color: white; }
+.estado.camino { background-color: var(--en-camino); color: white; }
 .estado.cancelado { background-color: var(--cancelado); color: white; }
+.estado.pendiente { background-color: var(--pendiente); color: #222; }
+.estado.preparacion { background-color: var(--preparacion); color: white; }
 
+/* TOTAL */
 .total {
   font-size: 15px;
   font-weight: 600;
   text-align: right;
-}
-
-/* FOOTER */
-.footer {
-  margin-top: auto;
-  text-align: center;
-  padding: 20px;
-  background: #f1f1f1;
-  font-size: 14px;
-  color: #555;
 }
 
 /* RESPONSIVE */
@@ -149,6 +153,7 @@ header {
     max-width: 700px;
     margin: 16px auto;
   }
+
   .filtros {
     justify-content: center;
   }
