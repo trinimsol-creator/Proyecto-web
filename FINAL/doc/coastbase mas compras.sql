@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2026 at 09:43 PM
+-- Generation Time: Feb 09, 2026 at 03:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,7 +49,22 @@ INSERT INTO `compras` (`id`, `id_usuario`, `estado`, `fechahora`, `total`) VALUE
 (7, 7, 'Entregado', '2025-12-06 12:00:00', 21870.9),
 (8, 8, 'Entregado', '2025-12-25 12:00:00', 23418.4),
 (9, 9, 'Pendiente', '2025-11-10 12:00:00', 9984.33),
-(10, 10, 'Listo para entregar', '2025-11-28 12:00:00', 12756.3);
+(10, 10, 'Listo para entregar', '2025-11-28 12:00:00', 12756.3),
+(11, 1, 'Entregado', '2025-12-20 14:30:00', 49990),
+(12, 2, 'Pendiente', '2025-12-22 11:00:00', 32000),
+(13, 3, 'En preparación', '2026-01-05 10:20:00', 24000),
+(14, 4, 'Entregado', '2026-01-07 17:45:00', 75000),
+(15, 5, 'Listo para entregar', '2026-01-10 09:15:00', 35000),
+(16, 6, 'Pendiente', '2026-01-12 18:30:00', 27503.3),
+(17, 7, 'En preparación', '2026-01-15 13:10:00', 64000),
+(18, 8, 'Entregado', '2026-01-18 16:00:00', 49990),
+(19, 9, 'Pendiente', '2026-01-20 12:40:00', 24000),
+(20, 10, 'Entregado', '2026-01-22 19:10:00', 32000),
+(21, 11, 'Pendiente', '2026-01-25 15:00:00', 35000),
+(22, 12, 'En preparación', '2026-01-26 11:30:00', 49990),
+(23, 13, 'Listo para entregar', '2026-01-27 10:00:00', 27503.3),
+(24, 14, 'Entregado', '2026-01-28 17:00:00', 24000),
+(25, 1, 'Pendiente', '2026-02-01 14:20:00', 64000);
 
 -- --------------------------------------------------------
 
@@ -78,7 +93,22 @@ INSERT INTO `datos_pago` (`id`, `id_usuario`, `comprobante`, `id_compra`) VALUES
 (7, 7, 'CP1006', 7),
 (8, 8, 'CP1007', 8),
 (9, 9, 'CP1008', 9),
-(10, 10, 'CP1009', 10);
+(10, 10, 'CP1009', 10),
+(11, 1, 'CP1010', 11),
+(12, 2, 'CP1011', 12),
+(13, 3, 'CP1012', 13),
+(14, 4, 'CP1013', 14),
+(15, 5, 'CP1014', 15),
+(16, 6, 'CP1015', 16),
+(17, 7, 'CP1016', 17),
+(18, 8, 'CP1017', 18),
+(19, 9, 'CP1018', 19),
+(20, 10, 'CP1019', 20),
+(21, 11, 'CP1020', 21),
+(22, 12, 'CP1021', 22),
+(23, 13, 'CP1022', 23),
+(24, 14, 'CP1023', 24),
+(25, 1, 'CP1024', 25);
 
 -- --------------------------------------------------------
 
@@ -108,7 +138,22 @@ INSERT INTO `detalles_compras` (`id`, `id_producto`, `id_compra`, `cantidad`, `p
 (7, 2, 7, 1, 16533.1),
 (8, 3, 8, 1, 35452.9),
 (9, 1, 9, 3, 27503.3),
-(10, 2, 10, 1, 16533.1);
+(10, 2, 10, 1, 16533.1),
+(11, 7, 11, 1, 49990),
+(12, 6, 12, 1, 32000),
+(13, 4, 13, 1, 24000),
+(14, 2, 14, 2, 35000),
+(15, 2, 15, 1, 35000),
+(16, 3, 16, 1, 27503.3),
+(17, 6, 17, 2, 32000),
+(18, 7, 18, 1, 49990),
+(19, 4, 19, 1, 24000),
+(20, 6, 20, 1, 32000),
+(21, 2, 21, 1, 35000),
+(22, 7, 22, 1, 49990),
+(23, 3, 23, 1, 27503.3),
+(24, 4, 24, 1, 24000),
+(25, 6, 25, 2, 32000);
 
 -- --------------------------------------------------------
 
@@ -230,19 +275,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `datos_pago`
 --
 ALTER TABLE `datos_pago`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `detalles_compras`
 --
 ALTER TABLE `detalles_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `producto`
