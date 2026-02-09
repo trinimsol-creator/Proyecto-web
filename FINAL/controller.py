@@ -176,7 +176,7 @@ def carrito_pagina():
 
 def catalogo_pagina():
     productos = obtenerProductosCatalogo()
-    return render_template("Catalogo.html", productos=productos)
+    return render_template("catalogo.html", productos=productos)
 
 def detalles_pagina():
     id_prod = request.args.get("id")
@@ -213,11 +213,11 @@ def pago_pagina():
 
 #pagina no encontrada
 
-def paginaNoEncontrada(name):
-    res='Pagina "{}" no encontrada<br>'.format(name)
-    res+='<a href="{}">{}</a>'.format("/","Home")
-    
-    return res
+#def paginaNoEncontrada(name):
+#    res='Pagina "{}" no encontrada<br>'.format(name)
+#    res+='<a href="{}">{}</a>'.format("/","Home")
+#    
+#    return res
 
 
 
