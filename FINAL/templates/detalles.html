@@ -42,7 +42,25 @@
       <input type="number" id="cantidad" name="cantidad" value="1" min="1">
     </div>
 
-    <a href="{{ url_for('carrito') }}" class="btn">AGREGAR AL CARRITO</a>
+    <button class="btn" onclick="agregarCarrito({{ producto.id }})">
+  AGREGAR AL CARRITO
+</button>
+
+<script>
+function agregarCarrito(id) {
+  const cantidad = document.getElementById("cantidad").value;
+
+  let data = new FormData();
+  data.append("id", id);
+  data.append("cantidad", cantidad);
+
+  queryAjax("/ajax/agregar_carrito", "", "POST", data);
+
+  alert("Producto agregado al carrito");
+}
+</script>
+
+
   </div>
 
 </div>

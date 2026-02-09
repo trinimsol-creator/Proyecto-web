@@ -171,8 +171,16 @@ def logout_admin():
 # ================= pantallas vicky=================
 
 def carrito_pagina():
-    param = {}
-    return render_template("carrito.html", param=param)
+    carrito = obtener_carrito()
+    total, total_transferencia = calcular_total(carrito)
+
+    return render_template(
+        "carrito.html",
+        carrito=carrito,
+        total=total,
+        total_transferencia=total_transferencia
+    )
+
 
 def catalogo_pagina():
     productos = obtenerProductosCatalogo()
@@ -384,3 +392,57 @@ def actualizarDatosDeUsuarios(param,request):
     except ValueError as e :                   
         pass
     return res 
+
+
+
+def obtener_carrito():
+    return session.get("carrito", [])
+
+
+def actualizar_cantidad_carrito(id_producto, cantidad):
+    carrito = session.get("carrito", [])
+
+    for p in carrito:
+        if str(p["id"]) == str(id_producto):
+            p["cantidad"] = cantidad
+
+    session["carrito"] = carrito
+
+
+def eliminar_producto_carrito(id_producto):
+    carrito = session.get("carrito", [])
+
+    carrito = [p for p in carrito if str(p["id"]) != str(id_producto)]
+
+    session["carrito"] = carrito
+
+
+def calcular_total(carrito):
+    total = 0
+    total_transferencia = 0
+
+    for p in carrito:
+        total += p["precio"] * p["cantidad"]
+        total_transferencia += p["precio_transferencia"] * p["cantidad"]
+
+    return total, total_transferencia
+
+def agregar_producto_carrito(producto, cantidad):
+    carrito = session.get("carrito", [])
+
+    for p in carrito:
+        if str(p["id"]) == str(producto["id"]):
+            p["cantidad"] += cantidad
+            session["carrito"] = carrito
+            return
+
+    carrito.append({
+        "id": producto["id"],
+        "nombre": producto["nombre"],
+        "precio": producto["precio"],
+        "precio_transferencia": round(producto["precio"] * 0.9, 2),
+        "img": "img/" + producto["img"],
+        "cantidad": cantidad
+    })
+
+    session["carrito"] = carrito

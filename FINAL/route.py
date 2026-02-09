@@ -81,6 +81,61 @@ def route(app):
         @app.route("/logout-admin")
         def logout_admin_route():
             return logout_admin()
+        
+        @app.route("/ajax/actualizar_carrito", methods=["POST"])
+        def ajax_actualizar_carrito():
+            id = request.form.get("id")
+            cantidad = int(request.form.get("cantidad"))
+
+            actualizar_cantidad_carrito(id, cantidad)
+
+            carrito = obtener_carrito()
+            total, total_transferencia = calcular_total(carrito)
+
+            html = f"""
+            <h2>Total: ${total}</h2>
+            <p class="discount-total">
+                Total con descuento por transferencia bancaria: ${total_transferencia}
+            </p>
+            """
+
+            return html
+
+
+
+
+
+        @app.route("/ajax/eliminar_producto", methods=["POST"])
+        def ajax_eliminar_producto():
+            id = request.form.get("id")
+
+            eliminar_producto_carrito(id)
+
+            carrito = obtener_carrito()
+            total, total_transferencia = calcular_total(carrito)
+
+            html = f"""
+            <h2>Total: ${total}</h2>
+            <p class="discount-total">
+                Total con descuento por transferencia bancaria: ${total_transferencia}
+            </p>
+            """
+
+            return html
+
+
+
+        @app.route("/ajax/agregar_carrito", methods=["POST"])
+        def ajax_agregar_carrito():
+            id = request.form.get("id")
+            cantidad = int(request.form.get("cantidad"))
+
+            producto = obtenerProductoPorId(id)
+
+            agregar_producto_carrito(producto, cantidad)
+
+            return "ok"
+
 
 
 #paginas no encontradas

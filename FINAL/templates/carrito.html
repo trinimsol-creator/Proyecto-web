@@ -10,44 +10,41 @@
 
 {% block content %}
 
-<div class="product-grid">
+<div class="product-grid" id="product-grid">
 
-  <div class="product-card">
-    <img src="{{ url_for('static', filename='img/top.webp') }}" alt="Product2">
-    <h2>Top Ariel</h2>
-    <p class="price">$25.000</p>
-    <p class="discount">Con transferencia bancaria: $23.500</p>
+
+  {% for p in carrito %}
+  <div class="product-card" data-id="{{ p.id }}">
+
+    <img src="{{ url_for('static', filename=p.img) }}" alt="{{ p.nombre }}">
+
+    <h2>{{ p.nombre }}</h2>
+
+    <p class="price">${{ p.precio }}</p>
+
+    <p class="discount">
+      Con transferencia bancaria: ${{ p.precio_transferencia }}
+    </p>
 
     <div class="quantity">
-      <label for="cantidad1">Cantidad:</label>
-      <input type="number" id="cantidad1" name="cantidad1" value="1" min="1">
+      <label>Cantidad:</label>
+      <input type="number" class="cantidad" value="{{ p.cantidad }}" min="1">
     </div>
 
     <button class="remove-btn">
       <span class="material-symbols-outlined">delete</span>
     </button>
+
   </div>
-
-  <div class="product-card">
-    <img src="{{ url_for('static', filename='img/4cfc713e-4b85-4d9c-9668-e31f3d641ac6.webp') }}" alt="Product1">
-    <h2>Top Summer</h2>
-    <p class="price">$20.000</p>
-    <p class="discount">$18.500 con Transferencia bancaria</p>
-
-    <div class="quantity">
-      <label for="cantidad2">Cantidad:</label>
-      <input type="number" id="cantidad2" name="cantidad2" value="1" min="1">
-    </div>
-
-    <button class="remove-btn">
-      <span class="material-symbols-outlined">delete</span>
-    </button>
-  </div>
+  {% endfor %}
 
   <div class="total">
-    <div class="total-card">
-      <h2>Total: $45.000</h2>
-      <p class="discount-total">Total con descuento por transferencia bancaria: $42.000</p>
+    <div class="total-card" id="total-carrito">
+
+      <h2>Total: ${{ total }}</h2>
+      <p class="discount-total">
+        Total con descuento por transferencia bancaria: ${{ total_transferencia }}
+      </p>
     </div>
 
     <a href="{{ url_for('pago') }}" class="checkout-btn">
@@ -60,5 +57,7 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{ url_for('static', filename='js/carrito.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
 {% endblock %}
+
+
