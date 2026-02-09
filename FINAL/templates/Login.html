@@ -16,12 +16,16 @@
   <h2>Inicio de sesión</h2>
 
   <div class="formulario">
-    <form id="Login" action="/login" method="POST">
+    <form id="Login" action="{{ url_for('iniciar') }}" method="POST">
       <input type="email" name="email" id="email" placeholder="Email">
       <span id="mensaje1" style="color:red; font-weight:bold;"></span>
 
       <input type="password" name="password" id="password" placeholder="Contraseña">
       <span id="mensaje2" style="color:red; font-weight:bold;"></span>
+
+      {% if param.error %}
+        <p style="color:red; font-weight:bold;">{{ param.error }}</p>
+      {% endif %}
 
       <button type="submit" class="ingresar">Log in</button>
       <span id="mensaje3" style="color:red; font-weight:bold;"></span>

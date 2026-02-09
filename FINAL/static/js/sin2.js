@@ -40,7 +40,7 @@ function onSignin(event) {
 
 
   if (password.length < 4) {
-    document.getElementById("mensaje3").textContent = "La contraseña debe tener al menos 6 caracteres.";
+    document.getElementById("mensaje3").textContent = "La contraseña debe tener al menos 4 caracteres.";
     valido = false;
   }
 

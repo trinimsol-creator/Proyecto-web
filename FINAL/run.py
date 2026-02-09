@@ -1,7 +1,9 @@
 # https://flask.palletsprojects.com/en/2.3.x/
 # https://pythonbasics.org/flask-http-methods/
 
-from flask import Flask
+import os
+
+from flask import Flask, session
 
 app = Flask(__name__)
 

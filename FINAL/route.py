@@ -19,20 +19,54 @@ def route(app):
     def detalles():
         return detalles_pagina()
         
-    @app.route("/login", methods=["GET","POST"])
+        
+    ##### INICIO SESION Y REGISTRARSE ######
+    
+    
+    @app.route("/login")
     def login():
+        
         param={}
-        if request.method == "POST":
-            return ingresoUsuarioValido(param, request)
-        return login_pagina(param)
+        return login_pagina(param) 
+    
+    @app.route("/signin")
+    def signin():
+        
+        param={}
+        return signin_pagina(param)  
+    
+    @app.route("/registrar", methods =["GET", "POST"])  #registrar el usuario
+    def registrar():
+        
+        param={}
+        return registrarUsuario(param,request)
+
+    @app.route('/iniciar', methods =["GET", "POST"])  #el usuario inicie sesion 
+    def iniciar(): 
+        
+        param={}
+        return ingresoUsuarioValido(param,request)
+    
+    @app.route("/cerrarSesion")
+    def cerrar():  
+        
+        cerrarSesion()     
+        return redirect('/')
+        
+    #@app.route("/login", methods=["GET","POST"])
+    #def login():
+    #    param={}
+    #    if request.method == "POST":
+    #        return ingresoUsuarioValido(param, request)
+    #    return login_pagina(param)
         
 
-    @app.route('/signin', methods =["GET", "POST"])
-    def signin(): 
-        param={}
-        if request.method == "POST":
-            return ingresoUsuarioValido2(param, request)
-        return signin_pagina(param)
+    #@app.route('/signin', methods =["GET", "POST"])
+    #def signin(): 
+    #    param={}
+    #    if request.method == "POST":
+    #        return ingresoUsuarioValido2(param, request)
+    #    return signin_pagina(param)
 
 
         

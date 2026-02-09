@@ -231,17 +231,25 @@ def pago_pagina():
 
 #FUNCIONES PARA LOGIN Y SIGNIN
 
-def getRequet(request):
-    try: 
-        if request.method =="POST":                           # Solicitud x POST, creación de una session
-            myrequest=request.form          
-        elif request.method =="GET" and len(request.args)!=0: # Solicitud x GET, creación de una session
-            myrequest=request.args
-        else:
-            myrequest={}
-    except ValueError:                              
-        myrequest={}
-    return myrequest
+def getRequet(diResult):
+    if request.method=='POST':
+        for name in request.form.to_dict().keys():
+            li=request.form.getlist(name)
+            if len(li)>1:
+                diResult[name]=request.form.getlist(name)
+            elif len(li)==1:
+                diResult[name]=li[0]
+            else:
+                diResult[name]=""
+    elif request.method=='GET':  
+        for name in request.args.to_dict().keys():
+            li=request.args.getlist(name)
+            if len(li)>1:
+                diResult[name]=request.args.getlist(name)
+            elif len(li)==1:
+                diResult[name]=li[0]
+            else:
+                diResult[name]=""    
 
 
 def cargarSesion(dicUsuario):
@@ -249,8 +257,6 @@ def cargarSesion(dicUsuario):
     session['nombre']     = dicUsuario['nombre']
     session['apellido']   = dicUsuario['apellido']
     session['username']   = dicUsuario['username'] # es el mail
-    session['imagen']     = ""
-    session['rol']        = ""
     session["time"]       = datetime.now()  
 
 def crearSesion(request):
@@ -282,11 +288,13 @@ def cerrarSesion():
 #LOGIN Y SINGIN
 
 def ingresoUsuarioValido(param,request):
-    if crearSesion(request):
-        return redirect(url_for("home"))
-    else:
-        param['error_msg_login']="Error: Usuario y/o password inválidos"
-        return login_pagina(param)        
+    if request.method == "POST":
+        if crearSesion(request):
+            return redirect(url_for("home"))
+        else:
+            param["error"] = "Email o contraseña incorrectos"
+            return render_template("Login.html", param=param)
+    return redirect(url_for("login"))        
 
 
 def ingresoUsuarioValido2(param, request):

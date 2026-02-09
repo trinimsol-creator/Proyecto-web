@@ -277,3 +277,37 @@ def obtenerAdminLogin(email, password):
     """
     filas = selectDB(BASE, sql, (email, password), dictionary=True)
     return filas[0] if filas else None
+
+
+
+########## INICIO DE SESION + REGISTRARSE #####################
+def crearUsuario(di):
+    sQuery=""" 
+        INSERT INTO usuario
+        (id, nombre, apellido, email, pass)
+        VALUES
+        (%s,%s, %s, %s, %s);
+    """
+    val=(None,di.get('nombre'), di.get('apellido'), di.get('email'), di.get('password'))
+    resultados_insertar=insertDB(BASE,sQuery,val)
+    return resultados_insertar==1
+
+
+def obtenerUsuarioXEmailPass(result,email,password):
+    
+    res=False
+    sSql="""SELECT id, nombre,apellido,email,pass,tipo_usuario 
+    FROM  usuario WHERE  email=%s and pass=%s;"""
+    val=(email,password)
+    fila=selectDB(BASE,sSql,val)
+
+    if fila!=[]:
+        res=True
+        result['id']=fila[0][0]
+        result['nombre']=fila[0][1]
+        result['apellido']=fila[0][2]
+        result['username']=fila[0][3] # es el mail
+        result['password']=fila[0][4]
+        result['imagen']=''
+        result['tipo_usuario']=fila[0][5]
+    return res    
