@@ -26,12 +26,22 @@ body {
     padding-bottom: 5px;
     text-align: center;
     background: white;
-    position: fixed;
+    position: static;
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 2;
+    border-bottom: 1px solid white;
 }
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+}
+
 
 .header h1 {
     font-size: 46px;
@@ -44,12 +54,13 @@ body {
     justify-content: space-between;
     background: #ffffff;
     padding: 10px 20px;
-    position: fixed;
+    position: static;
     width: 100%;
     top: 90px; 
     left: 0;   
-    z-index: 6;
+    z-index: 3;
     border-bottom: 1px solid #eee;
+    margin-top: -1px;
 }
 
 .topnav-left, .topnav-right {
