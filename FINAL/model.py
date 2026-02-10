@@ -225,22 +225,7 @@ def obtenerUsuarioXEmail(param,email,clave='usuario'):
     param[clave]['password']=fila[0][4]
 
 
-def obtenerUsuarioXEmailPass(result,email,password):
-    res=False
-    sSql="""SELECT id, nombre,apellido,email,pass 
-    FROM  usuario WHERE  email=%s and pass=%s;"""
-    val=(email,password)
-    fila=selectDB(BASE,sSql,val)
-    if fila!=[]:
-        res=True
-        result['id']=fila[0][0]
-        result['nombre']=fila[0][1]
-        result['apellido']=fila[0][2]
-        result['username']=fila[0][3] # es el mail
-        result['password']=fila[0][4]
-        result['imagen']=''
-        result['rol']=''
-    return res    
+
 
 
 def actualizarUsuario(di,email):
@@ -296,7 +281,7 @@ def crearUsuario(di):
 def obtenerUsuarioXEmailPass(result,email,password):
     
     res=False
-    sSql="""SELECT id, nombre,apellido,email,pass,tipo_usuario 
+    sSql="""SELECT id, nombre,apellido,email,pass,tipo_usario 
     FROM  usuario WHERE  email=%s and pass=%s;"""
     val=(email,password)
     fila=selectDB(BASE,sSql,val)
