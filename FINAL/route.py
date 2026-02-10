@@ -1,7 +1,9 @@
-from flask import render_template, request, redirect, url_for
+from flask import app, render_template, request, redirect, url_for
 from controller import *
 
 def route(app):
+    print(">>> CARGANDO ROUTE.PY <<<")
+
 
     @app.route("/")
     def home():
@@ -47,11 +49,7 @@ def route(app):
         param={}
         return ingresoUsuarioValido(param,request)
     
-    @app.route("/cerrarSesion")
-    def cerrar():  
-        
-        cerrarSesion()     
-        return redirect('/')
+   
         
     #@app.route("/login", methods=["GET","POST"])
     #def login():
@@ -68,14 +66,10 @@ def route(app):
     #        return ingresoUsuarioValido2(param, request)
     #    return signin_pagina(param)
 
-
-        
-               
-              
-        #@app.route("/logout")
-        #def logout():
-        #    cerrarSesion()
-        #    return redirect(url_for("home"))
+    @app.route("/logout", endpoint="logout")
+    def logout_route():
+        cerrarSesion()
+        return redirect('/')
 
 
 
@@ -113,63 +107,64 @@ def route(app):
     def login_admin():
         return login_admin_pagina(request)
         
-        @app.route("/logout-admin")
-        def logout_admin_route():
-            return logout_admin()
+    @app.route("/logout-admin")
+    def logout_admin_route():
+         return logout_admin()
         
-        @app.route("/ajax/actualizar_carrito", methods=["POST"])
-        def ajax_actualizar_carrito():
-            id = request.form.get("id")
-            cantidad = int(request.form.get("cantidad"))
+    @app.route("/ajax/actualizar_carrito", methods=["POST"])
+    def ajax_actualizar_carrito():
+        id = request.form.get("id")
+        cantidad = int(request.form.get("cantidad"))
 
-            actualizar_cantidad_carrito(id, cantidad)
+        actualizar_cantidad_carrito(id, cantidad)
 
-            carrito = obtener_carrito()
-            total, total_transferencia = calcular_total(carrito)
+        carrito = obtener_carrito()
+        total, total_transferencia = calcular_total(carrito)
 
-            html = f"""
-            <h2>Total: ${total}</h2>
-            <p class="discount-total">
-                Total con descuento por transferencia bancaria: ${total_transferencia}
-            </p>
-            """
+        html = f"""
+        <h2>Total: ${total}</h2>
+        <p class="discount-total">
+        Total con descuento por transferencia bancaria: ${total_transferencia}
+        </p>
+        """
 
-            return html
-
-
+        return html
 
 
 
-        @app.route("/ajax/eliminar_producto", methods=["POST"])
-        def ajax_eliminar_producto():
-            id = request.form.get("id")
-
-            eliminar_producto_carrito(id)
-
-            carrito = obtener_carrito()
-            total, total_transferencia = calcular_total(carrito)
-
-            html = f"""
-            <h2>Total: ${total}</h2>
-            <p class="discount-total">
-                Total con descuento por transferencia bancaria: ${total_transferencia}
-            </p>
-            """
-
-            return html
 
 
+    @app.route("/ajax/eliminar_producto", methods=["POST"])
+    def ajax_eliminar_producto():
+        id = request.form.get("id")
 
-        @app.route("/ajax/agregar_carrito", methods=["POST"])
-        def ajax_agregar_carrito():
-            id = request.form.get("id")
-            cantidad = int(request.form.get("cantidad"))
+        eliminar_producto_carrito(id)
 
-            producto = obtenerProductoPorId(id)
+        carrito = obtener_carrito()
+        total, total_transferencia = calcular_total(carrito)
 
-            agregar_producto_carrito(producto, cantidad)
+        html = f"""
+        <h2>Total: ${total}</h2>
+        <p class="discount-total">
+            Total con descuento por transferencia bancaria: ${total_transferencia}
+        </p>
+        """
 
-            return "ok"
+        return html
+
+
+
+    @app.route("/ajax/agregar_carrito", methods=["POST"])
+    def ajax_agregar_carrito():
+        id = request.form.get("id")
+        cantidad = int(request.form.get("cantidad"))
+
+        producto = obtenerProductoPorId(id)
+
+        agregar_producto_carrito(producto, cantidad)
+
+        return "ok"
+
 
 
 
