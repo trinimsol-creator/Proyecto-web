@@ -309,8 +309,6 @@ body {
 }
 
 
-.screen { display: none; }
-.active { display: flex; }
 
 .error-message {
     color: red;

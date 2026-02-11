@@ -261,7 +261,11 @@ def obtenerAdminLogin(email, password):
           AND tipo_usario = 'admin'
     """
     filas = selectDB(BASE, sql, (email, password), dictionary=True)
-    return filas[0] if filas else None
+    if filas:
+        return filas[0]
+    else:
+        return None
+
 
 
 
