@@ -256,3 +256,43 @@ a {
     font-size: 14px;
     color: #555;
 }
+
+#Myform {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espacio base entre campos */
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 15px;    
+    width: 100%;
+}
+
+
+.campo input[type="text"],
+.campo input[type="number"],
+.campo select,
+.campo input[type="file"] {
+    width: 100%;
+    box-sizing: border-box; 
+    padding: 10px;
+}
+
+.mensaje {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.mensaje.error {
+    color: red;
+    font-weight: 900;
+}
+
+.mensaje.exito {
+    color: green;
+    font-weight: 900;
+}
