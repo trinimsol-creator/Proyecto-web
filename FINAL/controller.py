@@ -144,8 +144,11 @@ def crear_producto_pagina(request):
 #log in admin
 def login_admin_pagina(request):
     if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
+        email = request.form.get("email", "").strip()
+        password = request.form.get("password", "").strip()
+
+        if not email or not password:
+            return render_template("Login_Admin.html", error="Por favor complete todos los campos")
 
         admin = obtenerAdminLogin(email, password)
 
@@ -154,12 +157,10 @@ def login_admin_pagina(request):
             session["admin_nombre"] = admin["nombre"]
             return redirect(url_for("admin"))
         else:
-            return render_template(
-                "Login_Admin.html",
-                error="Credenciales incorrectas"
-            )
+            return render_template("Login_Admin.html", error="Credenciales incorrectas")
 
-    return render_template("Login_Admin.html")
+    return render_template("Login_Admin.html", error=None)
+
 #log out admin
 def logout_admin():
     session.pop("admin", None)
