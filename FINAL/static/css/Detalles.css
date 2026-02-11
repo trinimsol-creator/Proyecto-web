@@ -131,3 +131,23 @@ p, a, li, span {
       font-size: 14px;
       color: #555;
 }
+
+.toast-msg {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+.toast-msg.show {
+  opacity: 1;
+  transform: translateY(0);
+}

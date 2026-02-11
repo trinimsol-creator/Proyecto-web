@@ -191,135 +191,6 @@ body {
 }
 
 
-.sidebar-carrito {
-    position: fixed;
-    top: 120px;
-    right: -350px;
-    width: 300px;
-    height: calc(100% - 100px);
-    background: #ffffff;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-    transition: right 0.3s ease;
-    padding:20px;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.carrito-btn{
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-#carrito-toggle:checked ~ .sidebar-carrito {
-    right: 0;
-}
-
-.carrito-btn:hover {
-    color: #6a3c22;
-}
-
-.sidebar-carrito h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-
-.carrito-productos {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-right: 5px;
-}
-
-.producto-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #fafafa;
-    padding: 10px;
-    border-radius: 12px;
-    position: relative;
-}
-
-.producto-info img {
-    width: 60px;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-}
-
-.producto-info ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.producto-info h4 {
-    font-size: 16px;
-    margin: 0;
-    font-weight: 600;
-}
-
-.producto-info li {
-    font-size: 14px;
-    color: #000000;
-}
-
-.eliminar-btn {
-    background: none;
-    border: none;
-    color: #000000;
-    cursor: pointer;
-    font-size: 20px;
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    transition: color 0.2s;
-}
-
-.eliminar-btn:hover {
-    color: #444;
-}
-
-
-.carrito-footer {
-    border-top: 1px solid #eee;
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.carrito-footer .total {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.carrito-footer button {
-    background: black;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.carrito-footer button:hover {
-    background: #444;
-}
-
 .info{
     text-align: center;
     margin-top: 20px;
@@ -365,9 +236,29 @@ body {
 }
 
 
+.Image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin-top: 100px;
+}
+
+.Image-gallery img {
+    width: 33%;
+    display: block; 
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides.visible {
+  display: block;
+}
 
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
       width: 100%;
@@ -375,7 +266,7 @@ body {
     }
 }
   
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 400px) {
     .topnav a {
       float: none;

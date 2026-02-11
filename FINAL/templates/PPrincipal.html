@@ -8,52 +8,11 @@
 
 {% block content %}
 
-<!-- Si tu _layout_flex.html NO tiene carrito-toggle, lo dejamos acá -->
-<input type="checkbox" id="carrito-toggle" hidden>
-
-<aside class="sidebar-carrito">
-  <div class="carrito-productos">
-    <h3>Mi Carrito</h3>
-
-    <div class="producto-info">
-      <img src="{{ url_for('static', filename='img/top.webp') }}" alt="producto1">
-      <ul>
-        <li><h4>Top Ariel</h4></li>
-        <li>$25.000</li>
-      </ul>
-      <button class="eliminar-btn">
-        <span class="material-symbols-outlined">delete</span>
-      </button>
-    </div>
-
-    <div class="producto-info">
-      <img src="{{ url_for('static', filename='img/top4.webp') }}" alt="producto2">
-      <ul>
-        <li><h4>Top Summer</h4></li>
-        <li>$20.000</li>
-      </ul>
-      <button class="eliminar-btn">
-        <span class="material-symbols-outlined">delete</span>
-      </button>
-    </div>
-  </div>
-
-  <div class="carrito-footer">
-    <div class="total">
-      <span>Total:</span>
-      <span>$45.000</span>
-    </div>
-
-    <button class="checkout-btn" onclick="window.location.href='{{ url_for('carrito') }}'">
-      Finalizar Compra
-    </button>
-  </div>
-</aside>
-
 <div class="Image-gallery">
-  <img src="{{ url_for('static', filename='img/product 1.webp') }}" alt="imagen1" style="width: 33%;">
-  <img src="{{ url_for('static', filename='img/product2.webp') }}" alt="imagen2" style="width: 33%;">
-  <img src="{{ url_for('static', filename='img/product3.webp') }}" alt="imagen3" style="width: 33%;">
+  <img src="{{ url_for('static', filename='img/product 1.webp') }}" alt="imagen1">
+  <img src="{{ url_for('static', filename='img/product2.webp') }}" alt="imagen2">
+  <img src="{{ url_for('static', filename='img/product3.webp') }}" alt="imagen3">
+
 </div>
 
 <div class="info">
@@ -65,15 +24,15 @@
 <div class="extra-info">
   <div class="slideshow-container">
     <div class="mySlides fade">
-      <img src="{{ url_for('static', filename='img/camion.png') }}" style="width:100%" alt="camion">
+      <img src="{{ url_for('static', filename='img/camion.png') }}" alt="camion">
     </div>
 
     <div class="mySlides fade">
-      <img src="{{ url_for('static', filename='img/extra.png') }}" style="width:100%" alt="extra">
+      <img src="{{ url_for('static', filename='img/extra.png') }}" alt="extra">
     </div>
 
     <div class="mySlides fade">
-      <img src="{{ url_for('static', filename='img/Tarjeta.png') }}" style="width:100%" alt="tarjeta">
+      <img src="{{ url_for('static', filename='img/Tarjeta.png') }}" alt="tarjeta">
     </div>
   </div>
 </div>
@@ -81,5 +40,5 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{ url_for('static', filename='js/PPrincipal.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/PPrincipal.js') }}" ></script>
 {% endblock %}
