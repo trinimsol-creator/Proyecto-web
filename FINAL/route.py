@@ -2,9 +2,6 @@ from flask import app, render_template, request, redirect, url_for
 from controller import *
 
 def route(app):
-    print(">>> CARGANDO ROUTE.PY <<<")
-
-
     @app.route("/")
     def home():
         return home_pagina()

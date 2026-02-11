@@ -260,7 +260,7 @@ a {
 #Myform {
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Espacio base entre campos */
+    gap: 5px;
 }
 
 
