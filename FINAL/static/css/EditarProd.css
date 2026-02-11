@@ -256,3 +256,64 @@ a {
     font-size: 14px;
     color: #555;
 }
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.campo.doble {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.campo.doble select {
+    flex: 1;
+}
+
+.mensaje-error {
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 16px;
+}
+
+.mensaje-final {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.imagen-actual {
+    font-size: 13px;
+    color: #555;
+    margin-top: 5px;
+}
+
+#color {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+#color legend {
+    width: 100%;
+    text-align: center;
+}
+
+#color label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mensaje-final.error {
+    color: red;
+}
+
+.mensaje-final.ok {
+    color: green;
+}

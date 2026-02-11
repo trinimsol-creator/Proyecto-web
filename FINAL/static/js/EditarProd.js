@@ -1,22 +1,13 @@
 document.getElementById("Myform").addEventListener("submit", form);
 const mensaje  = document.getElementById("mensaje");
-const mensaje1 = document.getElementById("mensaje1");
-const mensaje2 = document.getElementById("mensaje2");
-const mensaje3 = document.getElementById("mensaje3");
-const mensaje4 = document.getElementById("mensaje4");
-const mensaje5 = document.getElementById("mensaje5");
-const mensaje6 = document.getElementById("mensaje6");
-
 
 function form(event) {
     event.preventDefault();
 
     mensaje.textContent = "";
-    mensaje1.textContent = "";
-    mensaje2.textContent = "";
-    mensaje3.textContent = "";
-    mensaje4.textContent = "";
-    mensaje5.textContent = "";
+
+    mensaje.classList.remove("ok");
+    mensaje.classList.remove("error");
 
     const nombre = document.getElementById("nombre").value;
     const precio = document.getElementById("precio").value;
@@ -29,13 +20,15 @@ function form(event) {
 
     if (!nombre || !precio || !detalles || !colorSeleccionado || !selLoc || !estado) {
         mensaje.textContent = "Por favor, complete todos los campos.";
+        mensaje.classList.add("error");
         valido = false;
     }
 
     if (!valido) return;
 
-    mensaje.style.color = "green";
+  
     mensaje.textContent = "Producto fue editado con éxito.";
+    mensaje.classList.add("ok");
 
     event.target.removeEventListener("submit", form);
     event.target.submit();

@@ -9,61 +9,79 @@
 {% block content %}
 <div class="product-form"> 
     <h1>Editar Producto</h1>
+
     <form id="Myform" method="POST" action="{{ url_for('editar_producto', id=producto.id) }}" enctype="multipart/form-data">
 
+        <div class="campo">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto"
+                value="{{ producto.nombre if producto else '' }}">
+        </div>
 
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto" value="{{ producto.nombre if producto else '' }}">
-        <br><span id="mensaje1" style="color:red; font-weight:bold;"></span></br>
+        <div class="campo">
+            <input type="number" name="precio" id="precio" placeholder="Precio"
+                value="{{ producto.precio if producto else '' }}">
+        </div>
 
-        <input type="number" name="precio" id="precio" placeholder="Precio" value="{{ producto.precio if producto else '' }}">
-        <br><span id="mensaje2" style="color:red; font-weight:bold;"></span></br>
+        <div class="campo">
+            <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto"
+                value="{{ producto.detalles if producto else '' }}">
+        </div>
 
-        <input type="text" name="detalles" id="detalles" placeholder="Detalles del producto" value="{{ producto.detalles if producto else '' }}">
-        <br><span id="mensaje3" style="color:red; font-weight:bold;"></span></br>
+        <div class="campo">
+            <select id="selLoc" name="categoria">
+                <option value="" disabled {% if not producto %}selected{% endif %}>Categoría</option>
+                <option value="Top" {% if producto and producto.categoria == 'Top' %}selected{% endif %}>Tops y Bodys</option>
+                <option value="Polleras" {% if producto and producto.categoria == 'Polleras' %}selected{% endif %}>Polleras y Shorts</option>
+                <option value="Vestidos" {% if producto and producto.categoria == 'Vestidos' %}selected{% endif %}>Vestidos</option>
+                <option value="Accesorios" {% if producto and producto.categoria == 'Accesorios' %}selected{% endif %}>Accesorios</option>
+            </select>
+        </div>
 
-        <select id="selLoc" name="categoria">
-            <option value="" disabled {% if not producto %}selected{% endif %}>Categoria</option>
-            <option value="Top" {% if producto and producto.categoria == 'Top' %}selected{% endif %}>Tops y Bodys</option>
-            <option value="Polleras" {% if producto and producto.categoria == 'Polleras' %}selected{% endif %}>Polleras y Shorts</option>
-            <option value="Vestidos" {% if producto and producto.categoria == 'Vestidos' %}selected{% endif %}>Vestidos</option>
-            <option value="Accesorios" {% if producto and producto.categoria == 'Accesorios' %}selected{% endif %}>Accesorios</option>
-        </select>
-        <br><span id="mensaje5" style="color:red; font-weight:bold;"></span></br>
+        <div class="campo doble">
+            <select name="stock">
+                <option value="Stock" {% if producto.stock == 'Stock' %}selected{% endif %}>Stock</option>
+                <option value="Sin stock" {% if producto.stock == 'Sin stock' %}selected{% endif %}>Sin stock</option>
+            </select>
 
-        <select name="stock">
-            <option value="Stock" {% if producto.stock == 'Stock' %}selected{% endif %}>Stock</option>
-            <option value="Sin stock" {% if producto.stock == 'Sin stock' %}selected{% endif %}>Sin stock</option>
-        </select>
-        <select name="estado" id="estado">
-            <option value="visible" {% if producto.estado == 'visible' %}selected{% endif %}>Visible</option>
-            <option value="no visible" {% if producto.estado == 'no visible' %}selected{% endif %}>No visible</option>
-        </select>
-
-
-        
-
+            <select name="estado" id="estado">
+                <option value="visible" {% if producto.estado == 'visible' %}selected{% endif %}>Visible</option>
+                <option value="no visible" {% if producto.estado == 'no visible' %}selected{% endif %}>No visible</option>
+            </select>
+        </div>
 
         <fieldset id="color">
             <legend>Color</legend>
-            <input type="radio" id="rad01" name="color" value="n" {% if producto and producto.color == 'n' %}checked{% endif %}/>
-            <label for="rad01">Negro</label>
-            <input type="radio" id="rad02" name="color" value="b" {% if producto and producto.color == 'b' %}checked{% endif %}/>
-            <label for="rad02">Blanco</label>
-            <input type="radio" id="rad03" name="color" value="r" {% if producto and producto.color == 'r' %}checked{% endif %}/>
-            <label for="rad03">Rojo</label>
-            <input type="radio" id="rad04" name="color" value="a" {% if producto and producto.color == 'a' %}checked{% endif %}/>
-            <label for="rad04">Azul</label>
-        </fieldset>
-        <br><span id="mensaje4" style="color:red; font-weight:bold;"></span></br>
+            <input type="radio" id="color-n" name="color" value="n" 
+                {% if producto and producto.color == 'n' %}checked{% endif %}> 
+            <label for="color-n">Negro</label>
 
-        <label for="arch01">Foto del producto:</label><br>
-        <input type="file" name="archivo" id="arch01"/>
-        {% if producto and producto.imagen %}
-            <p>Imagen actual: {{ producto.imagen }}</p>
-        {% endif %}
+            <input type="radio" id="color-b" name="color" value="b"
+                {% if producto and producto.color == 'b' %}checked{% endif %}>
+            <label for="color-b">Blanco</label>
+
+            <input type="radio" id="color-r" name="color" value="r"
+                {% if producto and producto.color == 'r' %}checked{% endif %}>
+            <label for="color-r">Rojo</label>
+
+            <input type="radio" id="color-a" name="color" value="a"
+                {% if producto and producto.color == 'a' %}checked{% endif %}>
+            <label for="color-a">Azul</label>
+  
+            
+        </fieldset>
+
+        <div class="campo">
+            <label for="arch01">Foto del producto:</label>
+            <input type="file" name="archivo" id="arch01">
+            {% if producto and producto.imagen %}
+                <p class="imagen-actual">Imagen actual: {{ producto.imagen }}</p>
+            {% endif %}
+        </div>
 
         <button type="submit" class="enviar">Editar Producto</button>
-        <br><span id="mensaje" style="color:red; font-weight:bold;"></span></br>
+
+        <span id="mensaje" class="mensaje-final"></span>
+
     </form>
 </div>
 {% endblock %}
