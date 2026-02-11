@@ -1,57 +1,62 @@
 document.getElementById("Signin").addEventListener("submit", onSignin);
 
 function limpiarMensajes() {
-  document.getElementById("mensaje1").textContent = "";
-  document.getElementById("mensaje2").textContent = "";
-  document.getElementById("mensaje3").textContent = "";
-  document.getElementById("mensaje4").textContent = "";
-  document.getElementById("mensaje5").textContent = "";
+  document.getElementById("msj_error_campo_incompleto").textContent = "";
+  document.getElementById("msj_error_email_invalido").textContent = "";
+  document.getElementById("msj_error_contrasenia_corta").textContent = "";
+  document.getElementById("msj_error_contrasenia_no_coincide").textContent = "";
 }
 
 function onSignin(event) {
   event.preventDefault();
   limpiarMensajes();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirm-password").value;
-
-  let valido = true;
-
-
-  if (name === "" || email === "" || password === "" || confirmPassword === "") {
-    document.getElementById("mensaje5").textContent = "Por favor, completá todos los campos.";
-    valido = false;
+  const usuario = {
+    nombre_usuario:       document.getElementById("nombre_usuario").value.trim(),
+    nombre:               document.getElementById("nombre").value.trim(),
+    apellido:             document.getElementById("apellido").value.trim(),
+    email:                document.getElementById("email").value.trim(),
+    dni:                  document.getElementById("dni").value.trim(),
+    direccion:            document.getElementById("direccion").value.trim(),
+    password:             document.getElementById("password").value,
+    confirm_password:     document.getElementById("confirm_password").value
   }
 
-
-  if (name === "") {
-    document.getElementById("mensaje1").textContent = "Ingresá tu nombre de usuario.";
-    valido = false;
+  let valid = true;
+  
+  /* Validacion de campos vacios */
+  for (campo in usuario) {
+    console.log(campo)
+    console.log(usuario[campo])
+    console.log(typeof usuario[campo])
+    if (usuario[campo] === "") {
+      document.getElementById("msj_error_campo_incompleto").textContent = "Por favor, completá todos los campos.";
+      valid = false;
+    }
   }
 
-
+  /* Validacion de email */
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (email === "" || !emailRegex.test(email)) {
-    document.getElementById("mensaje2").textContent = "Ingresá un correo electrónico válido.";
-    valido = false;
+  if (usuario.email === "" || !emailRegex.test(usuario.email)) {
+    document.getElementById("msj_error_email_invalido").textContent = "Ingresá un correo electrónico válido.";
+    valid = false;
   }
 
-
-  if (password.length < 4) {
-    document.getElementById("mensaje3").textContent = "La contraseña debe tener al menos 4 caracteres.";
-    valido = false;
+  /* Validacion de largo minimo de contrasenia */
+  if (usuario.password.length < 4) {
+    document.getElementById("msj_error_contrasenia_corta").textContent = "La contraseña debe tener al menos 4 caracteres.";
+    valid = false;
   }
 
-
-  if (password !== confirmPassword) {
-    document.getElementById("mensaje4").textContent = "Las contraseñas no coinciden.";
-    valido = false;
+  /* Validacion de que coincidan las contrasenias */
+  if (usuario.password !== usuario.confirm_password) {
+    document.getElementById("msj_error_contrasenia_no_coincide").textContent = "Las contraseñas no coinciden.";
+    valid = false;
   }
 
+  if (!valid) {
+    return;
+  }
 
-  if (!valido) return;
   document.getElementById("Signin").submit();
-
 }

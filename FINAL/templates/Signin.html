@@ -17,23 +17,27 @@
 
   <div class="formulario">
     <form id="Signin" action="/signin" method="POST" >
-      <input type="text" name="name" id="name" placeholder="Nombre de usuario">
-      <span id="mensaje1" style="color:red;font-weight:bold;"></span>
+      <input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Alias">
 
-      <input type="text" name="apellido" placeholder="Apellido">
-      <span id="mensaje6" style="color:red;font-weight:bold;"></span>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido">
 
       <input type="email" name="email" id="email" placeholder="Correo electrónico">
-      <span id="mensaje2" style="color:red;font-weight:bold;"></span>
+      <span id="msj_error_email_invalido" style="color:red;font-weight:bold;"></span>
 
+      <input type="number" name="dni" id="dni" placeholder="Número de DNI">
+
+      <input type="text" name="direccion" id="direccion" placeholder="Dirección">
+    
       <input type="password" name="password" id="password" placeholder="Contraseña">
-      <span id="mensaje3" style="color:red;font-weight:bold;"></span>
+      <span id="msj_error_contrasenia_corta" style="color:red;font-weight:bold;"></span>
 
-      <input type="password" name="confirm_password" id="confirm-password" placeholder="Confirmar contraseña">
-      <span id="mensaje4" style="color:red;font-weight:bold;"></span>
+      <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirmar contraseña">
+      <span id="msj_error_contrasenia_no_coincide" style="color:red;font-weight:bold;"></span>
 
       <button type="submit" class="ingresar">Registrarse</button>
-      <span id="mensaje5" style="color:red;font-weight:bold;"></span>
+      <span id="msj_error_campo_incompleto" style="color:red;font-weight:bold;"></span>
     </form>
   </div>
 </div>

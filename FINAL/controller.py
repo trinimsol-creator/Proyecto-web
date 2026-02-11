@@ -184,7 +184,7 @@ def carrito_pagina():
 
 def catalogo_pagina():
     productos = obtenerProductosCatalogo()
-    return render_template("catalogo.html", productos=productos)
+    return render_template("Catalogo.html", productos=productos)
 
 def detalles_pagina():
     id_prod = request.args.get("id")
@@ -207,8 +207,8 @@ def detalles_pagina():
 def login_pagina(param):
     return render_template("Login.html", param=param)
 
-def signin_pagina(param):
-    return render_template("Signin.html", param=param)
+def signin_pagina():
+    return render_template("Signin.html")
 
 def miscompras_pagina():
 
@@ -332,30 +332,50 @@ def ingresoUsuarioValido2(param, request):
     else:
         param["error_msg_login"] = "Error creando usuario"
         return signin_pagina(param)
+    
+# VALIDACIONES
 
-    
-    
-    
-    
 def registro_pagina(param):   
-    return render_template('register.html',param=param)
+    return render_template('Signin.html',param=param)
+
+def validar_string_no_vacio(s):
+    return s is not None and s != ''
+
+def validar_contrasenia(s):
+    return s is not None and len(s) >= 4
+
+def validar_email(s):
+    # TODO: mejorar la validacion de mails
+
+    if s is None or s == '':
+        return False
+    if s.count("@") != 1:
+        return False
+
+    return True
 
 def ValidarFormularioRegistro(di):
-    res=True
-    res= res and di.get('nombre')!=""
-    res= res and di.get('apellido')!=""
-    res= res and di.get('email')!=""
-    res= res and di.get('password')!=""
-    return res
+    try:
+        di['dni'] = int(di.get('dni'))
+    except ValueError:
+        return False
 
-def registrarUsuario(param,request):
+    return \
+        validar_string_no_vacio(di.get('nombre_usuario')) \
+        and validar_string_no_vacio(di.get('nombre')) \
+        and validar_string_no_vacio(di.get('apellido')) \
+        and validar_email(di.get('email')) \
+        and validar_string_no_vacio(di.get('direccion')) \
+        and validar_contrasenia(di.get('password')) \
+        and di.get('password') == di.get('confirm_password')
 
-    mirequest={}
-    getRequet(mirequest)
-    
-    if ValidarFormularioRegistro(mirequest):
+def registrarUsuario(data):
+    param = {}
+
+    if ValidarFormularioRegistro(data):
+        print('usuario validado')
         # CONSULTA A LA BASE DE DATOS: Realiza el insert en la tabla usuario
-        if crearUsuario(mirequest):
+        if crearUsuario(data):
             param['succes_msg_login']="Se ha creado el usuario con exito"
             cerrarSesion()           # Cierra sesion existente(si la hubiere)
             res=login_pagina(param)  # Envia al login para que vuelva a loguearse el usuario

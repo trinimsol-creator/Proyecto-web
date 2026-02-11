@@ -266,14 +266,24 @@ def obtenerAdminLogin(email, password):
 
 
 ########## INICIO DE SESION + REGISTRARSE #####################
-def crearUsuario(di):
+def crearUsuario(di, es_admin=False):
     sQuery=""" 
         INSERT INTO usuario
-        (id, nombre, apellido, email, pass)
+        (nombre_usuario, email, pass, nombre, apellido, tipo_usario, dni, direccion)
         VALUES
-        (%s,%s, %s, %s, %s);
+        (%s, %s, %s, %s, %s, %s, %s, %s);
     """
-    val=(None,di.get('nombre'), di.get('apellido'), di.get('email'), di.get('password'))
+
+    val = (
+        di.get('nombre_usuario'),
+        di.get('email'),
+        di.get('password'),
+        di.get('nombre'),
+        di.get('apellido'),
+        'admin' if es_admin else 'cliente',
+        di.get('dni'),
+        di.get('direccion')
+    )
     resultados_insertar=insertDB(BASE,sQuery,val)
     return resultados_insertar==1
 

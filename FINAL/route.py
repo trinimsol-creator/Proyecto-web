@@ -31,47 +31,23 @@ def route(app):
         param={}
         return login_pagina(param) 
     
-    @app.route("/signin")
+    @app.route("/signin", methods =["GET", "POST"])
     def signin():
-        
-        param={}
-        return signin_pagina(param)  
-    
-    @app.route("/registrar", methods =["GET", "POST"])  #registrar el usuario
-    def registrar():
-        
-        param={}
-        return registrarUsuario(param,request)
+        if request.method == "GET":
+            return signin_pagina()
+        else:
+            return registrarUsuario(request.form.to_dict())
 
     @app.route('/iniciar', methods =["GET", "POST"])  #el usuario inicie sesion 
     def iniciar(): 
         
         param={}
         return ingresoUsuarioValido(param,request)
-    
-   
-        
-    #@app.route("/login", methods=["GET","POST"])
-    #def login():
-    #    param={}
-    #    if request.method == "POST":
-    #        return ingresoUsuarioValido(param, request)
-    #    return login_pagina(param)
-        
-
-    #@app.route('/signin', methods =["GET", "POST"])
-    #def signin(): 
-    #    param={}
-    #    if request.method == "POST":
-    #        return ingresoUsuarioValido2(param, request)
-    #    return signin_pagina(param)
 
     @app.route("/logout", endpoint="logout")
     def logout_route():
         cerrarSesion()
         return redirect('/')
-
-
 
     @app.route("/miscompras")
     def miscompras():
