@@ -24,7 +24,7 @@ function onSignin(event) {
 
   let valid = true;
   
-  /* Validacion de campos vacios */
+ 
   for (campo in usuario) {
     console.log(campo)
     console.log(usuario[campo])
@@ -35,20 +35,20 @@ function onSignin(event) {
     }
   }
 
-  /* Validacion de email */
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (usuario.email === "" || !emailRegex.test(usuario.email)) {
     document.getElementById("msj_error_email_invalido").textContent = "Ingresá un correo electrónico válido.";
     valid = false;
   }
 
-  /* Validacion de largo minimo de contrasenia */
+  
   if (usuario.password.length < 4) {
     document.getElementById("msj_error_contrasenia_corta").textContent = "La contraseña debe tener al menos 4 caracteres.";
     valid = false;
   }
 
-  /* Validacion de que coincidan las contrasenias */
+ 
   if (usuario.password !== usuario.confirm_password) {
     document.getElementById("msj_error_contrasenia_no_coincide").textContent = "Las contraseñas no coinciden.";
     valid = false;
