@@ -1,0 +1,28 @@
+{% extends "_layout_clean.html" %}
+
+{% block title %}Muchas gracias | Tienda Coast{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pago.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<header>
+  <h1 onclick="window.location.href='/'" style="cursor: pointer;">COAST</h1>
+</header>
+
+<main>
+  <div>
+    <h1>¡Muchas gracias por tu compra, {{session.get('nombre')}}!</h1>
+
+    <button id="go_home_btn">Volver al inicio</button>
+  </div>
+
+</main>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static', filename='js/fin_compra.js') }}" defer></script>
+{% endblock %}
