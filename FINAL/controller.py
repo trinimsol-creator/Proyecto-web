@@ -175,6 +175,9 @@ def carrito_pagina():
     carrito = obtener_carrito()
     total, total_transferencia = calcular_total(carrito)
 
+    session['monto_total'] = total
+    session['monto_total_transferencia'] = total_transferencia
+
     return render_template(
         "carrito.html",
         carrito=carrito,
@@ -224,9 +227,16 @@ def miscompras_pagina():
 
 
 def pago_pagina():
-    param = {}
-    return render_template("pago.html", param=param)
+    return render_template(
+        "pago.html", 
+        monto_total = session.get('monto_total'),
+        monto_total_transferencia = session.get('monto_total_transferencia'),
+        direccion = session.get('direccion')
+    )
 
+def realizar_pago(form_pago):
+    vaciar_carrito()
+    return render_template("fin_compra.html")
 
 #pagina no encontrada
 
@@ -266,10 +276,10 @@ def cargarSesion(dicUsuario):
     session['nombre']     = dicUsuario['nombre']
     session['apellido']   = dicUsuario['apellido']
     session['username']   = dicUsuario['username'] # es el mail
-    session["time"]       = datetime.now()  
+    session['direccion']  = dicUsuario['direccion']
+    session["time"]       = datetime.now()
 
 def crearSesion(request):
-
     sesionValida=False
     try: 
         email = request.form.get("email")
@@ -445,6 +455,10 @@ def eliminar_producto_carrito(id_producto):
 
     session["carrito"] = carrito
 
+def vaciar_carrito():
+    session["carrito"] = []
+    session.pop('monto_total')
+    session.pop('monto_total_transferencia')
 
 def calcular_total(carrito):
     total = 0
@@ -454,7 +468,7 @@ def calcular_total(carrito):
         total += p["precio"] * p["cantidad"]
         total_transferencia += p["precio_transferencia"] * p["cantidad"]
 
-    return total, total_transferencia
+    return round(total, 2), round(total_transferencia, 2)
 
 def agregar_producto_carrito(producto, cantidad):
     carrito = session.get("carrito", [])

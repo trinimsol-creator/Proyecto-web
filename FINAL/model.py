@@ -295,7 +295,7 @@ def crearUsuario(di, es_admin=False):
 def obtenerUsuarioXEmailPass(result,email,password):
     
     res=False
-    sSql="""SELECT id, nombre,apellido,email,pass,tipo_usario 
+    sSql="""SELECT id, nombre,apellido,email,pass,tipo_usario,direccion
     FROM  usuario WHERE  email=%s and pass=%s;"""
     val=(email,password)
     fila=selectDB(BASE,sSql,val)
@@ -309,4 +309,5 @@ def obtenerUsuarioXEmailPass(result,email,password):
         result['password']=fila[0][4]
         result['imagen']=''
         result['tipo_usuario']=fila[0][5]
+        result['direccion']=fila[0][6]
     return res    

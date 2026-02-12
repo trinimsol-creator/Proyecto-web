@@ -51,6 +51,18 @@ form {
   max-width: 450px;
 }
 
+.opcion-pago {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.opcion-pago label {
+  margin-top: 0;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 h3 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
@@ -61,6 +73,13 @@ label {
   display: block;
   margin-top: 10px;
   font-weight: 500;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 10px;
+  margin-top: 0;
+  display: inline-block;
 }
 
 input {
@@ -81,6 +100,12 @@ button {
   cursor: pointer;
   width: 100%;
   font-size: 1rem;
+}
+
+.contenedorFechaCodigo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 button:hover {

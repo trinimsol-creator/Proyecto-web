@@ -9,42 +9,77 @@
 {% block content %}
 
 <header>
-  <h1>COAST</h1>
+  <h1 onclick="window.location.href='/'" style="cursor: pointer;">COAST</h1>
   <h2>Formulario de Pago</h2>
 </header>
 
 <main>
-  <form id="formularioPago">
+  <form id="formularioPago" action="/pago" method="POST">
+    <h1>¡Gracias por tu compra, {{ session.get('nombre') }}!</h1>
 
-    <h3>Datos personales</h3>
+    <div>
+      <h3>Monto total de tu compra</h3>
+      <p>${{ monto_total }}</p>
+      <p>Pagando por transferencia: ${{ monto_total_transferencia }}</p>
+    </div>
 
-    <label>Nombre:</label>
-    <input type="text" id="nombreUsuario">
-    <span id="mensaje1" style="color:red; font-weight:bold;"></span>
+    <div>
+      <h3>Entrega</h3>
+      <p>Tu compra se enviará a tu dirección:</p>
+      <p>{{ direccion }}</p>
+    </div>
 
-    <label>Apellido:</label>
-    <input type="text" id="apellidoUsuario">
-    <span id="mensaje2" style="color:red; font-weight:bold;"></span>
+    <div>
+      <h3>Forma de pago</h3>
+      <p>Seleccioná cómo querés pagar:</p>
+      
+      <div class="opcion-pago">
+        <input type="radio" id="pago_tarjeta" name="forma_pago" value="tarjeta" checked>
+        <label for="pago_tarjeta">Tarjeta de crédito o débito</label>
+      </div>
+      <div class="opcion-pago">
+        <input type="radio" id="pago_transferencia" name="forma_pago" value="transferencia">
+        <label for="pago_transferencia">Transferencia bancaria o Mercado Pago</label>
+      </div>
+    </div>
 
-    <label>DNI:</label>
-    <input type="number" id="dniUsuario">
-    <span id="mensaje3" style="color:red; font-weight:bold;"></span>
+    <!-- Contenedor Tarjeta -->
+    <div id="detalles_tarjeta">
+        <h3>Detalles de pago</h3>
 
-    <label>Dirección:</label>
-    <input type="text" id="direccionUsuario">
-    <span id="mensaje6" style="color:red; font-weight:bold;"></span>
+        <label for="numero_tarjeta">Número de tarjeta</label>
+        <input type="number" id="numero_tarjeta" maxlength="16" placeholder="0123 4567 8901 2345">
+        <span id="error_numero" style="color:red; font-weight:bold;"></span>
 
-    <label>CVU:</label>
-    <input type="number" id="cvuTarjeta" maxlength="3">
-    <span id="mensaje4" style="color:red; font-weight:bold;"></span>
+        <label for="nombre_tarjeta">Nombre en la tarjeta</label>
+        <input type="text" id="nombre_tarjeta" placeholder="Juan Pérez">
+        <span id="error_nombre" style="color:red; font-weight:bold;"></span>
 
-    <label for="Comprobante">Comprobante</label>
-    <input type="file" id="Comprobante" name="Comprobante" accept="image/*,application/pdf">
-    <span id="mensaje5" style="color:red; font-weight:bold;"></span>
+        <div class="contenedorFechaCodigo">
+            <div>
+                <label for="fecha_tarjeta">Fecha de vencimiento</label>
+                <input type="text" id="fecha_tarjeta" placeholder="12/39">
+                <span id="error_fecha" style="color:red; font-weight:bold;"></span>
+            </div>
+            <div>
+                <label for="codigo_tarjeta">Código de seguridad</label>
+                <input type="text" id="codigo_tarjeta" placeholder="123">
+                <span id="error_codigo" style="color:red; font-weight:bold;"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Transferencia -->
+    <div id="detalles_transferencia" class="oculto">
+        <h3>Datos para la transferencia</h3>
+        <p>Realizá la transferencia a la siguiente cuenta y enviá el comprobante.</p>
+        <p><b>Alias:</b> TIENDA.COAST.MP</p>
+        <p><b>CBU:</b> 0000003100000000000000</p>
+        <p><b>Titular:</b> Tienda Coast S.R.L.</p>
+        <a href="https://wa.me/541168814898">Hacé click acá para ir a WhatsApp y enviarnos tu comprobante</a>
+    </div>
 
     <button type="submit" id="botonPagar">Finalizar Pago</button>
-    <span id="mensaje" style="color:red; font-weight:bold;"></span>
-
   </form>
 </main>
 

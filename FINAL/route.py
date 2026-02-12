@@ -52,8 +52,10 @@ def route(app):
         
     @app.route("/pago", methods =["GET", "POST"])
     def pago():
-        return pago_pagina()
-        
+        if request.method == "GET":
+            return pago_pagina()
+        else:  
+            return realizar_pago(request.form.to_dict())
         #parte admin, solo rutas:
 
     @app.route("/admin")
