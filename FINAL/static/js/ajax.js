@@ -100,12 +100,26 @@ function eliminarProducto(e) {
     var card = e.target.closest(".product-card");
     var idProducto = card.dataset.id;
 
-    var data = new FormData();
-    data.append("id", idProducto);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/ajax/eliminar_producto", true);
+    
+    var formData = new FormData();
+    formData.append("id", idProducto);
 
-    queryAjax("/ajax/eliminar_producto", "total-carrito", "POST", data);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById("total-carrito").innerHTML = xhr.responseText;
+            card.remove();
 
-    card.remove();
+            // Check remaining products
+            var remaining = document.querySelectorAll(".product-card");
+            if (remaining.length === 0) {
+                var btn = document.getElementById("checkout-btn");
+                if (btn) btn.style.display = "none";
+            }
+        }
+    };
+    xhr.send(formData);
 }
 function agregarCarrito(idProducto) {
     var cantidad = document.getElementById("cantidad").value;

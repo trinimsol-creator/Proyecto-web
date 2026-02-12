@@ -47,9 +47,11 @@
       </p>
     </div>
 
-    <a href="{{ url_for('pago') }}" class="checkout-btn">
+    {% if carrito|length > 0 %}
+    <button id="checkout-btn" class="checkout-btn">
       Finalizar compra
-    </a>
+    </button>
+    {% endif %}
   </div>
 
 </div>
@@ -58,6 +60,5 @@
 
 {% block js %}
 <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+<script src="{{ url_for('static', filename='js/carrito.js') }}"></script>
 {% endblock %}
-
-
