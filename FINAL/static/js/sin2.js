@@ -49,6 +49,13 @@ function onSignin(event) {
     valid = false;
   }
 
+  /* Validacion de caracteres en Nombre */
+  const nombreRegex = /^[a-zA-Z\s]+$/;
+  if (usuario.nombre !== "" && !nombreRegex.test(usuario.nombre)) {
+    document.getElementById("msj_error_campo_incompleto").textContent = "El nombre solo puede contener letras y espacios.";
+    valid = false;
+  }
+
   if (!valid) {
     return;
   }
