@@ -1,14 +1,15 @@
-{% extends "_layout_clean.html" %}
+{% extends "_layout_2.html" %}
 
 {% block title %}Mis Compras - COAST{% endblock %}
 
 {% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/PPrincipal.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/miscompras.css') }}">
 {% endblock %}
 
 {% block content %}
 
-<header class="titulo-pagina">Mis compras</header>
+<div class="titulo-pagina">Mis compras</div>
 
 <div class="filtros">
   <button class="activo" onclick="filtrar('todos')">Todos</button>

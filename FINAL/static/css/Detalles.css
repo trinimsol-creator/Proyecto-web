@@ -31,7 +31,7 @@ p, a, li, span {
       display: grid;
       grid-template-columns: 1fr 1fr;
       max-width: 1100px;
-      margin: 40px auto;
+      margin: 180px auto;
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
