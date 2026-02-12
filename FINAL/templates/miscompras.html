@@ -40,7 +40,6 @@
 
       <a href="{{ url_for('detalles') }}?id={{ compra.id_producto }}" class="link-pedido">
 
-
         <div class="pedido" data-estado="{{ estado_css }}">
 
           <img src="{{ url_for('static', filename='img/' ~ compra.img) }}" alt="{{ compra.nombre }}">
@@ -55,12 +54,14 @@
             </p>
 
             <span class="estado {{ estado_css }}">
+
               {% if compra.estado == 'Listo para entregar' %}
                 En camino
               {% else %}
                 {{ compra.estado }}
               {% endif %}
             </span>
+            
           </div>
 
           <div class="total">
@@ -84,5 +85,5 @@
 {% endblock %}
 
 {% block js %}
-<script src="{{ url_for('static', filename='js/miscompras.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/miscompras.js') }}"></script>
 {% endblock %}

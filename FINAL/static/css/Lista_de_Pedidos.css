@@ -257,7 +257,7 @@ p {
 }
 
 
-/* Responsive adicional */
+
 @media (max-width: 480px) {
   .searchbar input {
     width: 90%;

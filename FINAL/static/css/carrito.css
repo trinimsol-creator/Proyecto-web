@@ -379,7 +379,6 @@ body {
     margin-top: auto;
 }
 
-/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .product-grid {
     flex-direction: column;

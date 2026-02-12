@@ -22,12 +22,10 @@
     ${{ "{:,.0f}".format(producto.precio_descuento) }} con transferencia bancaria
   </p>
 
-
     <p class="details">
       {{ producto.detalles }}
     </p>
-
-    <!--esto -->
+   
     <div class="options">
       <label for="color">Color</label>
       <select id="color" name="color">
@@ -43,24 +41,8 @@
     </div>
 
     <button class="btn" onclick="agregarCarrito({{ producto.id }})">
-  AGREGAR AL CARRITO
-</button>
-
-<script>
-function agregarCarrito(id) {
-  const cantidad = document.getElementById("cantidad").value;
-
-  let data = new FormData();
-  data.append("id", id);
-  data.append("cantidad", cantidad);
-
-  queryAjax("/ajax/agregar_carrito", "", "POST", data);
-
-  alert("Producto agregado al carrito");
-}
-</script>
-
-
+    AGREGAR AL CARRITO
+    </button>
   </div>
 
 </div>
