@@ -101,3 +101,7 @@ body {
   color: #666;
   text-align: center;
 }
+
+.logo-click {
+  cursor: pointer;
+}

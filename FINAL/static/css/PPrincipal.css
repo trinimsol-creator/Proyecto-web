@@ -190,6 +190,9 @@ body {
     font-size: 24px;
 }
 
+.logo-click {
+  cursor: pointer;
+}
 
 .info{
     text-align: center;

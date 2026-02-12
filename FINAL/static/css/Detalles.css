@@ -12,6 +12,10 @@ html, body {
 h1, h2, h3, h4 {
   font-weight: 700;
 }
+.logo-click {
+  cursor: pointer;
+}
+
 p, a, li, span {
   font-weight: 400;
 }

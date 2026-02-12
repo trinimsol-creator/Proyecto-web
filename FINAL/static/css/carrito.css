@@ -12,6 +12,9 @@ p, a, li, span {
   font-weight: 400;
 }
 
+.logo-click {
+  cursor: pointer;
+}
 
 
 body {

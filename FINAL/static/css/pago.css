@@ -125,3 +125,20 @@ button:hover {
 .oculto {
   display: none;
 }
+
+.logo-click {
+  cursor: pointer;
+}
+
+.error-msg {
+  color: red;
+  font-weight: bold;
+}
+
+.logo-click {
+  cursor: pointer;
+}
+
+.contenedor-gracias {
+  text-align: center;
+}

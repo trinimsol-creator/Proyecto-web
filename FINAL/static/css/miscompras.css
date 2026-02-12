@@ -16,6 +16,10 @@
   padding: 0;
   font-family: "DM Sans", sans-serif;
 }
+.logo-click {
+  cursor: pointer;
+}
+
 
 body {
   background-color: var(--fondo);

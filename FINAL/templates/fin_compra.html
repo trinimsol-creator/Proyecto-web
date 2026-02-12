@@ -9,16 +9,15 @@
 {% block content %}
 
 <header>
-  <h1 onclick="window.location.href='/'" style="cursor: pointer;">COAST</h1>
+  <h1 onclick="window.location.href='/'" class="logo-click">COAST</h1>
 </header>
 
 <main>
-  <div>
-    <h1>¡Muchas gracias por tu compra, {{session.get('nombre')}}!</h1>
+  <div class="contenedor-gracias">
+    <h1>¡Muchas gracias por tu compra, {{ session.get('nombre') }}!</h1>
 
     <button id="go_home_btn">Volver al inicio</button>
   </div>
-
 </main>
 
 {% endblock %}

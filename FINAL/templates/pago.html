@@ -9,7 +9,7 @@
 {% block content %}
 
 <header>
-  <h1 onclick="window.location.href='/'" style="cursor: pointer;">COAST</h1>
+  <h1 onclick="window.location.href='/'" class="logo-click">COAST</h1>
   <h2>Formulario de Pago</h2>
 </header>
 
@@ -43,40 +43,42 @@
       </div>
     </div>
 
-    <!-- Contenedor Tarjeta -->
+
     <div id="detalles_tarjeta">
         <h3>Detalles de pago</h3>
 
         <label for="numero_tarjeta">Número de tarjeta</label>
         <input type="number" id="numero_tarjeta" maxlength="16" placeholder="0123 4567 8901 2345">
-        <span id="error_numero" style="color:red; font-weight:bold;"></span>
+        <span id="error_numero" class="error-msg"></span>
 
         <label for="nombre_tarjeta">Nombre en la tarjeta</label>
         <input type="text" id="nombre_tarjeta" placeholder="Juan Pérez">
-        <span id="error_nombre" style="color:red; font-weight:bold;"></span>
+        <span id="error_nombre" class="error-msg"></span>
 
         <div class="contenedorFechaCodigo">
             <div>
                 <label for="fecha_tarjeta">Fecha de vencimiento</label>
                 <input type="text" id="fecha_tarjeta" placeholder="12/39">
-                <span id="error_fecha" style="color:red; font-weight:bold;"></span>
+                <span id="error_fecha" class="error-msg"></span>
             </div>
             <div>
                 <label for="codigo_tarjeta">Código de seguridad</label>
                 <input type="text" id="codigo_tarjeta" placeholder="123">
-                <span id="error_codigo" style="color:red; font-weight:bold;"></span>
+                <span id="error_codigo" class="error-msg"></span>
             </div>
         </div>
     </div>
 
-    <!-- Contenedor Transferencia -->
+
     <div id="detalles_transferencia" class="oculto">
         <h3>Datos para la transferencia</h3>
         <p>Realizá la transferencia a la siguiente cuenta y enviá el comprobante.</p>
         <p><b>Alias:</b> TIENDA.COAST.MP</p>
         <p><b>CBU:</b> 0000003100000000000000</p>
         <p><b>Titular:</b> Tienda Coast S.R.L.</p>
-        <a href="https://wa.me/541168814898">Hacé click acá para ir a WhatsApp y enviarnos tu comprobante</a>
+        <a href="https://wa.me/541168814898">
+          Hacé click acá para ir a WhatsApp y enviarnos tu comprobante
+        </a>
     </div>
 
     <button type="submit" id="botonPagar">Finalizar Pago</button>
