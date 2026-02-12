@@ -14,7 +14,6 @@ p, a, li, span {
   font-weight: 400;
 }
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -22,7 +21,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   color: #000;
-  background: linear-gradient(135deg, #ffe8e8, #fff3d6, #e4f3ff);
+  background: #f9f9f9;
   padding: 30px 15px;
 }
 
@@ -35,7 +34,7 @@ body {
 
 
 .signin-container {
-  background: #fff;
+  background: #ffffff;
   padding: 40px 35px;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -53,62 +52,48 @@ body {
 .formulario form {
   display: flex;
   flex-direction: column;
-  gap:12px;            
-  align-items:stretch; 
+  gap: 20px;
 }
 
 .formulario input {
-  width: 90%;
-  padding: 10px;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 1px solid #525252;
+  border-radius: 12px;
   font-size: 14px;
   outline: none;
 }
-
 
 .formulario input:focus {
   border-color: #000;
 }
 
-
-#mensaje1,
-#mensaje2,
-#mensaje3,
-#mensaje4,
-#mensaje5 {
-  display: block;
-  width: 90%;
-  min-height: 14px;
-  font-size: 12px;
+#msj_error_email_invalido,
+#msj_error_contrasenia_corta,
+#msj_error_contrasenia_no_coincide,
+#msj_error_campo_incompleto {
   color: red;
+  font-size: 12px;
   font-weight: 600;
   text-align: left;
-  margin:6px 0 4px 0; 
-  line-height:1.35;
+  margin-top: -12px;
 }
 
 
-
 .ingresar {
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:25px;
-  background:#000;
-  color:#fff;
-  font-size:16px;
-  font-weight:500;
-  cursor:pointer;
-  transition:background .3s;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .ingresar:hover {
   background: #6a3c22;
 }
-
 
 .footer {
   margin-top: 30px;

@@ -26,15 +26,11 @@ function onSignin(event) {
   
  
   for (campo in usuario) {
-    console.log(campo)
-    console.log(usuario[campo])
-    console.log(typeof usuario[campo])
     if (usuario[campo] === "") {
       document.getElementById("msj_error_campo_incompleto").textContent = "Por favor, completá todos los campos.";
       valid = false;
     }
   }
-
   
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (usuario.email === "" || !emailRegex.test(usuario.email)) {
@@ -42,13 +38,12 @@ function onSignin(event) {
     valid = false;
   }
 
-  
+
   if (usuario.password.length < 4) {
     document.getElementById("msj_error_contrasenia_corta").textContent = "La contraseña debe tener al menos 4 caracteres.";
     valid = false;
   }
 
- 
   if (usuario.password !== usuario.confirm_password) {
     document.getElementById("msj_error_contrasenia_no_coincide").textContent = "Las contraseñas no coinciden.";
     valid = false;

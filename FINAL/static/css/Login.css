@@ -75,6 +75,16 @@ h1 {
   background: #6a3c22;
 }
 
+#mensaje1,
+#mensaje2,
+#mensaje3,
+.mensaje-error {
+  color: red;
+  font-weight: 900;
+  font-size: 12px;
+  text-align: left;
+}
+
 
 .footer {
   margin-top: 30px;

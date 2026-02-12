@@ -18,17 +18,17 @@
   <div class="formulario">
     <form id="Login" action="{{ url_for('iniciar') }}" method="POST">
       <input type="email" name="email" id="email" placeholder="Email">
-      <span id="mensaje1" style="color:red; font-weight:bold;"></span>
+      <span id="mensaje1"></span>
 
       <input type="password" name="password" id="password" placeholder="Contraseña">
-      <span id="mensaje2" style="color:red; font-weight:bold;"></span>
+      <span id="mensaje2"></span>
 
       {% if param.error %}
-        <p style="color:red; font-weight:bold;">{{ param.error }}</p>
+        <p class="mensje-error">{{ param.error }}</p>
       {% endif %}
 
       <button type="submit" class="ingresar">Log in</button>
-      <span id="mensaje3" style="color:red; font-weight:bold;"></span>
+      <span id="mensaje3"></span>
     </form>
   </div>
 
