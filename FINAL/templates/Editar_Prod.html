@@ -19,7 +19,7 @@
 
         <div class="campo">
             <input type="number" name="precio" id="precio" placeholder="Precio"
-                value="{{ producto.precio if producto else '' }}">
+                value="{{ producto.precio if producto else '' }}" step="any">
         </div>
 
         <div class="campo">
@@ -30,8 +30,8 @@
         <div class="campo">
             <select id="selLoc" name="categoria">
                 <option value="" disabled {% if not producto %}selected{% endif %}>Categoría</option>
-                <option value="Top" {% if producto and producto.categoria == 'Top' %}selected{% endif %}>Tops y Bodys</option>
-                <option value="Polleras" {% if producto and producto.categoria == 'Polleras' %}selected{% endif %}>Polleras y Shorts</option>
+                <option value="Tops y Bodys" {% if producto and producto.categoria == 'Top' %}selected{% endif %}>Tops y Bodys</option>
+                <option value="Polleras y Shorts" {% if producto and producto.categoria == 'Polleras' %}selected{% endif %}>Polleras y Shorts</option>
                 <option value="Vestidos" {% if producto and producto.categoria == 'Vestidos' %}selected{% endif %}>Vestidos</option>
                 <option value="Accesorios" {% if producto and producto.categoria == 'Accesorios' %}selected{% endif %}>Accesorios</option>
             </select>
@@ -51,20 +51,20 @@
 
         <fieldset id="color">
             <legend>Color</legend>
-            <input type="radio" id="color-n" name="color" value="n" 
+            <input type="radio" id="color-n" name="color" value="Negro" 
                 {% if producto and producto.color == 'n' %}checked{% endif %}> 
             <label for="color-n">Negro</label>
 
-            <input type="radio" id="color-b" name="color" value="b"
+            <input type="radio" id="color-b" name="color" value="Blanco"
                 {% if producto and producto.color == 'b' %}checked{% endif %}>
             <label for="color-b">Blanco</label>
 
-            <input type="radio" id="color-r" name="color" value="r"
-                {% if producto and producto.color == 'r' %}checked{% endif %}>
+            <input type="radio" id="color-r" name="color" value="Rojo"
+                {% if producto and producto.color == 'Rojo' %}checked{% endif %}>
             <label for="color-r">Rojo</label>
 
-            <input type="radio" id="color-a" name="color" value="a"
-                {% if producto and producto.color == 'a' %}checked{% endif %}>
+            <input type="radio" id="color-a" name="color" value="Azul"
+                {% if producto and producto.color == 'Azul' %}checked{% endif %}>
             <label for="color-a">Azul</label>
   
             
@@ -74,7 +74,7 @@
             <label for="arch01">Foto del producto:</label>
             <input type="file" name="archivo" id="arch01">
             {% if producto and producto.imagen %}
-                <p class="imagen-actual">Imagen actual: {{ producto.imagen }}</p>
+                <p class="imagen-actual">Imagen actual: {{ producto.img }}</p>
             {% endif %}
         </div>
 
